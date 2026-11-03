@@ -73,6 +73,25 @@
         .franja div { display: flex; align-items: center; gap: 12px; padding: 18px 16px 0 0; font-size: 15px; font-weight: 600; color: var(--tinta); }
         .franja .i { width: 22px; height: 22px; color: var(--rojo); }
 
+        /* LA PREGUNTA Y LOS TRES PILARES */
+        #beneficios { padding: 40px 0 24px; }
+        #beneficios h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.035em; max-width: 15em; }
+        #beneficios h2 span { color: var(--rojo); }
+        .beneficios-sub { margin-top: 16px; font-size: 19px; color: var(--suave); max-width: 38em; }
+        .pilares { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 36px; background: var(--tinta); color: #fff; border-radius: 28px; overflow: hidden; }
+        .pilar { padding: 32px 30px; border-right: 1px solid #353941; }
+        .pilar:last-child { border-right: 0; }
+        .pilar .i { width: 32px; height: 32px; color: #FF6A5F; margin-bottom: 18px; display: block; }
+        .pilar h3 { font-size: 22px; font-weight: 800; line-height: 1.15; margin-bottom: 8px; }
+        .pilar h3 span { color: #FF6A5F; display: block; }
+        .pilar p { color: #CFCBC6; font-size: 16px; }
+        .banda-wsp { margin-top: 18px; padding: 26px 32px; background: var(--rojo); color: #fff; border-radius: 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+        .banda-wsp h3 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; line-height: 1.1; max-width: 17em; }
+        .banda-wsp ul { list-style: none; display: flex; gap: 8px 22px; flex-wrap: wrap; margin-top: 12px; font-size: 15px; font-weight: 600; }
+        .banda-wsp li::before { content: '✓'; margin-right: 8px; }
+        .banda-wsp .boton { background: #fff; color: var(--rojo); }
+        .banda-wsp .boton:hover { background: var(--tinta); color: #fff; }
+
         /* CÓMO TE ACOMPAÑO */
         #acompano { padding: 72px 0; }
         #acompano h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; margin-bottom: 40px; max-width: 14em; }
@@ -208,6 +227,9 @@
         
         
         @media (max-width: 900px) {
+            .pilares { grid-template-columns: 1fr; }
+            .pilar { border-right: 0; border-bottom: 1px solid #353941; }
+            .pilar:last-child { border-bottom: 0; }
             .hero-grid { grid-template-columns: 1fr; gap: 36px; }
             .hero-visual { max-width: 460px; padding-bottom: 64px; }
             .chat { left: 12px; }
@@ -238,6 +260,8 @@
     <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.5 0 4 1.8 4 4.5"/></symbol>
     <symbol id="i-laptop" viewBox="0 0 24 24"><path d="M4 5h16v11H4zM2 19h20"/></symbol>
     <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6zM8.5 12l2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.2c-.6-.8-1.5-1.2-2.5-1.2-1.4 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2c-1 0-1.9-.4-2.5-1.2M12 6v2M12 16v2"/></symbol>
     <symbol id="i-wsp" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></symbol>
 </svg>
 <!-- BOTÓN WHATSAPP FLOTANTE -->
@@ -285,6 +309,25 @@
             <div><svg class="i" aria-hidden="true"><use href="#i-users"/></svg> Planes flexibles para tu familia</div>
             <div><svg class="i" aria-hidden="true"><use href="#i-laptop"/></svg> Te acompaño en todo el trámite</div>
             <div><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg> Más beneficios para tu salud</div>
+        </div>
+    </div>
+</section>
+
+<section id="beneficios">
+    <div class="contenedor">
+        <h2>¿Y si hoy pudieras tener <span>más cobertura</span> pagando lo mismo?</h2>
+        <p class="beneficios-sub">Descúbrelo en una evaluación gratuita, personalizada y sin compromiso. El resultado depende de tu caso y de las condiciones vigentes.</p>
+        <div class="pilares">
+            <div class="pilar"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg><h3>Más cobertura</h3><p>Para ti y tu familia cuando más lo necesitas.</p></div>
+            <div class="pilar"><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg><h3>Mejores beneficios</h3><p>Que te entregan más tranquilidad y respaldo.</p></div>
+            <div class="pilar"><svg class="i" aria-hidden="true"><use href="#i-dollar"/></svg><h3>Mismo valor <span>o incluso menor</span></h3><p>Aprovecha nuevas condiciones y planes más convenientes, según tu caso.</p></div>
+        </div>
+        <div class="banda-wsp">
+            <div>
+                <h3>Escríbeme por WhatsApp y revisamos tu caso en 10 minutos</h3>
+                <ul><li>Sin costo</li><li>Sin compromiso</li><li>Con total honestidad</li></ul>
+            </div>
+            <a href="https://wa.me/56965069051?text=Hola%20Carol%2C%20quiero%20revisar%20mi%20caso" target="_blank" rel="noopener" class="boton">Escribir por WhatsApp</a>
         </div>
     </div>
 </section>
@@ -521,7 +564,7 @@
         <h2>¿Prefieres hablar directamente?</h2>
         <p class="subtitulo" style="margin-bottom: 0;">Escríbeme y te respondo en unos momentos.</p>
         <a href="https://wa.me/56965069051" target="_blank" rel="noopener" class="telefono-grande"><svg viewBox="0 0 448 512" aria-hidden="true"><use href="#i-wsp"/></svg>+569 6506 9051</a>
-        <p class="contacto-datos">Correo: <a href="mailto:cjara@banmedica.cl">cjara@banmedica.cl</a><br>Horario: lunes a viernes, 9:00 a 18:00 hrs</p>
+        <p class="contacto-datos">Correo: <a href="mailto:cjara@banmedica.cl">cjara@banmedica.cl</a><br>Horario: lunes a viernes, 9:00 a 18:00 hrs<br>Atención en todo Chile</p>
     </div>
 </section>
 
