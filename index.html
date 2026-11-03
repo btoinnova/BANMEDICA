@@ -79,7 +79,15 @@
     .menu a { text-decoration: none; }
     .menu a:not(.boton):hover { color: var(--azul); }
     .menu .boton { min-height: 42px; padding: 0 18px; font-size: 14px; }
-    @media (max-width: 720px) { .menu a:not(.boton) { display: none; } }
+        .sub { position: relative; }
+    .sub-boton { font: inherit; font-weight: 500; color: inherit; background: none; border: 0; padding: 8px 4px; cursor: pointer; }
+    .sub-boton:hover { color: var(--azul); }
+    .sub-lista { display: none; position: absolute; top: 100%; left: -12px; min-width: 190px; padding: 8px; background: var(--superficie); border: 1px solid var(--linea); border-radius: 16px; box-shadow: var(--sombra); }
+    .sub:hover .sub-lista, .sub:focus-within .sub-lista, .sub.abierto .sub-lista { display: block; }
+    .sub-lista a { display: block; padding: 10px 14px; border-radius: 10px; white-space: nowrap; }
+    .sub-lista a:hover { background: var(--suelo); }
+    @media (max-width: 720px) { .sub-lista { right: 0; left: auto; } .sub-boton { font-size: 14px; white-space: nowrap; } .marca { font-size: 16px; gap: 6px; } .barra .caja { padding-left: 12px; } .menu { gap: 8px; } .menu .boton { padding: 0 12px; font-size: 13px; } .marca .logo { font-size: 24px; } .sub-boton { font-size: 13px; padding: 8px 2px; } }
+    @media (max-width: 720px) { .menu > a:not(.boton) { display: none; } }
 
     .hero { padding: 64px 0 48px; }
     .hero .caja { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: center; }
@@ -169,6 +177,12 @@
         <nav class="menu" aria-label="Principal">
             <a href="#quienes">Qué es</a>
             <a href="#como">Cómo funciona</a>
+            <div class="sub">
+                <button type="button" class="sub-boton" aria-expanded="false" aria-controls="sub-salud">Planes de salud <span aria-hidden="true">▾</span></button>
+                <div class="sub-lista" id="sub-salud">
+                    <a href="salud/banmedica/">Banmédica</a>
+                </div>
+            </div>
             <a class="boton boton-primario" href="#asesores">Soy asesor</a>
         </nav>
     </div>
@@ -283,7 +297,7 @@
             <div class="asesores">
                 <h2>Si eres bueno en lo tuyo, que te encuentren.</h2>
                 <p>Eres asesor de ventas acreditado y quieres recibir personas que ya saben lo que necesitan. Publica tu asesoría en El Planeador y te asignamos a quienes buscan en tu rubro.</p>
-                <div><a class="boton boton-primario" href="mailto:CONTACTO_PENDIENTE?subject=Quiero%20publicar%20mi%20asesor%C3%ADa%20en%20El%20Planeador">Quiero publicar mi asesoría</a></div>
+                <div><a class="boton boton-primario" href="mailto:contacto@elplaneador.cl?subject=Quiero%20publicar%20mi%20asesor%C3%ADa%20en%20El%20Planeador">Quiero publicar mi asesoría</a></div>
             </div>
         </div>
     </section>
@@ -307,6 +321,16 @@
             sessionStorage.setItem('planeador_busca', JSON.stringify({ rubro: f.rubro.value, busco: f.busco.value }));
         } catch (e) { /* sin almacenamiento: igual se deriva */ }
         window.location.href = f.getAttribute('action');
+    });
+})();
+</script>
+<script>
+(function () {
+    document.querySelectorAll('.sub-boton').forEach(function (b) {
+        b.addEventListener('click', function () {
+            var s = b.parentNode, a = s.classList.toggle('abierto');
+            b.setAttribute('aria-expanded', a ? 'true' : 'false');
+        });
     });
 })();
 </script>
