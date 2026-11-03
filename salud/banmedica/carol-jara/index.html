@@ -53,14 +53,14 @@
 
         /* HERO */
         #inicio { padding: 64px 0 40px; }
-        .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+        .hero-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 56px; align-items: center; }
         .hero-texto h1 { font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.02; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 26px; }
         .hero-texto h1 span { color: var(--rojo); display: block; }
         .hero-texto > p { font-size: 19px; color: var(--suave); max-width: 33em; margin-bottom: 30px; }
         .rol { display: inline-block; font-size: 14px; font-weight: 600; letter-spacing: .02em; color: var(--suave); margin-bottom: 18px; padding-bottom: 6px; border-bottom: 2px solid var(--rojo); }
         .acciones-hero { display: flex; gap: 12px; flex-wrap: wrap; }
-        .hero-visual { position: relative; padding: 0 0 56px; }
-        .hero-foto { width: 100%; aspect-ratio: 4 / 4.6; object-fit: cover; object-position: 50% 18%; border-radius: 32px; display: block; box-shadow: var(--sombra); }
+        .hero-visual { position: relative; padding: 0 0 56px; max-width: 380px; width: 100%; justify-self: end; }
+        .hero-foto { width: 100%; aspect-ratio: 4 / 4.4; object-fit: cover; object-position: 50% 18%; border-radius: 32px; display: block; box-shadow: var(--sombra); }
         .chat { position: absolute; left: -28px; bottom: 0; width: min(330px, 86%); background: #fff; border-radius: 22px 22px 22px 6px; padding: 18px 20px; box-shadow: 0 2px 6px rgba(20,22,27,.08), 0 24px 48px rgba(20,22,27,.16); }
         .chat-nombre { font-size: 13px; font-weight: 700; color: var(--rojo); margin-bottom: 4px; }
         .chat-texto { font-size: 16px; line-height: 1.45; color: var(--tinta); }
@@ -234,7 +234,8 @@
             .pilar { border-right: 0; border-bottom: 1px solid #353941; }
             .pilar:last-child { border-bottom: 0; }
             .hero-grid { grid-template-columns: 1fr; gap: 36px; }
-            .hero-visual { max-width: 460px; padding-bottom: 64px; }
+            .hero-visual { max-width: 320px; padding-bottom: 64px; justify-self: start; }
+            .hero-foto { aspect-ratio: 4 / 3.5; object-position: 50% 12%; }
             .chat { left: 12px; }
             .franja { grid-template-columns: repeat(2, 1fr); row-gap: 8px; }
             .pasos { grid-template-columns: repeat(2, 1fr); }
