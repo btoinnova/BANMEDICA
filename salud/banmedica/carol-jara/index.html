@@ -73,6 +73,9 @@
         .franja div { display: flex; align-items: center; gap: 12px; padding: 18px 16px 0 0; font-size: 15px; font-weight: 600; color: var(--tinta); }
         .franja .i { width: 22px; height: 22px; color: var(--rojo); }
 
+        div.whatsapp-fijo { width: auto; height: auto; background-color: var(--rojo); border-radius: 999px; box-shadow: 0 8px 24px rgba(228,35,27,.35); }
+        div.whatsapp-fijo:hover { transform: scale(1.05); }
+        div.whatsapp-fijo a { width: auto; height: auto; padding: 15px 26px; color: #fff; font-weight: 700; font-size: 16px; }
         /* LA PREGUNTA Y LOS TRES PILARES */
         #beneficios { padding: 40px 0 24px; }
         #beneficios h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.035em; max-width: 15em; }
@@ -266,9 +269,7 @@
 </svg>
 <!-- BOTÓN WHATSAPP FLOTANTE -->
 <div class="whatsapp-fijo">
-    <a href="https://wa.me/56965069051" target="_blank" rel="noopener" title="Escríbeme por WhatsApp" aria-label="Escríbeme por WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-    </a>
+    <a href="#cotizar" aria-label="Ir al formulario de cotización">Cotizar</a>
 </div>
 
 <header>
@@ -292,7 +293,6 @@
                 <p>Cuéntame tu situación y te escribo por WhatsApp con alternativas de planes <strong>Banmédica</strong> para ti y tu familia. Sin costo y sin compromiso.</p>
                 <div class="acciones-hero">
                     <a href="#cotizar" class="boton boton-rojo">Quiero mi cotización</a>
-                    <a href="https://wa.me/56965069051?text=Hola%20Carol%2C%20quiero%20cotizar%20un%20plan%20de%20salud" target="_blank" rel="noopener" class="boton boton-whatsapp"><svg class="i" viewBox="0 0 448 512" aria-hidden="true"><use href="#i-wsp"/></svg> Escribir por WhatsApp</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -324,10 +324,10 @@
         </div>
         <div class="banda-wsp">
             <div>
-                <h3>Escríbeme por WhatsApp y revisamos tu caso en 10 minutos</h3>
+                <h3>Responde unas preguntas y revisamos tu caso en 10 minutos</h3>
                 <ul><li>Sin costo</li><li>Sin compromiso</li><li>Con total honestidad</li></ul>
             </div>
-            <a href="https://wa.me/56965069051?text=Hola%20Carol%2C%20quiero%20revisar%20mi%20caso" target="_blank" rel="noopener" class="boton">Escribir por WhatsApp</a>
+            <a href="#cotizar" class="boton">Completar el formulario</a>
         </div>
     </div>
 </section>
@@ -386,7 +386,7 @@
         </div>
         <div class="se-cierre">
             <p><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg> Porque tu salud también es la de quienes amas. Con Salud Extendida, todos ganamos.</p>
-            <a href="https://wa.me/56965069051" target="_blank" rel="noopener">Consulta con tu asesora →</a>
+            <a href="#cotizar">Cotiza con tu asesora →</a>
         </div>
     </div>
 </section>
@@ -561,36 +561,12 @@
 </section>
 <section id="contacto">
     <div class="contenedor" style="max-width: 760px;">
-        <h2>¿Prefieres hablar directamente?</h2>
-        <p class="subtitulo" style="margin-bottom: 0;">Escríbeme y te respondo en unos momentos.</p>
-        <a href="https://wa.me/56965069051" target="_blank" rel="noopener" class="telefono-grande"><svg viewBox="0 0 448 512" aria-hidden="true"><use href="#i-wsp"/></svg>+569 6506 9051</a>
+        <h2>Cuéntame tu caso</h2>
+        <p class="subtitulo" style="margin-bottom: 0;">Completa el formulario y te escribo por WhatsApp en unos momentos.</p>
+        <a href="#cotizar" class="boton boton-rojo" style="margin: 22px 0 6px;">Completar el formulario</a>
         <p class="contacto-datos">Correo: <a href="mailto:cjara@banmedica.cl">cjara@banmedica.cl</a><br>Horario: lunes a viernes, 9:00 a 18:00 hrs<br>Atención en todo Chile</p>
     </div>
 </section>
-
-<footer>
-    <div class="contenedor footer-grid">
-        <div class="footer-col">
-            <h4>Carol Jara — Asesora Comercial Banmédica</h4>
-            <p>Te ayudo a encontrar el plan de salud ideal para ti y tu familia. Atención personalizada, clara y confiable.</p>
-        </div>
-        <div class="footer-col">
-            <h4>Contacto</h4>
-            <a href="https://wa.me/56965069051" target="_blank">📱 WhatsApp: +569 6506 9051</a>
-            <a href="mailto:cjara@banmedica.cl">📧 cjara@banmedica.cl</a>
-        </div>
-        <div class="footer-col">
-            <h4>Enlaces de interés</h4>
-            <a href="#inicio">Inicio</a>
-            <a href="#salud-extendida">Salud Extendida</a>
-            <a href="#cotizar">Cotizar plan</a>
-        </div>
-    </div>
-    <div class="contenedor copyright">
-        <p>© 2026 Carol Jara. Sitio personal de Carol Jara, asesora comercial de Banmédica.<br>
-        Este sitio no es el sitio oficial de Banmédica ni lo opera la isapre. Las cotizaciones y contratos se rigen por las condiciones vigentes de Banmédica.</p>
-    </div>
-</footer>
 
 <!-- POPUP POLÍTICA DE PRIVACIDAD -->
 <div class="overlay-popup" id="popup-politica">
@@ -641,8 +617,8 @@
         </div>
         <div class="footer-col">
             <h4>Contacto</h4>
-            <a href="https://wa.me/56965069051" target="_blank">📱 WhatsApp: +569 6506 9051</a>
-            <a href="mailto:cjara@banmedica.cl">📧 cjara@banmedica.cl</a>
+            <a href="#cotizar">Cotizar por el formulario</a>
+            <a href="mailto:cjara@banmedica.cl">cjara@banmedica.cl</a>
         </div>
         <div class="footer-col">
             <h4>Enlaces de interés</h4>
