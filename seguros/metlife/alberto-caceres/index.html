@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alberto Cáceres — Metlife</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body style="max-width:480px;margin:40px auto;padding:0 16px;font-family:Arial,sans-serif;">
+<!-- TODO: reemplazar por el HTML de marketing real de Metlife / Alberto Cáceres. Esto es solo la plantilla técnica — el formulario de abajo YA FUNCIONA de verdad (guarda leads en la planilla), pero sin ningún diseño todavía. -->
+<h1>Alberto Cáceres — Metlife</h1>
+<p>Página pendiente de diseño. El formulario de abajo ya funciona.</p>
+<form id="form-cotizacion" novalidate>
+  <!-- Campo señuelo anti-spam: oculto para humanos, un bot que rellena todo el formulario sí lo llena. NO borrar ni mostrar. -->
+  <input type="text" name="sitio-web" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
+  <label>Nombre completo *<br><input type="text" name="nombre-completo" required></label><br><br>
+  <label>Teléfono / WhatsApp *<br><input type="tel" name="telefono-whatsapp" required placeholder="+569 XXXXXXXX"></label><br><br>
+  <label>Plan de interés *<br>
+    <select name="plan-de-interes" required>
+      <option value="">Selecciona una opción</option>
+      <option value="Consulta general">Consulta general</option>
+      <option value="Consulta personalizada">Deseo asesoría personalizada</option>
+    </select>
+  </label><br><br>
+  <label>Comuna donde vives<br><input type="text" name="comuna-residencia"></label><br><br>
+  <label>Edad<br><input type="number" name="edad-usuario" min="18" max="99"></label><br><br>
+  <label>Previsión actual<br>
+    <select name="prevision-actual">
+      <option value="">Selecciona una opción</option>
+      <option value="Fonasa">Fonasa</option>
+      <option value="Isapre">Isapre (ya tengo una)</option>
+      <option value="Ninguna">Ninguna</option>
+      <option value="No sé">No sé</option>
+    </select>
+  </label><br><br>
+  <label>¿Por qué buscas cotizar ahora?<br>
+    <select name="motivo-urgencia">
+      <option value="">Selecciona una opción</option>
+      <option value="Quiero cambiarme">Quiero cambiarme de previsión</option>
+      <option value="Nuevo evento (trabajo, hijo, etc)">Nuevo evento (trabajo, hijo, etc.)</option>
+      <option value="Solo cotizando">Solo estoy cotizando</option>
+    </select>
+  </label><br><br>
+  <label>Renta líquida mensual aproximada<br>
+    <select name="renta-mensual">
+      <option value="">Prefiero no decir</option>
+      <option value="Menos de 500.000">Menos de $500.000</option>
+      <option value="500.000 a 1.000.000">$500.000 a $1.000.000</option>
+      <option value="1.000.000 a 2.000.000">$1.000.000 a $2.000.000</option>
+      <option value="Más de 2.000.000">Más de $2.000.000</option>
+    </select>
+  </label><br><br>
+  <label><input type="checkbox" name="consentimiento-datos" required> He leído y acepto la Política de Privacidad, según la Ley 19.628 y Ley 21.719.</label><br><br>
+  <label><input type="checkbox" name="consentimiento-comercial"> <strong>Opcional:</strong> quiero recibir información de otros planes y de otras aplicaciones del grupo BTo Innova. Puedo darme de baja cuando quiera.</label><br><br>
+  <button type="submit" id="boton-enviar">SOLICITAR COTIZACIÓN</button>
+  <!-- Sin 'disabled': el script ya valida teléfono y consentimiento al enviar y avisa con un alert si falta algo — no hace falta duplicar esa lógica aquí como en el index.html real, que tiene su propio popup. -->
+</form>
+<script src="assets/captura-leads.js"></script>

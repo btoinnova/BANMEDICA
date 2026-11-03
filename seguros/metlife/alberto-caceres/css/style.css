@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carol Jara — Asesora Comercial Oficial Banmédica</title>
+    <meta name="description" content="En Banmédica encuentras alternativas de planes según tus necesidades. Salud Extendida: más salud para quienes más quieres.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        :root {
+            --rojo: #E30613;
+            --gris-oscuro: #333333;
+            --gris-medio: #666666;
+            --gris-claro: #F5F5F5;
+            --blanco: #FFFFFF;
+            --sombra: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        body { color: var(--gris-oscuro); line-height: 1.6; background: var(--blanco); }
+        .contenedor { width: 90%; max-width: 1200px; margin: 0 auto; }
+        header { background: linear-gradient(135deg, #E30613 0%, #c40511 100%); color: white; padding: 40px 20px; text-align: center; }
+        header h1 { font-size: 32px; margin-bottom: 10px; }
+        header p { font-size: 18px; opacity: 0.95; }
+        .seccion { padding: 50px 20px; }
+        .seccion h2 { text-align: center; font-size: 28px; color: var(--rojo); margin-bottom: 15px; }
+        .subtitulo { text-align: center; color: var(--gris-medio); max-width: 700px; margin: 0 auto 35px; font-size: 16px; }
+
+        /* Beneficios */
+        .beneficios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
+        .beneficio-card { background: white; border-radius: 12px; padding: 20px; box-shadow: var(--sombra); display: flex; flex-direction: column; gap: 10px; }
+        .beneficio-icono { font-size: 32px; }
+        .beneficio-contenido h4 { font-size: 16px; margin-bottom: 8px; color: var(--rojo); }
+        .beneficio-valor { font-size: 24px; font-weight: 800; color: var(--rojo); }
+        .beneficio-valor small { font-size: 12px; color: var(--gris-medio); font-weight: 400; }
+
+        /* Programas médicos */
+        .programas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; margin-top: 30px; }
+        .programa-item { text-align: center; padding: 15px; background: var(--blanco); border-radius: 12px; box-shadow: var(--sombra); }
+        .programa-img { width: 80px; height: 80px; object-fit: cover; border-radius: 50%; margin-bottom: 10px; border: 3px solid var(--rojo); }
+
+        /* Info grid */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
+        .info-card { background: white; padding: 25px; border-radius: 12px; box-shadow: var(--sombra); }
+        .info-card h4 { color: var(--rojo); margin-bottom: 12px; font-size: 17px; }
+        .tramos { display: flex; gap: 10px; margin-top: 10px; }
+        .tramo { width: 45px; height: 45px; border-radius: 50%; background: var(--rojo); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+        .banner-final { background: linear-gradient(135deg, #E30613 0%, #c40511 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-top: 40px; }
+        .banner-final a { color: white; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 12px; padding: 10px 20px; background: rgba(255,255,255,0.2); border-radius: 8px; }
+
+        /* Formulario */
+        .formulario { max-width: 600px; margin: 0 auto; background: var(--blanco); padding: 30px; border-radius: 16px; box-shadow: var(--sombra); }
+        .grupo-form { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--gris-oscuro); }
+        input, select { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 8px; font-size: 15px; }
+        input:focus, select:focus { outline: none; border-color: var(--rojo); }
+        .checkbox { display: flex; gap: 10px; align-items: flex-start; }
+        .checkbox input { width: auto; margin-top: 4px; }
+        .boton { display: inline-block; padding: 14px 28px; border: none; border-radius: 10px; font-size: 17px; font-weight: 700; cursor: pointer; text-decoration: none; transition: all 0.3s; }
+        .boton-rojo { background: var(--rojo); color: white; width: 100%; }
+        .boton-rojo:hover { background: #c40511; }
+        .boton:disabled { background: #ccc; cursor: not-allowed; }
+
+        /* Tarjeta Asesora */
+        .tarjeta-asesora { max-width: 450px; margin: 30px auto; background: white; border-radius: 16px; padding: 30px; box-shadow: var(--sombra); text-align: center; }
+        .foto-asesora { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid var(--rojo); margin-bottom: 15px; }
+        .dato { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; margin: 8px 0; color: var(--gris-oscuro); text-decoration: none; border-radius: 8px; background: var(--gris-claro); }
+        .dato:hover { background: #e9e9e9; }
+
+        /* Popup Políticas */
+        .overlay-popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 999; }
+        .overlay-popup.activo { display: flex; }
+        .popup { background: white; padding: 30px; border-radius: 16px; max-width: 550px; width: 90%; max-height: 90vh; overflow-y: auto; }
+        .popup-cabecera { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .popup-cerrar { background: none; border: none; font-size: 28px; cursor: pointer; color: #888; }
+        .popup-boton { padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; margin: 5px; }
+        .aceptar { background: var(--rojo); color: white; }
+        .cerrar { background: #eee; color: #333; }
+
+        /* WhatsApp flotante */
+        .wsp-flotante { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 99; }
+        .wsp-flotante svg { width: 30px; height: 30px; fill: white; }
+
+        /* Footer */
+        footer { background: var(--gris-oscuro); color: white; padding: 40px 20px; margin-top: 40px; }
+        footer p, footer a { color: #ccc; text-align: center; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<!-- CABECERA -->
+<header>
+    <div class="contenedor">
+        <h1>Carol Jara — Asesora Comercial Oficial Banmédica</h1>
+        <p>Planes de salud · Cotización gratuita · Respuesta en menos de 2 horas · Atención en todo Chile</p>
+    </div>
+</header>
+
+<!-- PRESENTACIÓN ASESORA -->
+<section class="seccion">
+    <div class="contenedor">
+        <h2>Tu salud y la de tu familia protegidas</h2>
+        <p class="subtitulo">Te ayudo a encontrar el plan ideal según tus necesidades. Asesoría personalizada, sin costo y sin compromiso.</p>
+
+        <div class="tarjeta-asesora">
+            <img src="img/carol.jpg" alt="Carol Jara - Asesora Comercial Banmédica" class="foto-asesora" onerror="this.src='https://via.placeholder.com/140/E30613/FFFFFF?text=CJ'">
+            <h3>Carol Jara</h3>
+            <p><strong>Asesora Comercial Oficial Banmédica</strong></p>
+            <a href="https://wa.me/56965069051" target="_blank" class="dato">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width:20px;height:20px;fill:#25D366;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.4 111.6L3.5 480.4a12.47 12.47 0 0 0 9.6 14.9c1.4 .3 2.8 .4 4.2 .4 3.1 0 6.1-1.2 8.4-3.4l51.8-51.8c32.8 18.1 69.6 27.6 107.6 27.6h.1c122.3 0 222-99.6 222-222 0-59.3-23.1-115.1-65-156.9z"/></svg>
+                +56 9 6506 9051
+            </a>
+            <a href="mailto:cjara@banmedica.cl" class="dato">📧 cjara@banmedica.cl</a>
+            <a href="tel:+56965069051" class="dato">📞 Llamar al celular</a>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN SALUD EXTENDIDA Y BENEFICIOS -->
+<section class="seccion" style="background: var(--gris-claro);">
+    <div class="contenedor">
+        <h2>❤️ Salud Extendida — Más salud para quienes más quieres</h2>
+        <p class="subtitulo">Un beneficio exclusivo para afiliados Banmédica: puedes incorporar hasta 2 personas con previsión FONASA y darles acceso a todos estos beneficios en Red Dávila.</p>
+
+        <h3 style="text-align:center; font-size:24px; color:var(--rojo); margin:30px 0; font-weight:800;">🎁 BENEFICIOS INCLUIDOS GRATIS</h3>
+
+        <div class="beneficios-grid">
+            <div class="beneficio-card">
+                <div class="beneficio-icono">🩺</div>
+                <div class="beneficio-contenido">
+                    <h4>1. CONSULTA MÉDICA GRATIS</h4>
+                    <p>Una vez al año en medicina general o especialidad. Copago $0.</p>
+                </div>
+                <div class="beneficio-valor">$0<small>copago</small></div>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icono">🧪</div>
+                <div class="beneficio-contenido">
+                    <h4>2. DESCUENTOS EN EXÁMENES</h4>
+                    <p>• 20% Laboratorio e Imágenes (vie–dom) • 10% Kinesiología</p>
+                </div>
+                <div class="beneficio-valor">20%<small>Lab</small>10%<small>Kinesio</small></div>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icono">🔪</div>
+                <div class="beneficio-contenido">
+                    <h4>3. DESCUENTO EN CIRUGÍAS</h4>
+                    <p>Hasta $300.000 de descuento en copago de cirugías nominadas.</p>
+                </div>
+                <div class="beneficio-valor">$300K<small>máx. desc.</small></div>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icono">🚑</div>
+                <div class="beneficio-contenido">
+                    <h4>4. URGENCIA CON 50% DE DESCUENTO</h4>
+                    <p>Mitad de precio en consulta de urgencia de Red Dávila.</p>
+                </div>
+                <div class="beneficio-valor">50%<small>descuento</small></div>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icono">✅</div>
+                <div class="beneficio-contenido">
+                    <h4>5. CHEQUEOS PREVENTIVOS COMPLETOS</h4>
+                    <p>Consulta + exámenes + imágenes con copago $0 cada uno.</p>
+                </div>
+                <div class="beneficio-valor">$0<small>copago</small></div>
+            </div>
+        </div>
+
+        <h3 style="text-align:center; margin:40px 0 20px; font-size:20px;">📋 PROGRAMAS Y CHEQUEOS INCLUIDOS</h3>
+        <div class="programas-grid">
+            <div class="programa-item">
+                <img src="img/oftalmologico.jpg" alt="Oftalmológico" class="programa-img" onerror="this.src='https://via.placeholder.com/80/E30613/FFFFFF?text=O'">
+                <div>Oftalmológico</div>
+            </div>
+            <div class="programa-item">
+                <img src="img/otorrino.jpg" alt="Otorrinolaringológico" class="programa-img" onerror="this.src='https://via.placeholder.com/80/E30613/FFFFFF?text=ORL'">
+                <div>Otorrinolaringológico</div>
+            </div>
+            <div class="programa-item">
+                <img src="img/gastroenterologia.jpg" alt="Digestivo" class="programa-img" onerror="this.src='https://via.placeholder.com/80/E30613/FFFFFF?text=D'">
+                <div>Digestivo</div>
+            </div>
+            <div class="programa-item">
+                <img src="img/articular.jpg" alt="Articular" class="programa-img" onerror="this.src='https://via.placeholder.com/80/E30613/FFFFFF?text=A'">
+                <div>Articular</div>
+            </div>
+            <div class="programa-item">
+                <img src="img/mamario.jpg" alt="Cáncer de mama" class="programa-img" onerror="this.src='https://via.placeholder.com/80/E30613/FFFFFF?text=M'">
+                <div>Cáncer de mama</div>
+            </div>
+            <div class="programa-item">
+                <img src="img/prostatico.jpg" alt="Próstata" class="programa-img" onerror="this.src='https://via.placeholder.com/80/E30613/FFFFFF?text=P'">
+                <div>Próstata</div>
+            </div>
+            <div class="programa-item">
+                <img src="img/bariatrica.jpg" alt="Bariátrica" class="programa-img" onerror="this.src='https://via.placeholder.com/80/E30613/FFFFFF?text=B'">
+                <div>Bariátrica</div>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>❤️ ¿QUÉ SIGNIFICA ESTE BENEFICIO?</h4>
+                <p>La alianza entre Banmédica y Red Dávila permite que tus seres queridos con previsión FONASA puedan acceder a atenciones de salud con garantías de calidad y precios preferenciales.<br><br>Único en el mercado: tus familiares, aunque pertenezcan a otro sistema, pueden cuidar su salud contigo.</p>
+            </div>
+            <div class="info-card">
+                <h4>👥 ¿QUIÉNES PUEDEN SER BENEFICIARIOS?</h4>
+                <p>Personas desde los <strong>25 años</strong>, con previsión Fonasa en tramo:</p>
+                <div class="tramos">
+                    <div class="tramo">B</div>
+                    <div class="tramo">C</div>
+                    <div class="tramo">D</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner-final">
+            <p style="font-size:19px; font-weight:600;">❤️ Porque tu salud también es la de quienes amas. Con Salud Extendida, todos ganamos.</p>
+            <a href="https://wa.me/56965069051" target="_blank">Consulta conmigo por WhatsApp →</a>
+        </div>
+    </div>
+</section>
+
+<!-- FORMULARIO DE COTIZACIÓN -->
+<section id="cotizar" class="seccion">
+    <div class="contenedor">
+        <h2>📋 Solicita tu cotización oficial</h2>
+        <p class="subtitulo">Completa tus datos y te respondo al WhatsApp en menos de 2 horas. Sin costo y sin compromiso.</p>
+
+        <form action="https://formsubmit.co/cjara@banmedica.cl" method="POST" class="formulario" id="formCotizacion">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Nueva cotización desde web">
+
+            <div class="grupo-form">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ej: María González Pérez">
+            </div>
+
+            <div class="grupo-form">
+                <label for="telefono">Teléfono / WhatsApp *</label>
+                <input type="tel" id="telefono" name="telefono" required placeholder="+56 9 XXXX XXXX">
+            </div>
+
+            <div class="grupo-form">
+                <label for="plan">Plan de interés *</label>
+                <select id="plan" name="plan" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Plan Personal">Plan Personal</option>
+                    <option value="Plan con 1 carga">Plan con 1 carga familiar</option>
+                    <option value="Plan con 2 cargas">Plan con 2 cargas familiares</option>
+                    <option value="Plan Familiar">Plan Familiar — 3 o más cargas</option>
+                    <option value="Salud Extendida">Beneficio Salud Extendida</option>
+                    <option value="Revisar plan actual">Revisar si puedo mejorar mi plan actual</option>
+                    <option value="Asesoría personalizada">Deseo asesoría personalizada</option>
+                </select>
+            </div>
+
+            <div class="grupo-form">
+                <label for="comuna">Comuna donde vives</label>
+                <input type="text" id="comuna" name="comuna" placeholder="Ej: Santiago, Providencia">
+            </div>
+
+            <div class="grupo-form checkbox">
+                <input type="checkbox" id="acepto" required>
+                <label for="acepto">He leído y acepto la <a href="#" id="linkPolitica" style="color:var(--rojo); font-weight:600;">Política de Privacidad</a>. Autorizo el tratamiento de mis datos para recibir mi cotización y gestionar mi afiliación a Banmédica según la Ley 19.628 y Ley 21.719.</label>
+            </div>
+
+            <button type="submit" class="boton boton-rojo" id="btnEnviar" disabled>✅ SOLICITAR MI COTIZACIÓN OFICIAL</button>
+        </form>
+    </div>
+</section>
+
+<!-- SECCIÓN CONTACTO -->
+<section class="seccion" style="background: var(--gris-claro);">
+    <div class="contenedor" style="text-align:center; max-width:700px;">
+        <h2>¿Prefieres hablar directamente?</h2>
+        <p class="subtitulo">Toca cualquiera de los datos y contáctame al instante. Atención en todo Chile.</p>
+
+        <a href="https://wa.me/56965069051" target="_blank" class="boton" style="background:#25D366; color:white; display:inline-flex; align-items:center; gap:10px; font-size:19px; padding:14px 30px; border-radius:12px; text-decoration:none;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width:24px; height:24px; fill:white;"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.4 111.6L3.5 480.4a12.47 12.47 0 0 0 9.6 14.9c1.4 .3 2.8 .4 4.2 .4 3.1 0 6.1-1.2 8.4-3.4l51.8-51.8c32.8 18.1 69.6 27.6 107.6 27.6h.1c122.3 0 222-99.6 222-222 0-59.3-23.1-115.1-65-156.9z"/></svg>
+            Escríbeme por WhatsApp
+        </a>
+        <p style="font-size:16px; color:var(--gris-medio); margin-top:20px; line-height:1.8;">
+            📧 <a href="mailto:cjara@banmedica.cl" style="color:var(--rojo); font-weight:600; text-decoration:none;">cjara@banmedica.cl</a><br>
+            📞 <a href="tel:+56965069051" style="color:var(--rojo); font-weight:600; text-decoration:none;">+56 9 6506 9051</a><br>
+            ⏰ Lunes a Viernes: 9:00 a 18:00 hrs — Atención en todo Chile
+        </p>
+    </div>
+</section>
+
+<!-- PIE DE PÁGINA -->
+<footer>
+    <div class="contenedor">
+        <p style="font-size:18px; font-weight:700; margin-bottom:10px;">Carol Jara — Asesora Comercial Oficial Banmédica</p>
+        <p>Te ayudo a encontrar el plan de salud ideal para ti y tu familia. Asesoría personalizada, clara y confiable. Sin costo y sin compromiso.</p>
+        <p style="margin-top:15px; font-style:italic;">❤️ Usted no está solo — Banmédica</p>
+        <p style="margin-top:20px; font-size:13px; color:#999;">
+            © 2026 Carol Jara. Todos los derechos reservados.<br>
+            Este sitio es informativo y no representa oficialmente a Banmédica. Las cotizaciones y contratos se rigen por las condiciones vigentes de Banmédica.<br>
+            Salud que te acompaña · Confianza que te respalda · Compromiso que se siente.
+        </p>
+    </div>
+</footer>
+
+<!-- POPUP POLÍTICA DE PRIVACIDAD -->
+<div class="overlay-popup" id="popupPolitica">
+    <div class="popup">
+        <div class="popup-cabecera">
+            <h3>🔒 Política de Privacidad y Protección de Datos</h3>
+            <button class="popup-cerrar" id="cerrarPopup">&times;</button>
+        </div>
+        <div class="popup-contenido">
+            <h4>Responsable del tratamiento</h4>
+            <p>Carol Jara, Asesora Comercial Oficial de Banmédica. Correo de contacto: cjara@banmedica.cl</p>
+            <h4>Finalidad del tratamiento</h4>
+            <p>Los datos personales que facilites serán tratados con las siguientes finalidades: gestionar tu solicitud de cotización, brindarte la asesoría solicitada, comunicarnos contigo por WhatsApp o correo electrónico, y gestionar el proceso de afiliación a Banmédica si así lo solicitas.</p>
+            <h4>Base legal</h4>
+            <p>Tu consentimiento libre, expreso e informado, de conformidad con la Ley N° 19.628 sobre Protección de la Vida Privada y la Ley N° 21.719 que regula el tratamiento de datos personales, ambas vigentes en la República de Chile.</p>
+            <h4>Datos que se recopilan</h4>
+            <p>Nombre completo, teléfono/WhatsApp, comuna de residencia y preferencias sobre planes de salud. No se solicitan datos sensibles sin tu consentimiento expreso.</p>
+            <h4>Destinatarios de los datos</h4>
+            <p>Tu información será tratada por mí y por Banmédica S.A. para fines administrativos, comerciales y de afiliación. No será cedida ni transferida a terceros ajenos sin tu autorización, salvo obligación legal.</p>
+            <h4>Plazo de conservación</h4>
+            <p>Tus datos se mantendrán mientras sea necesario para responder tu solicitud y durante los plazos legales aplicables, tras los cuales serán eliminados de forma segura.</p>
+            <h4>Tus derechos</h4>
+            <p>Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición escribiendo un correo a cjara@banmedica.cl, sin costo para ti.</p>
+        </div>
+        <div style="text-align:right; margin-top:20px;">
+            <button class="popup-boton aceptar" id="aceptarPolitica">He leído y acepto</button>
+            <button class="popup-boton cerrar" id="soloCerrar">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+<!-- BOTÓN WHATSAPP FLOTANTE -->
+<a href="https://wa.me/56965069051" target="_blank" class="wsp-flotante" title="Escribir por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.4 111.6L3.5 480.4a12.47 12.47 0 0 0 9.6 14.9c1.4 .3 2.8 .4 4.2 .4 3.1 0 6.1-1.2 8.4-3.4l51.8-51.8c32.8 18.1 69.6 27.6 107.6 27.6h.1c122.3 0 222-99.6 222-222 0-59.3-23.1-115.1-65-156.9z"/></svg>
+</a>
+
+<!-- CÓDIGO JAVASCRIPT -->
+<script>
+    // Habilitar botón solo si acepta política
+    const acepto = document.getElementById('acepto');
+    const btnEnviar = document.getElementById('btnEnviar');
+    acepto.addEventListener('change', () => {
+        btnEnviar.disabled = !acepto.checked;
+    });
+
+    // Popup Políticas
+    const popup = document.getElementById('popupPolitica');
+    const linkPolitica = document.getElementById('linkPolitica');
+    const cerrarPopup = document.getElementById('cerrarPopup');
+    const aceptarPolitica = document.getElementById('aceptarPolitica');
+    const soloCerrar = document.getElementById('soloCerrar');
+
+    const cerrarTodo = () => popup.classList.remove('activo');
+
+    linkPolitica.addEventListener('click', (e) => {
+        e.preventDefault();
+        popup.classList.add('activo');
+    });
+    cerrarPopup.addEventListener('click', cerrarTodo);
+    soloCerrar.addEventListener('click', cerrarTodo);
+    aceptarPolitica.addEventListener('click', () => {
+        acepto.checked = true;
+        btnEnviar.disabled = false;
+        cerrarTodo();
+    });
+
+    // Enviar formulario → abre WhatsApp con mensaje listo
+    const form = document.getElementById('formCotizacion');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nombre = document.getElementById('nombre').value;
+        const telefono = document.getElementById('telefono').value;
+        const plan = document.getElementById('plan').value;
+        const comuna = document.getElementById('comuna').value || 'No indicada';
+
+        const mensaje = encodeURIComponent(
+            `¡Hola Carol! Solicito una cotización.%0A%0ANombre: ${nombre}%0ATeléfono: ${telefono}%0APlan de interés: ${plan}%0AComuna: ${comuna}`
+        );
+
+        // Abre WhatsApp con el mensaje listo
+        window.open(`https://wa.me/56965069051?text=${mensaje}`, '_blank');
+
+        // Envía también por correo automáticamente
+        form.submit();
+    });
+</script>
+
+</body>
+</html>
