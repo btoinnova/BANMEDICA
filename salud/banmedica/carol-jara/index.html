@@ -100,6 +100,32 @@
         .banda-wsp .boton { background: #fff; color: var(--rojo); }
         .banda-wsp .boton:hover { background: var(--tinta); color: #fff; }
 
+        /* BENEFICIOS ADICIONALES DEL PLAN */
+        #beneficios-plan { padding: 88px 0 24px; }
+        #beneficios-plan h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.035em; max-width: 14em; }
+        #beneficios-plan h2 span { color: var(--rojo); }
+        .bp-sub { margin-top: 16px; font-size: 19px; color: var(--suave); max-width: 38em; }
+        .bp-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; margin-top: 44px; align-items: start; }
+        .bp-escolar { background: var(--rojo); color: #fff; border-radius: 28px; padding: 36px; }
+        .bp-escolar .etq { font-weight: 700; font-size: 15px; opacity: .92; }
+        .bp-escolar h3 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 800; line-height: 1.05; margin-top: 8px; }
+        .bp-cifra { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 24px 0 6px; }
+        .bp-cifra strong { font-size: clamp(3.4rem, 8vw, 5.6rem); line-height: .9; font-weight: 800; letter-spacing: -0.05em; }
+        .bp-cifra span { font-size: 18px; font-weight: 600; }
+        .bp-gratis { font-size: 16px; opacity: .95; }
+        .bp-dos { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.35); }
+        .bp-dos h4 { font-size: 17px; margin-bottom: 8px; }
+        .bp-dos ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 5px; font-size: 15px; }
+        .bp-dos li::before { content: '–'; margin-right: 8px; }
+        .bp-lista details { border-top: 1px solid var(--linea); }
+        .bp-lista details:last-of-type { border-bottom: 1px solid var(--linea); }
+        .bp-lista summary { padding: 22px 44px 22px 0; }
+        .bp-lista summary b { display: block; font-size: 20px; line-height: 1.2; }
+        .bp-lista summary small { display: block; margin-top: 4px; font-size: 15px; font-weight: 500; color: var(--rojo); }
+        .bp-lista .cuerpo { padding: 0 0 22px; color: var(--suave); font-size: 16px; }
+        .bp-lista .cuerpo ul { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 4px; }
+        .bp-nota { margin-top: 26px; font-size: 14px; color: var(--suave); max-width: 52em; }
+
         /* CÓMO TE ACOMPAÑO */
         #acompano { padding: 72px 0; }
         #acompano h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; margin-bottom: 40px; max-width: 14em; }
@@ -236,6 +262,9 @@
         
         
         @media (max-width: 900px) {
+            .bp-grid { grid-template-columns: 1fr; }
+            .bp-dos { grid-template-columns: 1fr; gap: 20px; }
+            .bp-escolar { padding: 26px; }
             .pilares { grid-template-columns: 1fr; }
             .pilar { border-right: 0; border-bottom: 1px solid #353941; }
             .pilar:last-child { border-bottom: 0; }
@@ -396,6 +425,75 @@
             <p><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg> Porque tu salud también es la de quienes amas. Con Salud Extendida, todos ganamos.</p>
             <a href="#cotizar">Cotiza con tu asesora →</a>
         </div>
+    </div>
+</section>
+
+<section id="beneficios-plan">
+    <div class="contenedor">
+        <h2>Más beneficios <span>que vienen con tu plan.</span></h2>
+        <p class="bp-sub">Coberturas adicionales de Banmédica, según el plan que elijas. Te cuento cuáles aplican a tu caso.</p>
+        <div class="bp-grid">
+            <article class="bp-escolar">
+                <p class="etq">Beneficio de regalo para planes de Clínica Dávila y Vespucio</p>
+                <h3>Cobertura escolar y accidentes</h3>
+                <div class="bp-cifra"><strong>100%</strong><span>de cobertura, hasta 870 UF por evento</span></div>
+                <p class="bp-gratis">Es un beneficio gratuito: sin costo adicional para ti ni tu familia, desde el primer día de clases.</p>
+                <div class="bp-dos">
+                    <div>
+                        <h4>Eventos hospitalarios</h4>
+                        <ul><li>Accidentes y traumatológicos tratados en Clínica Dávila</li><li>Incluye Clínica Dávila Recoleta</li><li>Clínica Vespucio</li></ul>
+                    </div>
+                    <div>
+                        <h4>Eventos ambulatorios</h4>
+                        <ul><li>Servicio de Urgencias</li><li>Imagenología</li><li>Odontología</li><li>Kinesioterapia</li><li>Y mucho más</li></ul>
+                    </div>
+                </div>
+            </article>
+            <div class="bp-lista">
+                <details>
+                    <summary><b>Asistencia en viaje</b><small>12 meses de vigencia · hasta 1.000 UF por viaje</small></summary>
+                    <div class="cuerpo">
+                        <p>Para viajes fuera de Chile, para el afiliado y sus beneficiarios. Cada viaje, hasta 120 días.</p>
+                        <ul>
+                            <li>Asistencia médica por enfermedad o accidente: hasta 1.000 UF por viaje</li>
+                            <li>Odontología de urgencia: hasta 35 UF por viaje</li>
+                            <li>Medicamentos de urgencia recetados: hasta 35 UF por viaje</li>
+                            <li>Envío o localización de medicamentos: hasta 35 UF por viaje</li>
+                            <li>Hospitalización de más de 5 días: hasta 4 UF diarias (máx. 48 UF)</li>
+                            <li>Hotel por convalecencia: hasta 6 UF diarias (máx. 72 UF)</li>
+                            <li>Demora de equipaje: hasta 5 UF</li>
+                            <li>Asistencia legal por accidente de tránsito: hasta 50 UF</li>
+                            <li>Préstamo de emergencia en el extranjero: hasta 100 UF</li>
+                        </ul>
+                    </div>
+                </details>
+                <details>
+                    <summary><b>Medy Pet</b><small>Atención veterinaria · 0,04 UF mensuales por afiliado</small></summary>
+                    <div class="cuerpo">
+                        <p>Para que cuides la salud de tu mascota de forma fácil, rápida y desde tu celular, con la app Medy Chile.</p>
+                        <ul>
+                            <li>Orientación veterinaria telefónica</li>
+                            <li>Chat de atención veterinaria</li>
+                            <li>Carpeta de salud de tu mascota: exámenes, vacunas y controles</li>
+                            <li>Orientación en prevención y cuidados</li>
+                            <li>Disponible todos los días, de lunes a domingo, de 09:00 a 23:59 horas</li>
+                        </ul>
+                    </div>
+                </details>
+                <details>
+                    <summary><b>Prótesis y órtesis</b><small>Para tu recuperación, sin costos adicionales</small></summary>
+                    <div class="cuerpo">
+                        <p>Con Isapre Banmédica, tú solo te preocupas de tu recuperación.</p>
+                        <ul>
+                            <li>Prótesis: implantes y dispositivos médicos</li>
+                            <li>Órtesis: férulas, inmovilizadores y más</li>
+                            <li>Acompañamiento en cada etapa de tu tratamiento</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </div>
+        <p class="bp-nota">Los beneficios, topes y condiciones dependen del plan y de las condiciones vigentes de Banmédica. Te confirmo lo que aplica a tu caso al cotizar.</p>
     </div>
 </section>
 
