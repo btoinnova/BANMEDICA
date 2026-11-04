@@ -5,10 +5,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>El Planeador</title>
-<meta name="description" content="Asesores de ventas acreditados, cada uno especialista en su rubro: salud, seguros, educación, telefonía e internet. Cuéntanos qué buscas y te asignamos al asesor indicado.">
+<meta name="description" content="Plataforma de marketing digital que valida la identidad y el vínculo laboral de ejecutivos de ventas. Habla con un ejecutivo real; no te cobramos y no pedimos tus datos en esta página.">
 <link rel="canonical" href="https://elplaneador.cl/">
-<meta property="og:title" content="El Planeador · Cada plan, con su especialista">
-<meta property="og:description" content="Asesores acreditados por la entidad que representan. Entras al rubro que buscas, nos cuentas qué necesitas y te asignamos al asesor indicado.">
+<meta property="og:title" content="El Planeador · Habla con un ejecutivo real">
+<meta property="og:description" content="Validamos la identidad y el vínculo laboral de los ejecutivos de ventas antes de publicar su página. Sin costo para ti.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CL">
 <meta name="theme-color" content="#12284A">
@@ -89,12 +89,18 @@
     @media (max-width: 720px) { .sub-lista { right: 0; left: auto; } .sub-boton { font-size: 14px; white-space: nowrap; } .marca { font-size: 16px; gap: 6px; } .barra .caja { padding-left: 12px; } .menu { gap: 8px; } .menu .boton { padding: 0 12px; font-size: 13px; } .marca .logo { font-size: 24px; } .sub-boton { font-size: 13px; padding: 8px 2px; } }
     @media (max-width: 720px) { .menu > a:not(.boton) { display: none; } }
 
-    .hero { padding: 64px 0 48px; }
+    .hero { padding: 40px 0 40px; }
     .hero .caja { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: center; }
-    .hero h1 { font-size: clamp(2.6rem, 7.2vw, 5.4rem); font-weight: 800; }
+    .hero h1 { font-size: clamp(2.2rem, 5.4vw, 3.9rem); font-weight: 800; }
     .hero h1 em { font-style: normal; color: var(--azul); }
-    .bajada { margin-top: 22px; max-width: 31em; font-size: clamp(1.08rem, 2.2vw, 1.25rem); color: var(--suave); }
-    .acciones { margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
+    .bajada { margin-top: 18px; max-width: 34em; font-size: clamp(1.02rem, 2vw, 1.15rem); color: var(--suave); }
+    .garantias { margin: 22px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; max-width: 36em; }
+    .garantias li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: start; font-size: 15.5px; line-height: 1.45; color: var(--suave); }
+    .garantias li::before { content: ""; width: 24px; height: 24px; margin-top: 1px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232A5290' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M7.5 12.5l3 3 6-6.5'/%3E%3C/svg%3E") center/contain no-repeat; }
+    :root[data-theme="dark"] .garantias li::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239DB8E8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M7.5 12.5l3 3 6-6.5'/%3E%3C/svg%3E"); }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .garantias li::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239DB8E8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M7.5 12.5l3 3 6-6.5'/%3E%3C/svg%3E"); } }
+    .garantias strong { color: var(--tinta); font-weight: 600; }
+    .acciones { margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
     .consulta { background: var(--superficie); border: 1px solid var(--linea); border-radius: 28px; box-shadow: var(--sombra); padding: 30px; display: grid; gap: 16px; }
     .consulta h2 { font-size: 1.7rem; font-weight: 800; }
     .consulta p { color: var(--suave); font-size: 16px; }
@@ -183,7 +189,7 @@
                     <a href="salud/banmedica/">Banmédica</a>
                 </div>
             </div>
-            <a class="boton boton-primario" href="#asesores">Soy asesor</a>
+            <a class="boton boton-primario" href="#asesores">Soy ejecutivo</a>
         </nav>
     </div>
 </header>
@@ -192,16 +198,21 @@
     <section class="hero">
         <div class="caja">
             <div>
-                <h1>Cada plan, con su <em>especialista.</em></h1>
-                <p class="bajada">Entras al rubro que buscas, nos cuentas qué necesitas y te asignamos al asesor indicado.</p>
+                <h1>Habla con un ejecutivo real: <em>validamos quién es.</em></h1>
+                <p class="bajada">El Planeador es una plataforma de marketing digital. Les hacemos su página a ejecutivos de ventas y, antes de publicarla, validamos su identidad y su vínculo laboral con la empresa que representan.</p>
+                <ul class="garantias" aria-label="Lo que te garantizamos">
+                    <li><span><strong>Identidad validada.</strong> Confirmamos que es una persona real y que trabaja para la empresa que dice representar.</span></li>
+                    <li><span><strong>Tus datos, solo donde decides.</strong> Aquí no pedimos datos personales; los dejas en la página del ejecutivo.</span></li>
+                    <li><span><strong>Sin costo para ti.</strong> Los ejecutivos pagan por su página y su publicidad.</span></li>
+                </ul>
                 <div class="acciones">
                     <a class="boton boton-primario" href="#consulta">Cuéntanos qué necesitas</a>
-                    <a class="enlace" href="#asesores">Quiero publicar mi asesoría</a>
+                    <a class="enlace" href="#asesores">Soy ejecutivo: quiero mi página</a>
                 </div>
             </div>
             <form class="consulta" id="consulta" action="salud/banmedica/carol-jara/" method="get" aria-labelledby="c-tit">
                 <h2 id="c-tit">¿Qué necesitas?</h2>
-                <p>Dinos qué buscas y te conectamos con un ejecutivo real y acreditado. Aquí no te pedimos ningún dato personal.</p>
+                <p>Dinos qué buscas y te llevamos a la página de un ejecutivo con identidad validada. Aquí no te pedimos ningún dato personal.</p>
                 <fieldset>
                     <legend class="solo-lector">Rubro</legend>
                     <label class="op"><input type="radio" name="rubro" value="salud" checked><span>Salud</span></label>
@@ -230,11 +241,11 @@
         <div class="caja quienes-grid">
             <div class="quienes-titulo">
                 <h2>Entre quien busca un plan y quien sabe de él.</h2>
-                <p class="bajada-q">El Planeador es el punto de encuentro: tú cuentas qué necesitas y te conectamos con un ejecutivo acreditado de la empresa.</p>
+                <p class="bajada-q">El Planeador es una plataforma de marketing digital: tú cuentas qué necesitas y te ponemos en contacto con un ejecutivo de la empresa, cuya identidad validamos.</p>
             </div>
             <div class="quienes-texto">
                 <p>Contratar un plan de salud, un seguro, un celular o internet suele empezar con mucha información y poca claridad. Hacemos un solo trabajo: acercarte a la persona correcta.</p>
-                <p>Somos intermediarios. No asesoramos ni vendemos: eso lo hace el ejecutivo de la empresa, que conoce los planes y puede explicártelos para que decidas con respaldo.</p>
+                <p>Somos una plataforma de marketing digital para ejecutivos: les hacemos su página y su publicidad, y validamos su identidad. No asesoramos ni vendemos: eso lo hace el ejecutivo de la empresa, que conoce los planes y puede explicártelos para que decidas con respaldo.</p>
                 <dl class="pruebas">
                     <div><dt>Ejecutivos verificados</dt><dd>Antes de publicar a un ejecutivo, validamos que es una persona real y que trabaja autorizado por la empresa que representa. Así reduces el riesgo de tratar con un impostor.</dd></div>
                     <div><dt>Una persona, una conversación</dt><dd>Te conectamos con un ejecutivo, no con una lista para comparar.</dd></div>
@@ -276,17 +287,17 @@
             <ol class="pasos">
                 <li><h3>Entra al rubro que buscas</h3><p>Salud, seguros, educación, telefonía o internet.</p></li>
                 <li><h3>Cuéntanos qué necesitas</h3><p>Con tus palabras, sin tecnicismos.</p></li>
-                <li><h3>Te asignamos un asesor</h3><p>El indicado para tu caso. No tienes que comparar ni elegir entre desconocidos.</p></li>
+                <li><h3>Te llevamos con un ejecutivo validado</h3><p>Ves su página y decides si le dejas tus datos. Nosotros no comparamos ni recomendamos planes.</p></li>
             </ol>
         </div>
     </section>
 
     <section class="seccion">
         <div class="caja">
-            <h2>Lo que prometemos.</h2>
+            <h2>Nuestros compromisos.</h2>
             <div class="bento">
-                <article class="tile chico"><h3>Asesores acreditados</h3><p>Solo publicamos a quien trabaja autorizado por la entidad que representa. Nadie se autoproclama.</p></article>
-                <article class="tile chico"><h3>Tu dato llega a una sola persona</h3><p>La que te asignamos. No lo repartimos entre varios.</p></article>
+                <article class="tile chico"><h3>Identidad validada</h3><p>Antes de publicar a un ejecutivo, validamos que es una persona real y que trabaja para la empresa que representa.</p></article>
+                <article class="tile chico"><h3>Tu dato llega a una sola persona</h3><p>Al ejecutivo cuya página eliges. No lo repartimos entre varios.</p></article>
                 <article class="tile chico"><h3>Sin costo para ti</h3><p>El Planeador no te cobra. Se financia con la membresía que pagan los ejecutivos por pertenecer a la plataforma.</p></article>
             </div>
         </div>
@@ -296,8 +307,8 @@
         <div class="caja">
             <div class="asesores">
                 <h2>Si eres bueno en lo tuyo, que te encuentren.</h2>
-                <p>Eres asesor de ventas acreditado y quieres recibir personas que ya saben lo que necesitan. Publica tu asesoría en El Planeador y te asignamos a quienes buscan en tu rubro.</p>
-                <div><a class="boton boton-primario" href="mailto:contacto@elplaneador.cl?subject=Quiero%20publicar%20mi%20asesor%C3%ADa%20en%20El%20Planeador">Quiero publicar mi asesoría</a></div>
+                <p>Eres ejecutivo de ventas de una empresa y quieres recibir a personas que ya saben lo que necesitan. Publica tu página en El Planeador: validamos tu identidad y tu vínculo laboral antes de publicarla, y te hacemos la página y la publicidad.</p>
+                <div><a class="boton boton-primario" href="mailto:contacto@elplaneador.cl?subject=Quiero%20publicar%20mi%20p%C3%A1gina%20en%20El%20Planeador">Quiero publicar mi página</a></div>
             </div>
         </div>
     </section>
