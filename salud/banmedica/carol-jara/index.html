@@ -101,6 +101,24 @@
         .banda-wsp .boton:hover { background: var(--tinta); color: #fff; }
 
         /* BENEFICIOS ADICIONALES DEL PLAN */
+        .guia { margin-top: 36px; background: var(--gris-oscuro); color: #fff; border-radius: 28px; padding: clamp(24px, 4vw, 40px); display: grid; gap: 14px; }
+        .guia h3 { font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+        .guia > p { max-width: 42em; color: rgba(255,255,255,.82); font-size: 17px; }
+        .gchips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+        .gchip { margin: 0; cursor: pointer; }
+        .gchip input { position: absolute; opacity: 0; pointer-events: none; }
+        .gchip span { display: inline-block; padding: 10px 16px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,.35); font-size: 15px; font-weight: 600; color: #fff; transition: background .2s, border-color .2s, color .2s; }
+        .gchip:hover span { border-color: #fff; }
+        .gchip input:checked + span { background: #fff; color: var(--gris-oscuro); border-color: #fff; }
+        .gchip input:focus-visible + span { outline: 3px solid #fff; outline-offset: 3px; }
+        .guia .guia-estado { font-weight: 700; color: #fff; min-height: 1.4em; }
+        .guia-acciones { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+        .guia-acciones[hidden], .guia-acciones a[hidden], .guia-acciones button[hidden] { display: none; }
+        .guia-limpiar { background: none; border: 0; color: #fff; text-decoration: underline; text-underline-offset: 4px; font: inherit; font-weight: 600; cursor: pointer; padding: 10px 4px; }
+        .guia .guia-nota { font-size: 14px; color: rgba(255,255,255,.7); }
+        .plan { transition: transform .35s cubic-bezier(.16,.84,.3,1), box-shadow .35s, opacity .3s, filter .3s; }
+        .plan.fuera { opacity: .32; filter: grayscale(1); }
+        .plan.dentro { box-shadow: 0 0 0 3px var(--rojo), var(--sombra); }
         #planes { padding: 88px 0 24px; }
         #planes h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.035em; max-width: 14em; }
         #planes h2 span { color: var(--rojo); }
@@ -454,13 +472,24 @@
     <div class="contenedor">
         <h2>Planes <span>y las clínicas que incluyen.</span></h2>
         <p class="pl-sub">Cada plan tiene su propia red de clínicas. Te muestro cuál se ajusta a tu caso cuando cotizamos.</p>
+        <div class="guia" role="group" aria-labelledby="guia-tit">
+            <h3 id="guia-tit">¿No sabes por dónde empezar?</h3>
+            <p>Dime a qué clínicas te gustaría poder ir y te muestro qué planes las incluyen. Puedes mirar con calma: no necesitas dejar tus datos.</p>
+            <div class="gchips"><label class="gchip"><input type="checkbox" value="dav"><span>Clínica Dávila</span></label><label class="gchip"><input type="checkbox" value="ves"><span>Vespucio</span></label><label class="gchip"><input type="checkbox" value="rs"><span>RedSalud</span></label><label class="gchip"><input type="checkbox" value="ind"><span>Indisa</span></label><label class="gchip"><input type="checkbox" value="sm"><span>Santa María</span></label><label class="gchip"><input type="checkbox" value="meds"><span>MEDS</span></label><label class="gchip"><input type="checkbox" value="uc"><span>UC (Hospital o Clínica)</span></label><label class="gchip"><input type="checkbox" value="lc"><span>Las Condes</span></label><label class="gchip"><input type="checkbox" value="la"><span>Los Andes</span></label><label class="gchip"><input type="checkbox" value="sc"><span>San Carlos de Apoquindo</span></label><label class="gchip"><input type="checkbox" value="ale"><span>Alemana</span></label><label class="gchip"><input type="checkbox" value="huch"><span>Hospital U. de Chile</span></label></div>
+            <p class="guia-estado" id="guia-estado" aria-live="polite">Elige una o más clínicas y marco los planes que las incluyen.</p>
+            <div class="guia-acciones">
+                <a class="boton boton-rojo" id="guia-wsp" href="#cotizar" hidden target="_blank" rel="noopener">Confirmar con Carol si me sirve</a>
+                <button type="button" class="guia-limpiar" id="guia-limpiar" hidden>Quitar filtros</button>
+            </div>
+            <p class="guia-nota">Si encuentras lo que buscas, escríbeme y lo confirmamos juntos por WhatsApp. Sin compromiso.</p>
+        </div>
         <div class="planes-grid">
-            <article class="plan"><span class="plan-fam">Plan cerrado</span><h3>Plan Conecta</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li></ul></article>
-            <article class="plan"><span class="plan-fam">Clásico</span><h3>Plan Clásico Silver</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila Recoleta</li><li>Vespucio</li><li>RedSalud Santiago</li><li>RedSalud Providencia</li><li>Hosp. U. de Chile</li><li>Indisa</li></ul></article>
-            <article class="plan"><span class="plan-fam">Clásico y Superior</span><h3>Plan Gold One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li></ul></article>
-            <article class="plan"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum B</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul></article>
-            <article class="plan"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li><li>Clínica UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul></article>
-            <article class="plan plan-osc"><span class="plan-fam">Preferente</span><h3>Salud Preferente Titanium</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>Santa María</li><li>MEDS</li><li>Los Andes</li><li>San Carlos</li><li>Alemana</li></ul></article>
+            <article class="plan" data-clinicas="dav ves" data-nombre="Plan Conecta"><span class="plan-fam">Plan cerrado</span><h3>Plan Conecta</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li></ul></article>
+            <article class="plan" data-clinicas="dav ves rs huch ind" data-nombre="Plan Clásico Silver"><span class="plan-fam">Clásico</span><h3>Plan Clásico Silver</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila Recoleta</li><li>Vespucio</li><li>RedSalud Santiago</li><li>RedSalud Providencia</li><li>Hosp. U. de Chile</li><li>Indisa</li></ul></article>
+            <article class="plan" data-clinicas="dav ves rs ind sm meds uc" data-nombre="Plan Gold One"><span class="plan-fam">Clásico y Superior</span><h3>Plan Gold One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li></ul></article>
+            <article class="plan" data-clinicas="dav ves rs ind sm meds uc lc la sc" data-nombre="Plan Platinum B"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum B</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul></article>
+            <article class="plan" data-clinicas="dav ves rs ind sm meds uc lc la sc" data-nombre="Plan Platinum One"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li><li>Clínica UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul></article>
+            <article class="plan plan-osc" data-clinicas="dav ves sm meds la sc ale" data-nombre="Salud Preferente Titanium"><span class="plan-fam">Preferente</span><h3>Salud Preferente Titanium</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>Santa María</li><li>MEDS</li><li>Los Andes</li><li>San Carlos</li><li>Alemana</li></ul></article>
         </div>
         <p class="bp-nota">Las clínicas y condiciones dependen de cada plan y de las condiciones vigentes de Banmédica. Te confirmo lo que aplica a tu caso al cotizar.</p>
         <a href="#cotizar" class="boton boton-rojo" style="margin-top:22px">Quiero mi cotización</a>
@@ -880,5 +909,44 @@
 <script src="assets/captura-leads.js"></script>
 <script src="assets/testimonios.js"></script>
 
+<script>
+(function () {
+    var guia = document.querySelector('.guia');
+    if (!guia) return;
+    var chips = guia.querySelectorAll('.gchip input');
+    var planes = document.querySelectorAll('.plan[data-clinicas]');
+    var estado = document.getElementById('guia-estado');
+    var wsp = document.getElementById('guia-wsp');
+    var limpiar = document.getElementById('guia-limpiar');
+    var base = (document.querySelector('a[href^="https://wa.me/"]') || {}).href || '';
+    base = base.split('?')[0];
+    function actualizar() {
+        var sel = [], nombres = [];
+        chips.forEach(function (c) { if (c.checked) { sel.push(c.value); nombres.push(c.nextElementSibling.textContent); } });
+        var ok = [];
+        planes.forEach(function (p) {
+            var tiene = (p.getAttribute('data-clinicas') || '').split(' ');
+            var cumple = sel.every(function (s) { return tiene.indexOf(s) !== -1; });
+            p.classList.toggle('dentro', sel.length > 0 && cumple);
+            p.classList.toggle('fuera', sel.length > 0 && !cumple);
+            if (sel.length > 0 && cumple) ok.push(p.getAttribute('data-nombre'));
+        });
+        limpiar.hidden = sel.length === 0;
+        if (sel.length === 0) {
+            estado.textContent = 'Elige una o más clínicas y marco los planes que las incluyen.';
+            wsp.hidden = true; return;
+        }
+        if (ok.length === 0) {
+            estado.textContent = 'Ningún plan incluye todas esas clínicas a la vez. Prueba quitando una.';
+            wsp.hidden = true; return;
+        }
+        estado.textContent = (ok.length === 1 ? '1 plan incluye' : ok.length + ' planes incluyen') + ' lo que elegiste: ' + ok.join(', ') + '.';
+        var msg = 'Hola Carol, en tu página encontré planes que incluyen lo que busco (' + nombres.join(', ') + '): ' + ok.join(', ') + '. ¿Me confirmas si me sirven?';
+        if (base) { wsp.href = base + '?text=' + encodeURIComponent(msg); wsp.hidden = false; }
+    }
+    chips.forEach(function (c) { c.addEventListener('change', actualizar); });
+    limpiar.addEventListener('click', function () { chips.forEach(function (c) { c.checked = false; }); actualizar(); });
+})();
+</script>
 </body>
 </html>
