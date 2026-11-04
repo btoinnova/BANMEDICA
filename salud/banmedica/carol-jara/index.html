@@ -101,6 +101,24 @@
         .banda-wsp .boton:hover { background: var(--tinta); color: #fff; }
 
         /* BENEFICIOS ADICIONALES DEL PLAN */
+        #planes { padding: 88px 0 24px; }
+        #planes h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.035em; max-width: 14em; }
+        #planes h2 span { color: var(--rojo); }
+        .pl-sub { margin-top: 16px; font-size: 19px; color: var(--suave); max-width: 38em; }
+        .planes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+        .plan { background: #fff; border: 1px solid var(--linea); border-radius: 26px; padding: 28px; display: flex; flex-direction: column; gap: 8px; transition: transform .35s cubic-bezier(.16,.84,.3,1), box-shadow .35s; }
+        .plan:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
+        .plan-fam { align-self: flex-start; font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 999px; background: var(--gris-claro); color: var(--rojo); }
+        .plan h3 { font-size: clamp(1.35rem, 2.2vw, 1.8rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin-top: 6px; }
+        .plan-sub { font-size: 14px; color: var(--suave); margin-top: 6px; }
+        .plan-red { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 7px; }
+        .plan-red li { font-size: 14px; font-weight: 600; padding: 7px 12px; border-radius: 999px; background: var(--gris-claro); }
+        .plan-osc { background: var(--gris-oscuro); color: #fff; border-color: var(--gris-oscuro); }
+        .plan-osc .plan-fam { background: rgba(255,255,255,.14); color: #fff; }
+        .plan-osc .plan-sub { color: rgba(255,255,255,.7); }
+        .plan-osc .plan-red li { background: rgba(255,255,255,.14); }
+        @media (max-width: 1020px) { .planes-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 720px) { .planes-grid { grid-template-columns: 1fr; } .plan { padding: 24px; } }
         #beneficios-plan { padding: 88px 0 40px; }
         #beneficios-plan h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.035em; max-width: 14em; }
         #beneficios-plan h2 span { color: var(--rojo); }
@@ -357,6 +375,8 @@
     <div class="contenedor header-contenido">
         <a href="#inicio" class="logo" aria-label="Planes de salud Banmédica, inicio"><img src="img/logo-banmedica.png" alt="Banmédica" class="logo-img" width="118" height="38"><span class="logo-sep" aria-hidden="true"></span><span class="logo-text">Planes de salud</span></a>
         <nav class="nav" aria-label="Principal">
+            <a href="#planes">Planes</a>
+            <a href="#beneficios-plan">Beneficios</a>
             <a href="#salud-extendida">Salud Extendida</a>
             <a href="#preguntas">Preguntas</a>
             <a href="#contacto">Contacto</a>
@@ -427,6 +447,23 @@
             <p><strong>No todos necesitan el mismo plan de salud.</strong> Antes de recomendar una alternativa, reviso tu <strong>edad, región, renta imponible, cargas y preferencias de atención</strong>.</p>
             <a href="#cotizar" class="boton boton-rojo">Quiero mi cotización</a>
         </div>
+    </div>
+</section>
+
+<section id="planes">
+    <div class="contenedor">
+        <h2>Planes <span>y las clínicas que incluyen.</span></h2>
+        <p class="pl-sub">Cada plan tiene su propia red de clínicas. Te muestro cuál se ajusta a tu caso cuando cotizamos.</p>
+        <div class="planes-grid">
+            <article class="plan"><span class="plan-fam">Plan cerrado</span><h3>Plan Conecta</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li></ul></article>
+            <article class="plan"><span class="plan-fam">Clásico</span><h3>Plan Clásico Silver</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila Recoleta</li><li>Vespucio</li><li>RedSalud Santiago</li><li>RedSalud Providencia</li><li>Hosp. U. de Chile</li><li>Indisa</li></ul></article>
+            <article class="plan"><span class="plan-fam">Clásico y Superior</span><h3>Plan Gold One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li></ul></article>
+            <article class="plan"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum B</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul></article>
+            <article class="plan"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li><li>Clínica UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul></article>
+            <article class="plan plan-osc"><span class="plan-fam">Preferente</span><h3>Salud Preferente Titanium</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>Santa María</li><li>MEDS</li><li>Los Andes</li><li>San Carlos</li><li>Alemana</li></ul></article>
+        </div>
+        <p class="bp-nota">Las clínicas y condiciones dependen de cada plan y de las condiciones vigentes de Banmédica. Te confirmo lo que aplica a tu caso al cotizar.</p>
+        <a href="#cotizar" class="boton boton-rojo" style="margin-top:22px">Quiero mi cotización</a>
     </div>
 </section>
 
@@ -785,6 +822,7 @@
         <div class="footer-col">
             <h4>Enlaces de interés</h4>
             <a href="#inicio">Inicio</a>
+            <a href="#planes">Planes</a>
             <a href="#salud-extendida">Salud Extendida</a>
             <a href="#cotizar">Cotizar plan</a>
         </div>
