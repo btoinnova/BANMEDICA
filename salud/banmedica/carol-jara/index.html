@@ -136,7 +136,17 @@
         .plan-osc .plan-sub { color: rgba(255,255,255,.7); }
         .plan-osc .plan-red li { background: rgba(255,255,255,.14); }
         @media (max-width: 1020px) { .planes-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 720px) { .planes-grid { grid-template-columns: 1fr; } .plan { padding: 24px; } }
+        @media (max-width: 720px) {
+            .planes-grid { display: flex; grid-template-columns: none; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; margin-inline: -16px; padding: 6px 16px 18px; }
+            .planes-grid::-webkit-scrollbar { display: none; }
+            .plan { flex: 0 0 84%; scroll-snap-align: center; padding: 24px; }
+            .planes-dots { display: flex !important; }
+            .planes-hint { display: block !important; }
+        }
+        .planes-dots { display: none; justify-content: center; gap: 8px; margin-top: -4px; }
+        .planes-dots button { width: 10px; height: 10px; padding: 0; border-radius: 50%; border: 0; background: var(--linea); cursor: pointer; transition: background .2s, transform .2s; }
+        .planes-dots button[aria-current="true"] { background: var(--rojo); transform: scale(1.35); }
+        .planes-hint { display: none; margin-top: 18px; font-size: 14px; font-weight: 600; color: var(--suave); }
         #beneficios-plan { padding: 88px 0 40px; }
         #beneficios-plan h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.035em; max-width: 14em; }
         #beneficios-plan h2 span { color: var(--rojo); }
@@ -384,8 +394,6 @@
         @media (max-width: 640px) {
             .nav a:not(.cta) { display: none; }
             .nav a[href="#planes"] { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; }
-            .plan.fuera .plan-red, .plan.fuera .plan-sub, .plan.fuera .ask { display: none; }
-            .plan.fuera { padding-block: 14px; }
             .nav a.cta { margin-left: 0; padding: 12px 18px; font-size: 14px; min-height: 44px; }
             .logo-text { font-size: 15px; }
             .logo-img { height: 30px; }
@@ -477,7 +485,8 @@
             </div>
             <p class="guia-nota">Es solo una pregunta: no necesitas llenar formularios. Te respondo yo y, si quieres, después cotizamos.</p>
         </div>
-        <div class="planes-grid">
+        <p class="planes-hint" id="planes-hint">Desliza para ver los 6 planes →</p>
+        <div class="planes-grid" id="planes-grid">
             <article class="plan" data-clinicas="dav ves" data-nombre="Plan Conecta"><span class="plan-fam">Plan cerrado</span><h3>Plan Conecta</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Conecta%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article>
             <article class="plan" data-clinicas="dav ves rs huch ind" data-nombre="Plan Clásico Silver"><span class="plan-fam">Clásico</span><h3>Plan Clásico Silver</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila Recoleta</li><li>Vespucio</li><li>RedSalud Santiago</li><li>RedSalud Providencia</li><li>Hosp. U. de Chile</li><li>Indisa</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Cl%C3%A1sico%20Silver%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article>
             <article class="plan" data-clinicas="dav ves rs ind sm meds uch" data-nombre="Plan Gold One"><span class="plan-fam">Clásico y Superior</span><h3>Plan Gold One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Gold%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article>
@@ -485,6 +494,7 @@
             <article class="plan" data-clinicas="dav ves rs ind sm meds uch ucc lc la sc" data-nombre="Plan Platinum One"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li><li>Clínica UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article>
             <article class="plan plan-osc" data-clinicas="dav ves sm meds la sc ale" data-nombre="Salud Preferente Titanium"><span class="plan-fam">Preferente</span><h3>Salud Preferente Titanium</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>Santa María</li><li>MEDS</li><li>Los Andes</li><li>San Carlos</li><li>Alemana</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Salud%20Preferente%20Titanium%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article>
         </div>
+        <div class="planes-dots" id="planes-dots" aria-hidden="true"></div>
         <p class="bp-nota">Las clínicas y condiciones dependen de cada plan y de las condiciones vigentes de Banmédica. Te confirmo lo que aplica a tu caso al cotizar.</p>
         <a href="#cotizar" class="boton boton-rojo" style="margin-top:22px">Quiero mi cotización</a>
     </div>
@@ -979,6 +989,28 @@
     }
     chips.forEach(function (c) { c.addEventListener('change', actualizar); });
     limpiar.addEventListener('click', function () { chips.forEach(function (c) { c.checked = false; }); actualizar(); });
+})();
+</script>
+<script>
+(function () {
+    var g = document.getElementById('planes-grid'), d = document.getElementById('planes-dots');
+    if (!g || !d) return;
+    var cards = g.querySelectorAll('.plan'), pts = [];
+    cards.forEach(function (c, i) {
+        var b = document.createElement('button'); b.type = 'button'; b.tabIndex = -1;
+        b.addEventListener('click', function () { cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); });
+        d.appendChild(b); pts.push(b);
+    });
+    function marca() {
+        var paso = cards[1].offsetLeft - cards[0].offsetLeft || 1;
+        var i = Math.max(0, Math.min(cards.length - 1, Math.round(g.scrollLeft / paso)));
+        pts.forEach(function (p, k) { p.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+    }
+    g.addEventListener('scroll', marca, { passive: true });
+    document.querySelectorAll('.gchip input, #guia-limpiar').forEach(function (e) {
+        e.addEventListener(e.tagName === 'INPUT' ? 'change' : 'click', function () { g.scrollTo({ left: 0, behavior: 'smooth' }); });
+    });
+    marca();
 })();
 </script>
 </body>
