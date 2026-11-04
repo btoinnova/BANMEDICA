@@ -124,7 +124,7 @@
         #planes h2 span { color: var(--rojo); }
         .pl-sub { margin-top: 16px; font-size: 19px; color: var(--suave); max-width: 38em; }
         .planes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
-        .plan { background: #fff; border: 1px solid var(--linea); border-radius: 26px; padding: 28px; display: flex; flex-direction: column; gap: 8px; transition: transform .35s cubic-bezier(.16,.84,.3,1), box-shadow .35s; }
+        .plan { background: #fff; border: 1px solid var(--linea); border-radius: 26px; padding: 28px; display: flex; flex-direction: column; gap: 8px; }
         .plan:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
         .plan-fam { align-self: flex-start; font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 999px; background: var(--gris-claro); color: var(--rojo); }
         .plan h3 { font-size: clamp(1.35rem, 2.2vw, 1.8rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin-top: 6px; }
@@ -197,6 +197,29 @@
         .mini li { position: relative; padding-left: 26px; font-size: 15.5px; font-weight: 600; line-height: 1.3; }
         .mini li::before { content: ''; position: absolute; left: 0; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--rojo); box-shadow: inset 0 0 0 4px #fff, 0 0 0 1.5px var(--rojo); }
         .mini-nota { margin-top: 14px; font-size: 14px; color: var(--suave); }
+        .boton-ghost { background: transparent; color: var(--tinta); box-shadow: inset 0 0 0 1.5px var(--tinta); }
+        .boton-ghost:hover { background: rgba(20,22,27,.06); }
+        .micro-hero { margin-top: 14px; font-size: 15px; color: var(--suave); }
+        .boton-wsp { background: #fff; color: var(--tinta); box-shadow: inset 0 0 0 1.5px var(--tinta); display: inline-flex; align-items: center; gap: 10px; }
+        .boton-wsp:hover { background: #F0FDF4; }
+        .boton-wsp .i { width: 20px; height: 20px; fill: #25D366; stroke: none; flex: none; }
+        .guia .boton-wsp { box-shadow: none; }
+        .guia-cot { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; padding: 10px 4px; }
+        .guia-cot[hidden] { display: none; }
+        .plan .ask { margin-top: auto; padding-top: 12px; font-weight: 700; font-size: 15px; color: var(--rojo-hondo); text-decoration: underline; text-underline-offset: 4px; min-height: 44px; display: inline-flex; align-items: flex-end; }
+        .plan-osc .ask { color: #fff; }
+        .plan.dentro { order: -1; }
+        .plan.fuera:hover { transform: none; box-shadow: none; }
+        .faq-cierre { margin-top: 28px; padding: 22px 24px; background: var(--gris-claro); border-radius: 22px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+        .faq-cierre p { font-weight: 700; font-size: 18px; }
+        section[id] { scroll-margin-top: 72px; }
+        .gchip span { min-height: 44px; display: inline-flex; align-items: center; }
+        .guia-limpiar { min-height: 44px; }
+        .bt-seguro .chip { background: #fff; color: var(--rojo-hondo); }
+        .bt .chip { color: inherit; }
+        .tramo.b { background: #007A3D; }
+        .tramo.c { color: var(--tinta); }
+        .plan-fam { color: var(--rojo-hondo); }
         .bp-nota { margin-top: 26px; font-size: 14px; color: var(--suave); max-width: 52em; }
 
         /* CÓMO TE ACOMPAÑO */
@@ -244,13 +267,13 @@
         #preguntas { padding: 88px 0; }
         #preguntas h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; margin-bottom: 8px; }
         #preguntas .sub { color: var(--suave); font-size: 18px; margin-bottom: 32px; }
-        details { border-top: 1px solid var(--linea); padding: 0; }
-        details:last-of-type { border-bottom: 1px solid var(--linea); }
-        summary { cursor: pointer; list-style: none; padding: 22px 48px 22px 0; font-family: var(--display); font-size: 20px; font-weight: 700; position: relative; letter-spacing: -0.01em; }
-        summary::-webkit-details-marker { display: none; }
-        summary::after { content: '+'; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 28px; font-weight: 400; color: var(--rojo); transition: transform .25s; }
-        details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
-        details p { padding: 0 48px 24px 0; color: var(--suave); font-size: 17px; max-width: 46em; }
+        #preguntas details { border-top: 1px solid var(--linea); padding: 0; }
+        #preguntas details:last-of-type { border-bottom: 1px solid var(--linea); }
+        #preguntas summary { cursor: pointer; list-style: none; padding: 22px 48px 22px 0; font-family: var(--display); font-size: 20px; font-weight: 700; position: relative; letter-spacing: -0.01em; }
+        #preguntas summary::-webkit-details-marker { display: none; }
+        #preguntas summary::after { content: '+'; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 28px; font-weight: 400; color: var(--rojo); transition: transform .25s; }
+        #preguntas details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+        #preguntas details p { padding: 0 48px 24px 0; color: var(--suave); font-size: 17px; max-width: 46em; }
 
         /* COTIZAR (el formulario conserva su estructura) */
         section#cotizar { padding: 88px 0; background: var(--blanco); }
@@ -277,8 +300,8 @@
         .formulario { max-width: 640px; margin: 0 auto; background: white; padding: 40px; border-radius: 16px; box-shadow: var(--sombra); }
         .grupo-form { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--gris-oscuro); font-size: 15px; }
-        input, select { width: 100%; padding: 14px 16px; border: 2px solid var(--borde); border-radius: 10px; font-size: 15px; transition: border-color 0.2s; }
-        input:focus, select:focus { outline: none; border-color: var(--rojo); }
+        input, select { width: 100%; padding: 14px 16px; border: 2px solid var(--borde); border-radius: 10px; font-size: 16px; min-height: 48px; transition: border-color 0.2s, box-shadow 0.2s; }
+        input:focus, select:focus { outline: none; border-color: var(--rojo); box-shadow: 0 0 0 3px rgba(228,35,27,.2); }
         .checkbox { display: flex; align-items: flex-start; gap: 10px; }
         .checkbox input { width: auto; margin-top: 4px; }
         .checkbox label { margin: 0; font-size: 14px; color: var(--gris-medio); font-weight: 500; line-height: 1.5; }
@@ -298,20 +321,20 @@
         .popup-aceptar input { width: auto; height: 18px; width: 18px; cursor: pointer; }
         .popup-boton { padding: 12px; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
         .popup-boton.aceptar { background: var(--rojo); color: white; }
-        .popup-boton.aceptar:hover { background: var(--rojo-oscuro); }
+        .popup-boton.aceptar:hover { background: var(--rojo-hondo); }
         .popup-boton.cerrar { background: var(--gris-claro); color: var(--gris-oscuro); }
         .popup-boton.cerrar:hover { background: #E9E9E9; }
         .boton-enviar:disabled { opacity: 0.5; cursor: not-allowed; }
         
         /* FOOTER */
-        footer { background: #111827; color: white; padding: 60px 0 30px; margin-top: 70px; }
+        footer { background: #111827; color: white; padding: 60px 0 120px; margin-top: 70px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; margin-bottom: 40px; }
         input[type="checkbox"] { width: 22px; height: 22px; flex: none; }
         .footer-col h4 { font-size: 17px; margin-bottom: 20px; color: #F3F4F6; font-weight: 700; }
         .footer-col p { color: #9CA3AF; font-size: 14px; line-height: 1.6; }
         .footer-col a { display: block; padding: 6px 0; color: #9CA3AF; text-decoration: none; margin-bottom: 10px; transition: all 0.2s; font-size: 15px; }
         .footer-col a:hover { color: white; text-decoration: underline; }
-        .copyright { text-align: center; padding-top: 24px; border-top: 1px solid #1F2937; color: #9CA3AF; font-size: 13px; margin-top: 20px; }
+        .copyright { padding-right: 84px; padding-left: 84px; text-align: center; padding-top: 24px; border-top: 1px solid #1F2937; color: #9CA3AF; font-size: 13px; margin-top: 20px; }
         
         /* WHATSAPP FLOTANTE con icono oficial */
         .whatsapp-fijo { 
@@ -360,6 +383,9 @@
         }
         @media (max-width: 640px) {
             .nav a:not(.cta) { display: none; }
+            .nav a[href="#planes"] { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; }
+            .plan.fuera .plan-red, .plan.fuera .plan-sub, .plan.fuera .ask { display: none; }
+            .plan.fuera { padding-block: 14px; }
             .nav a.cta { margin-left: 0; padding: 12px 18px; font-size: 14px; min-height: 44px; }
             .logo-text { font-size: 15px; }
             .logo-img { height: 30px; }
@@ -386,7 +412,7 @@
 </svg>
 <!-- BOTÓN WHATSAPP FLOTANTE -->
 <div class="whatsapp-fijo">
-    <a href="https://wa.me/56923971471?text=Hola%2C%20quiero%20cotizar%20mi%20plan%20de%20salud" target="_blank" rel="noopener" aria-label="Cotizar por WhatsApp">WhatsApp</a>
+    <a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta%20sobre%20planes%20de%20salud." target="_blank" rel="noopener" aria-label="Preguntar por WhatsApp">WhatsApp</a>
 </div>
 
 <header>
@@ -413,7 +439,9 @@
                 <p>Cuéntame tu situación y te escribo por WhatsApp con alternativas de planes <strong>Banmédica</strong> para ti y tu familia. Sin costo y sin compromiso.</p>
                 <div class="acciones-hero">
                     <a href="#cotizar" class="boton boton-rojo">Quiero mi cotización</a>
+                    <a href="#planes" class="boton boton-ghost">Mirar planes y clínicas</a>
                 </div>
+                <p class="micro-hero">Puedes mirar con calma, sin dejar datos. Si algo te sirve, me preguntas.</p>
             </div>
             <div class="hero-visual">
                 <img src="img/carol2.jpg?v=3" alt="Carol Jara, Asesora Comercial Banmédica" class="hero-foto" width="640" height="704">
@@ -432,6 +460,36 @@
         </div>
     </div>
 </section>
+
+<section id="planes">
+    <div class="contenedor">
+        <h2>Planes <span>y las clínicas que incluyen.</span></h2>
+        <p class="pl-sub">Cada plan tiene su propia red de clínicas. El valor depende de tu edad, renta y cargas, por eso lo calculo yo contigo cuando cotizamos.</p>
+        <div class="guia" role="group" aria-labelledby="guia-tit">
+            <h3 id="guia-tit">¿No sabes por dónde empezar?</h3>
+            <p>Dime a qué clínicas te gustaría poder ir y te muestro qué planes las incluyen. Puedes mirar con calma: no necesitas dejar tus datos.</p>
+            <div class="gchips"><label class="gchip"><input type="checkbox" value="dav"><span>Clínica Dávila</span></label><label class="gchip"><input type="checkbox" value="ves"><span>Vespucio</span></label><label class="gchip"><input type="checkbox" value="rs"><span>RedSalud</span></label><label class="gchip"><input type="checkbox" value="ind"><span>Indisa</span></label><label class="gchip"><input type="checkbox" value="sm"><span>Santa María</span></label><label class="gchip"><input type="checkbox" value="meds"><span>MEDS</span></label><label class="gchip"><input type="checkbox" value="uch"><span>Hospital UC</span></label><label class="gchip"><input type="checkbox" value="ucc"><span>Clínica UC</span></label><label class="gchip"><input type="checkbox" value="lc"><span>Las Condes</span></label><label class="gchip"><input type="checkbox" value="la"><span>Los Andes</span></label><label class="gchip"><input type="checkbox" value="sc"><span>San Carlos de Apoquindo</span></label><label class="gchip"><input type="checkbox" value="ale"><span>Alemana</span></label><label class="gchip"><input type="checkbox" value="huch"><span>Hospital U. de Chile</span></label></div>
+            <p class="guia-estado" id="guia-estado" aria-live="polite">Elige una o más clínicas y marco los planes que las incluyen.</p>
+            <div class="guia-acciones">
+                <a class="boton boton-wsp" id="guia-wsp" href="#" hidden target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wsp"/></svg>Preguntarle a Carol si me sirve</a>
+                <a class="guia-cot" id="guia-cot" href="#cotizar" hidden>Prefiero que me coticen</a>
+                <button type="button" class="guia-limpiar" id="guia-limpiar" hidden>Quitar filtros</button>
+            </div>
+            <p class="guia-nota">Es solo una pregunta: no necesitas llenar formularios. Te respondo yo y, si quieres, después cotizamos.</p>
+        </div>
+        <div class="planes-grid">
+            <article class="plan" data-clinicas="dav ves" data-nombre="Plan Conecta"><span class="plan-fam">Plan cerrado</span><h3>Plan Conecta</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Conecta%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article>
+            <article class="plan" data-clinicas="dav ves rs huch ind" data-nombre="Plan Clásico Silver"><span class="plan-fam">Clásico</span><h3>Plan Clásico Silver</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila Recoleta</li><li>Vespucio</li><li>RedSalud Santiago</li><li>RedSalud Providencia</li><li>Hosp. U. de Chile</li><li>Indisa</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Cl%C3%A1sico%20Silver%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article>
+            <article class="plan" data-clinicas="dav ves rs ind sm meds uch" data-nombre="Plan Gold One"><span class="plan-fam">Clásico y Superior</span><h3>Plan Gold One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Gold%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article>
+            <article class="plan" data-clinicas="dav ves rs ind sm meds uch lc la sc" data-nombre="Plan Platinum B"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum B</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20B%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article>
+            <article class="plan" data-clinicas="dav ves rs ind sm meds uch ucc lc la sc" data-nombre="Plan Platinum One"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li><li>Clínica UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article>
+            <article class="plan plan-osc" data-clinicas="dav ves sm meds la sc ale" data-nombre="Salud Preferente Titanium"><span class="plan-fam">Preferente</span><h3>Salud Preferente Titanium</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>Santa María</li><li>MEDS</li><li>Los Andes</li><li>San Carlos</li><li>Alemana</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Salud%20Preferente%20Titanium%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article>
+        </div>
+        <p class="bp-nota">Las clínicas y condiciones dependen de cada plan y de las condiciones vigentes de Banmédica. Te confirmo lo que aplica a tu caso al cotizar.</p>
+        <a href="#cotizar" class="boton boton-rojo" style="margin-top:22px">Quiero mi cotización</a>
+    </div>
+</section>
+
 
 <section id="beneficios">
     <div class="contenedor">
@@ -463,79 +521,7 @@
         </div>
         <div class="nota-ancha">
             <p><strong>No todos necesitan el mismo plan de salud.</strong> Antes de recomendar una alternativa, reviso tu <strong>edad, región, renta imponible, cargas y preferencias de atención</strong>.</p>
-            <a href="#cotizar" class="boton boton-rojo">Quiero mi cotización</a>
-        </div>
-    </div>
-</section>
-
-<section id="planes">
-    <div class="contenedor">
-        <h2>Planes <span>y las clínicas que incluyen.</span></h2>
-        <p class="pl-sub">Cada plan tiene su propia red de clínicas. Te muestro cuál se ajusta a tu caso cuando cotizamos.</p>
-        <div class="guia" role="group" aria-labelledby="guia-tit">
-            <h3 id="guia-tit">¿No sabes por dónde empezar?</h3>
-            <p>Dime a qué clínicas te gustaría poder ir y te muestro qué planes las incluyen. Puedes mirar con calma: no necesitas dejar tus datos.</p>
-            <div class="gchips"><label class="gchip"><input type="checkbox" value="dav"><span>Clínica Dávila</span></label><label class="gchip"><input type="checkbox" value="ves"><span>Vespucio</span></label><label class="gchip"><input type="checkbox" value="rs"><span>RedSalud</span></label><label class="gchip"><input type="checkbox" value="ind"><span>Indisa</span></label><label class="gchip"><input type="checkbox" value="sm"><span>Santa María</span></label><label class="gchip"><input type="checkbox" value="meds"><span>MEDS</span></label><label class="gchip"><input type="checkbox" value="uc"><span>UC (Hospital o Clínica)</span></label><label class="gchip"><input type="checkbox" value="lc"><span>Las Condes</span></label><label class="gchip"><input type="checkbox" value="la"><span>Los Andes</span></label><label class="gchip"><input type="checkbox" value="sc"><span>San Carlos de Apoquindo</span></label><label class="gchip"><input type="checkbox" value="ale"><span>Alemana</span></label><label class="gchip"><input type="checkbox" value="huch"><span>Hospital U. de Chile</span></label></div>
-            <p class="guia-estado" id="guia-estado" aria-live="polite">Elige una o más clínicas y marco los planes que las incluyen.</p>
-            <div class="guia-acciones">
-                <a class="boton boton-rojo" id="guia-wsp" href="#cotizar" hidden target="_blank" rel="noopener">Confirmar con Carol si me sirve</a>
-                <button type="button" class="guia-limpiar" id="guia-limpiar" hidden>Quitar filtros</button>
-            </div>
-            <p class="guia-nota">Si encuentras lo que buscas, escríbeme y lo confirmamos juntos por WhatsApp. Sin compromiso.</p>
-        </div>
-        <div class="planes-grid">
-            <article class="plan" data-clinicas="dav ves" data-nombre="Plan Conecta"><span class="plan-fam">Plan cerrado</span><h3>Plan Conecta</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li></ul></article>
-            <article class="plan" data-clinicas="dav ves rs huch ind" data-nombre="Plan Clásico Silver"><span class="plan-fam">Clásico</span><h3>Plan Clásico Silver</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila Recoleta</li><li>Vespucio</li><li>RedSalud Santiago</li><li>RedSalud Providencia</li><li>Hosp. U. de Chile</li><li>Indisa</li></ul></article>
-            <article class="plan" data-clinicas="dav ves rs ind sm meds uc" data-nombre="Plan Gold One"><span class="plan-fam">Clásico y Superior</span><h3>Plan Gold One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li></ul></article>
-            <article class="plan" data-clinicas="dav ves rs ind sm meds uc lc la sc" data-nombre="Plan Platinum B"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum B</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul></article>
-            <article class="plan" data-clinicas="dav ves rs ind sm meds uc lc la sc" data-nombre="Plan Platinum One"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li><li>Clínica UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul></article>
-            <article class="plan plan-osc" data-clinicas="dav ves sm meds la sc ale" data-nombre="Salud Preferente Titanium"><span class="plan-fam">Preferente</span><h3>Salud Preferente Titanium</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>Santa María</li><li>MEDS</li><li>Los Andes</li><li>San Carlos</li><li>Alemana</li></ul></article>
-        </div>
-        <p class="bp-nota">Las clínicas y condiciones dependen de cada plan y de las condiciones vigentes de Banmédica. Te confirmo lo que aplica a tu caso al cotizar.</p>
-        <a href="#cotizar" class="boton boton-rojo" style="margin-top:22px">Quiero mi cotización</a>
-    </div>
-</section>
-
-<section id="salud-extendida">
-    <div class="contenedor">
-        <h2>Salud Extendida</h2>
-        <p class="se-sub"><strong>Más salud para quienes más quieres</strong> — un beneficio exclusivo para ti y hasta 2 personas con Fonasa.</p>
-        <p class="se-intro">Salud Extendida es un programa de <strong>Red Dávila</strong>, al cual afiliados de Isapre Banmédica pueden incorporar hasta <strong>dos personas con previsión FONASA</strong>, que les permitirá acceder a beneficios y descuentos exclusivos en prestaciones de la red.</p>
-        <div class="cifras">
-            <div class="cifra"><div class="valor">$0<small>copago</small></div><div><h3>Consulta médica a costo $0</h3><p>Una vez al año en medicina general o especialidad.</p></div></div>
-            <div class="cifra"><div class="valor">20%<small>laboratorio e imágenes</small></div><div><h3>Descuentos en laboratorio, imágenes y kinesiología</h3><p>20% en laboratorio e imágenes (viernes a domingo) y 10% en kinesiología.</p></div></div>
-            <div class="cifra"><div class="valor">$300K<small>descuento máximo</small></div><div><h3>Valores preferentes en cirugías</h3><p>Hasta $300.000 de descuento en copago de cirugías nominadas.</p></div></div>
-            <div class="cifra"><div class="valor">50%<small>de descuento</small></div><div><h3>Descuento en atención de urgencia</h3><p>50% de descuento en el copago de consulta de urgencia.</p></div></div>
-            <div class="cifra"><div class="valor">$0<small>copago</small></div><div><h3>Programas preventivos completos</h3><p>Consulta + exámenes + imágenes con copago $0.</p></div></div>
-        </div>
-        <p class="se-intro">Todos los beneficios y descuentos del programa Salud Extendida son otorgados por Red Dávila, quien es responsable de su administración y funcionamiento.</p>
-        <div class="programas">
-            <h3>Programas y chequeos incluidos</h3>
-            <div class="programas-grid">
-                <div class="programa-item"><img src="img/oftalmologia.jpg" alt="" class="programa-img">Oftalmológico</div>
-                <div class="programa-item"><img src="img/otorrinolaringologia.jpg" alt="" class="programa-img">Otorrinolaringológico</div>
-                <div class="programa-item"><img src="img/gastroenterologia.jpg" alt="" class="programa-img">Digestivo</div>
-                <div class="programa-item"><img src="img/articular.jpg" alt="" class="programa-img">Articular</div>
-                <div class="programa-item"><img src="img/estudio_mamario.jpg" alt="" class="programa-img">Cáncer de mama</div>
-                <div class="programa-item"><img src="img/urologia_prostatica.jpg" alt="" class="programa-img">Próstata</div>
-                <div class="programa-item"><img src="img/cirugia_bariatrica.jpg" alt="" class="programa-img">Bariátrica</div>
-            </div>
-            <p class="programas-nota">Cada programa incluye evaluación médica y prestaciones según su objetivo clínico. Beneficios y descuentos según condiciones vigentes de Red Dávila; te confirmo los detalles de tu caso por WhatsApp.</p>
-        </div>
-        <div class="se-info">
-            <div>
-                <h3><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg> ¿Qué significa este beneficio?</h3>
-                <p>La alianza entre Banmédica y Red Dávila permite que tus seres queridos con previsión Fonasa puedan acceder a atenciones de salud. Tus familiares, aunque pertenezcan a otro sistema, pueden cuidar su salud contigo.</p>
-            </div>
-            <div>
-                <h3><svg class="i" aria-hidden="true"><use href="#i-users"/></svg> ¿Quiénes pueden ser beneficiarios?</h3>
-                <p>Personas desde los <strong>25 años</strong>, con previsión Fonasa en tramo:</p>
-                <div class="tramos"><div class="tramo b">B</div><div class="tramo c">C</div><div class="tramo d">D</div></div>
-            </div>
-        </div>
-        <div class="se-cierre">
-            <p><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg> Porque tu salud también es la de quienes amas. Con Salud Extendida, todos ganamos.</p>
-            <a href="#cotizar">Cotiza con tu asesora →</a>
+            <a href="#planes" class="boton boton-rojo">Ver planes y clínicas</a>
         </div>
     </div>
 </section>
@@ -604,6 +590,51 @@
             </article>
         </div>
         <p class="bp-nota">Los beneficios, topes y condiciones dependen del plan y de las condiciones vigentes de Banmédica. Te confirmo lo que aplica a tu caso al cotizar.</p>
+        <a class="boton boton-wsp" style="margin-top:20px" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20los%20beneficios%20en%20tu%20p%C3%A1gina.%20%C2%BFMi%20plan%20los%20incluye%3F" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wsp"/></svg>¿Te sirve alguno? Pregúntame</a>
+    </div>
+</section>
+
+<section id="salud-extendida">
+    <div class="contenedor">
+        <h2>Salud Extendida</h2>
+        <p class="se-sub"><strong>Más salud para quienes más quieres</strong> — un beneficio exclusivo para ti y hasta 2 personas con Fonasa.</p>
+        <p class="se-intro">Salud Extendida es un programa de <strong>Red Dávila</strong>, al cual afiliados de Isapre Banmédica pueden incorporar hasta <strong>dos personas con previsión FONASA</strong>, que les permitirá acceder a beneficios y descuentos exclusivos en prestaciones de la red.</p>
+        <div class="cifras">
+            <div class="cifra"><div class="valor">$0<small>copago</small></div><div><h3>Consulta médica a costo $0</h3><p>Una vez al año en medicina general o especialidad.</p></div></div>
+            <div class="cifra"><div class="valor">20%<small>laboratorio e imágenes</small></div><div><h3>Descuentos en laboratorio, imágenes y kinesiología</h3><p>20% en laboratorio e imágenes (viernes a domingo) y 10% en kinesiología.</p></div></div>
+            <div class="cifra"><div class="valor">$300K<small>descuento máximo</small></div><div><h3>Valores preferentes en cirugías</h3><p>Hasta $300.000 de descuento en copago de cirugías nominadas.</p></div></div>
+            <div class="cifra"><div class="valor">50%<small>de descuento</small></div><div><h3>Descuento en atención de urgencia</h3><p>50% de descuento en el copago de consulta de urgencia.</p></div></div>
+            <div class="cifra"><div class="valor">$0<small>copago</small></div><div><h3>Programas preventivos completos</h3><p>Consulta + exámenes + imágenes con copago $0.</p></div></div>
+        </div>
+        <p class="se-intro">Todos los beneficios y descuentos del programa Salud Extendida son otorgados por Red Dávila, quien es responsable de su administración y funcionamiento.</p>
+        <div class="programas">
+            <h3>Programas y chequeos incluidos</h3>
+            <div class="programas-grid">
+                <div class="programa-item"><img src="img/oftalmologia.jpg" alt="" class="programa-img">Oftalmológico</div>
+                <div class="programa-item"><img src="img/otorrinolaringologia.jpg" alt="" class="programa-img">Otorrinolaringológico</div>
+                <div class="programa-item"><img src="img/gastroenterologia.jpg" alt="" class="programa-img">Digestivo</div>
+                <div class="programa-item"><img src="img/articular.jpg" alt="" class="programa-img">Articular</div>
+                <div class="programa-item"><img src="img/estudio_mamario.jpg" alt="" class="programa-img">Cáncer de mama</div>
+                <div class="programa-item"><img src="img/urologia_prostatica.jpg" alt="" class="programa-img">Próstata</div>
+                <div class="programa-item"><img src="img/cirugia_bariatrica.jpg" alt="" class="programa-img">Bariátrica</div>
+            </div>
+            <p class="programas-nota">Cada programa incluye evaluación médica y prestaciones según su objetivo clínico. Beneficios y descuentos según condiciones vigentes de Red Dávila; te confirmo los detalles de tu caso por WhatsApp.</p>
+        </div>
+        <div class="se-info">
+            <div>
+                <h3><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg> ¿Qué significa este beneficio?</h3>
+                <p>La alianza entre Banmédica y Red Dávila permite que tus seres queridos con previsión Fonasa puedan acceder a atenciones de salud. Tus familiares, aunque pertenezcan a otro sistema, pueden cuidar su salud contigo.</p>
+            </div>
+            <div>
+                <h3><svg class="i" aria-hidden="true"><use href="#i-users"/></svg> ¿Quiénes pueden ser beneficiarios?</h3>
+                <p>Personas desde los <strong>25 años</strong>, con previsión Fonasa en tramo:</p>
+                <div class="tramos"><div class="tramo b">B</div><div class="tramo c">C</div><div class="tramo d">D</div></div>
+            </div>
+        </div>
+        <div class="se-cierre">
+            <p><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg> Porque tu salud también es la de quienes amas. Con Salud Extendida, todos ganamos.</p>
+            <a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20Salud%20Extendida%20en%20tu%20p%C3%A1gina.%20%C2%BFAplica%20a%20mi%20caso%3F" target="_blank" rel="noopener">¿Aplica a tu caso? Pregúntame por WhatsApp →</a>
+        </div>
     </div>
 </section>
 
@@ -618,6 +649,7 @@
         <details><summary>¿Hay carencia si me cambio a Banmédica?</summary><p>Si vienes desde Fonasa, algunas prestaciones electivas (como cirugías programadas) tienen carencia de 6 meses; las urgencias vitales se cubren desde el primer día. Si vienes desde otra isapre por aviso de alza, no aplican carencias nuevas. Te explico exactamente qué te toca a ti según tu situación.</p></details>
         <details><summary>Si cotizo, ¿quedo obligado a algo?</summary><p>No. Cotizar es solo eso: recibir información y alternativas de plan. Tú decides si sigues adelante, cuándo y con qué plan — o si simplemente no te conviene por ahora.</p></details>
         <details><summary>¿En cuánto tiempo me responden?</summary><p>Reviso los mensajes personalmente y respondo por WhatsApp en unos momentos, dentro del horario de atención (lunes a viernes, 9:00 a 18:00 hrs).</p></details>
+        <div class="faq-cierre"><p>¿Tu duda no está aquí? Pregúntame, sin dejar datos.</p><a class="boton boton-wsp" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wsp"/></svg>Preguntar por WhatsApp</a></div>
     </div>
 </section>
 
@@ -787,8 +819,8 @@
     <div class="contenedor" style="max-width: 760px;">
         <h2>Cuéntame tu caso</h2>
         <p class="subtitulo" style="margin-bottom: 0;">Completa el formulario y te escribo por WhatsApp en unos momentos.</p>
-        <a href="#cotizar" class="boton boton-rojo" style="margin: 22px 0 6px;">Completar el formulario</a>
-        <a href="https://wa.me/56923971471?text=Hola%2C%20quiero%20cotizar%20mi%20plan%20de%20salud" target="_blank" rel="noopener" class="boton" style="margin: 22px 0 6px 10px; background:#fff; color:var(--rojo); border:1.5px solid var(--rojo);">Cotizar por WhatsApp</a>
+        <a href="#cotizar" class="boton boton-rojo" style="margin: 22px 0 6px;">Quiero mi cotización</a>
+        <a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta%20sobre%20planes%20de%20salud." target="_blank" rel="noopener" class="boton boton-wsp" style="margin: 22px 0 6px 10px;"><svg class="i" aria-hidden="true"><use href="#i-wsp"/></svg>Preguntar por WhatsApp</a>
         <p class="contacto-datos">Horario: lunes a viernes, 9:00 a 18:00 hrs<br>Atención en todo Chile</p>
     </div>
 </section>
@@ -918,8 +950,8 @@
     var estado = document.getElementById('guia-estado');
     var wsp = document.getElementById('guia-wsp');
     var limpiar = document.getElementById('guia-limpiar');
-    var base = (document.querySelector('a[href^="https://wa.me/"]') || {}).href || '';
-    base = base.split('?')[0];
+    var base = 'https://wa.me/56923971471';
+    var cot = document.getElementById('guia-cot');
     function actualizar() {
         var sel = [], nombres = [];
         chips.forEach(function (c) { if (c.checked) { sel.push(c.value); nombres.push(c.nextElementSibling.textContent); } });
@@ -932,17 +964,18 @@
             if (sel.length > 0 && cumple) ok.push(p.getAttribute('data-nombre'));
         });
         limpiar.hidden = sel.length === 0;
+        cot.hidden = sel.length === 0;
         if (sel.length === 0) {
             estado.textContent = 'Elige una o más clínicas y marco los planes que las incluyen.';
-            wsp.hidden = true; return;
+            wsp.hidden = true; cot.hidden = true; return;
         }
         if (ok.length === 0) {
-            estado.textContent = 'Ningún plan incluye todas esas clínicas a la vez. Prueba quitando una.';
-            wsp.hidden = true; return;
+            estado.textContent = 'Ningún plan incluye todas esas clínicas a la vez. Prueba quitando una, o consúltame.';
+            wsp.href = base + '?text=' + encodeURIComponent('Hola Carol, estoy mirando tu página y busco planes con: ' + nombres.join(', ') + '. ¿Qué opciones hay?'); wsp.hidden = false; return;
         }
         estado.textContent = (ok.length === 1 ? '1 plan incluye' : ok.length + ' planes incluyen') + ' lo que elegiste: ' + ok.join(', ') + '.';
-        var msg = 'Hola Carol, en tu página encontré planes que incluyen lo que busco (' + nombres.join(', ') + '): ' + ok.join(', ') + '. ¿Me confirmas si me sirven?';
-        if (base) { wsp.href = base + '?text=' + encodeURIComponent(msg); wsp.hidden = false; }
+        var msg = 'Hola Carol, todavía estoy mirando. En tu página encontré planes que incluyen lo que busco (' + nombres.join(', ') + '): ' + ok.join(', ') + '. ¿Me confirmas si me sirven?';
+        wsp.href = base + '?text=' + encodeURIComponent(msg); wsp.hidden = false;
     }
     chips.forEach(function (c) { c.addEventListener('change', actualizar); });
     limpiar.addEventListener('click', function () { chips.forEach(function (c) { c.checked = false; }); actualizar(); });
