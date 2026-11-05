@@ -320,6 +320,78 @@
     }
     @media (prefers-reduced-motion: reduce) { .js .pasos li:not(.on) { opacity: 1; transform: none; } }
 
+
+    /* ---- cinta de movimiento ---- */
+    .cinta { overflow: hidden; border-block: 1px solid var(--linea); padding: 22px 0; background: var(--superficie); }
+    .cinta-pista { display: flex; width: max-content; animation: cinta 46s linear infinite; }
+    .cinta-pista span { font: 800 clamp(2.4rem, 7.2vw, 5.6rem)/1 var(--display); letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1.5px var(--marino); padding-right: .5em; white-space: nowrap; display: inline-flex; align-items: center; }
+    .cinta-pista span::after { content: ""; width: .32em; height: .32em; margin-left: .5em; background: var(--oro); transform: rotate(45deg); display: block; }
+    .cinta-pista span:nth-child(even) { color: var(--marino); -webkit-text-stroke: 0; }
+    .cinta:hover .cinta-pista { animation-play-state: paused; }
+    @keyframes cinta { to { transform: translateX(-25%); } }
+    @media (prefers-reduced-motion: reduce) { .cinta-pista { animation: none; } .cinta { overflow-x: auto; } }
+
+    /* ---- ejemplos: respuesta al pasar el cursor ---- */
+    .mq-marco { transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
+    .mq:hover .mq-marco { transform: translateY(-8px) rotate(-.8deg); }
+    .mq .mq-btn { transition: transform .4s var(--ease); transform-origin: left center; }
+    .mq:hover .mq-btn { transform: scale(1.08); }
+    .mq .mq-fila, .mq .mq-bloque, .mq .mq-campo { transition: transform .5s var(--ease); }
+    .mq:hover .mq-fila:nth-of-type(odd), .mq:hover .mq-bloque:nth-child(2) { transform: translateX(6px); }
+    .mq:hover .mq-fila:nth-of-type(even) { transform: translateX(-4px); }
+
+    /* ---- historia a pantalla completa ---- */
+    .historia { padding: 0; }
+    .historia-pista { height: 330svh; position: relative; }
+    .historia-escena { position: sticky; top: 0; min-height: 100dvh; display: grid; align-items: center; padding: 96px 0 40px; overflow: clip; }
+    .historia-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(28px, 5vw, 80px); align-items: center; }
+    .h-etapas { display: grid; margin-top: 28px; }
+    .h-etapa { grid-area: 1 / 1; opacity: 0; transform: translateY(16px); transition: opacity .6s var(--ease), transform .6s var(--ease); pointer-events: none; }
+    .e1 .h-etapa[data-e="1"], .e2 .h-etapa[data-e="2"], .e3 .h-etapa[data-e="3"] { opacity: 1; transform: none; pointer-events: auto; }
+    .h-etapa h3 { color: var(--sobre-hondo); font-size: clamp(1.8rem, 3.6vw, 2.8rem); font-weight: 800; margin-bottom: 12px; }
+    .h-etapa p { color: var(--sobre-hondo-suave); max-width: 28em; font-size: 1.06rem; }
+    .h-riel { position: relative; margin-top: 30px; height: 20px; display: flex; justify-content: space-between; align-items: center; }
+    .h-riel::before { content: ""; position: absolute; left: 0; right: 0; top: 9px; border-top: 2px dashed rgba(226, 176, 74, .55); }
+    .h-riel i { position: relative; width: 20px; height: 20px; border-radius: 50%; background: var(--hondo); border: 3px solid #E2B04A; display: block; transition: background-color .4s; }
+    .h-riel i:first-child { background: #E2B04A; }
+    .e2 .h-riel i:nth-child(2), .e3 .h-riel i:nth-child(2), .e3 .h-riel i:nth-child(3) { background: #E2B04A; }
+    .h-avion { position: absolute; left: calc(var(--p, 0) * 100%); top: -9px; width: 38px; height: 38px; margin-left: -19px; transform: rotate(8deg); filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .35)); }
+    .h-avion svg { width: 100%; height: 100%; display: block; }
+    .h-pagina { position: relative; min-height: clamp(240px, 38vh, 400px); background: var(--superficie); overflow: hidden; }
+    .capa { position: absolute; inset: 0; padding: 16px; display: grid; gap: 12px; align-content: start; }
+    .capa-plan { transition: opacity .7s var(--ease); }
+    .e2 .capa-plan, .e3 .capa-plan { opacity: 0; }
+    .w { display: block; border: 2px dashed var(--linea); border-radius: 10px; }
+    .w.cab { height: 26px; } .w.por { height: 90px; } .w.fil { height: 38px; }
+    .capa-pagina { --acento: var(--oro); --acento-suave: var(--oro-suave); clip-path: inset(0 0 100% 0); transition: clip-path 1.1s var(--ease); }
+    .e2 .capa-pagina, .e3 .capa-pagina { clip-path: inset(0); }
+    .capa-pagina .vp-cab .mq-logo { background: var(--acento); }
+    .capa-pagina .mq-btn { background: var(--acento); color: #0C1A33; }
+    .capa-pagina .vp-fila .mq-img, .capa-pagina .vp-fila .mq-chip { background: var(--acento-suave); }
+    .h-url { transition: background-color .6s, opacity .6s; }
+    .e2 .h-url, .e3 .h-url { background: var(--valido); opacity: .85; }
+    .capa-avisos { position: absolute; right: 12px; bottom: 12px; display: grid; gap: 8px; width: min(240px, 64%); }
+    .aviso { background: var(--superficie); border: 1px solid var(--linea); border-radius: 12px; padding: 10px 12px; display: grid; gap: 6px; box-shadow: var(--sombra); opacity: 0; transform: translateX(28px) scale(.96); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+    .e3 .aviso { opacity: 1; transform: none; }
+    .e3 .aviso:nth-child(2) { transition-delay: .2s; } .e3 .aviso:nth-child(3) { transition-delay: .4s; }
+    .aviso-t { display: flex; align-items: center; gap: 8px; font: 700 12.5px/1 var(--display); color: var(--marino); }
+    .aviso-t i { width: 8px; height: 8px; border-radius: 50%; background: var(--valido); display: block; }
+    @media (max-width: 899px) {
+        .historia-grid { grid-template-columns: 1fr; gap: 20px; }
+        .historia-escena { padding: 84px 0 24px; }
+        .h-etapas { margin-top: 14px; } .h-riel { margin-top: 16px; }
+        .h-pagina { min-height: 230px; }
+        .capa-avisos { width: 72%; }
+    }
+    :is(html:not(.js) .historia, .historia.estatico) .historia-pista { height: auto; }
+    :is(html:not(.js) .historia, .historia.estatico) .historia-escena { position: static; min-height: 0; padding: 72px 0; }
+    :is(html:not(.js) .historia, .historia.estatico) .h-etapas { gap: 22px; }
+    :is(html:not(.js) .historia, .historia.estatico) .h-etapa { grid-area: auto; opacity: 1; transform: none; }
+    :is(html:not(.js) .historia, .historia.estatico) .capa-plan, :is(html:not(.js) .historia, .historia.estatico) .h-riel { display: none; }
+    :is(html:not(.js) .historia, .historia.estatico) .capa-pagina { clip-path: none; }
+    :is(html:not(.js) .historia, .historia.estatico) .aviso { opacity: 1; transform: none; }
+    :is(html:not(.js) .historia, .historia.estatico) .h-url { background: var(--valido); opacity: .85; }
+
     /* maquetas de ejemplo */
     .maquetas { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px); align-items: start; }
     .mq { margin: 0; display: grid; gap: 14px; }
@@ -445,6 +517,8 @@
         </div>
     </section>
 
+    <div class="cinta" aria-hidden="true"><div class="cinta-pista"><span>Páginas web</span><span>Publicidad</span><span>Redes sociales</span><span>Posicionamiento</span><span>Contactos</span><span>Páginas web</span><span>Publicidad</span><span>Redes sociales</span><span>Posicionamiento</span><span>Contactos</span><span>Páginas web</span><span>Publicidad</span><span>Redes sociales</span><span>Posicionamiento</span><span>Contactos</span><span>Páginas web</span><span>Publicidad</span><span>Redes sociales</span><span>Posicionamiento</span><span>Contactos</span></div></div>
+
     <section class="seccion quienes" id="quienes">
         <div class="caja">
             <h2 class="titulo-sec">Marketing digital: que quien te necesita te encuentre.</h2>
@@ -539,15 +613,42 @@
         </div>
     </section>
 
-    <section class="seccion hondo" id="como">
-        <div class="caja">
-            <h2 class="titulo-sec">Así trabajamos contigo.</h2>
-            <ol class="pasos" id="pasos">
-                <span class="pasos-avion" aria-hidden="true"><svg viewBox="0 0 200 200"><use href="#planeador"/></svg></span>
-                <li><h3>Planeamos</h3><p>Conversamos qué ofreces, a quién quieres llegar y qué te gustaría lograr, y armamos un plan simple.</p></li>
-                <li><h3>Armamos y publicamos</h3><p>Creamos tu página y tus campañas. Tú revisas el contenido antes de que salga.</p></li>
-                <li><h3>Administramos y ajustamos</h3><p>Mantenemos todo al día y revisamos qué funciona para mejorarlo.</p></li>
-            </ol>
+    <section class="historia hondo" id="como" aria-labelledby="h-tit">
+        <div class="historia-pista" id="historia-pista">
+            <div class="historia-escena e1" id="historia-escena">
+                <div class="caja historia-grid">
+                    <div class="h-texto">
+                        <h2 class="titulo-sec" id="h-tit">Así trabajamos contigo.</h2>
+                        <div class="h-etapas">
+                            <div class="h-etapa" data-e="1"><h3>Planeamos</h3><p>Conversamos qué ofreces, a quién quieres llegar y qué te gustaría lograr, y armamos un plan simple.</p></div>
+                            <div class="h-etapa" data-e="2"><h3>Armamos y publicamos</h3><p>Creamos tu página y tus campañas. Tú revisas el contenido antes de que salga.</p></div>
+                            <div class="h-etapa" data-e="3"><h3>Te contactan, ajustamos</h3><p>Los mensajes de quienes se interesan llegan a ti. Nosotros mantenemos todo al día y revisamos qué funciona para mejorarlo.</p></div>
+                        </div>
+                        <div class="h-riel" aria-hidden="true"><i></i><i></i><i></i><span class="h-avion"><svg viewBox="0 0 200 200"><use href="#planeador"/></svg></span></div>
+                    </div>
+                    <div class="h-visual" aria-hidden="true">
+                        <div class="vivo-marco">
+                            <div class="mq-barra"><i></i><i></i><i></i><span class="vivo-url h-url"></span></div>
+                            <div class="h-pagina">
+                                <div class="capa capa-plan"><span class="w cab"></span><span class="w por"></span><span class="w fil"></span><span class="w fil"></span><span class="w fil"></span></div>
+                                <div class="capa capa-pagina">
+                                    <div class="vp-cab"><span class="mq-logo"></span><span class="mq-linea corta"></span><span class="vp-nav"><i></i><i></i><i></i></span></div>
+                                    <div class="vp-portada"><span class="vp-tit">Tu carta, a un toque</span><span class="vp-sub">Pedidos por WhatsApp y datos del local</span><span class="mq-btn">Pedir por WhatsApp</span></div>
+                                    <div class="vp-filas">
+                                        <div class="vp-fila"><span class="mq-img"></span><span class="mq-textos"><span class="mq-linea"></span><span class="mq-linea corta"></span></span><span class="mq-chip"></span></div>
+                                        <div class="vp-fila"><span class="mq-img"></span><span class="mq-textos"><span class="mq-linea"></span><span class="mq-linea corta"></span></span><span class="mq-chip"></span></div>
+                                    </div>
+                                </div>
+                                <div class="capa-avisos">
+                                    <div class="aviso"><span class="aviso-t"><i></i>Nuevo contacto</span><span class="mq-linea"></span><span class="mq-linea corta"></span></div>
+                                    <div class="aviso"><span class="aviso-t"><i></i>Nuevo contacto</span><span class="mq-linea"></span><span class="mq-linea corta"></span></div>
+                                    <div class="aviso"><span class="aviso-t"><i></i>Nuevo contacto</span><span class="mq-linea"></span><span class="mq-linea corta"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -846,25 +947,28 @@
     cab.addEventListener('pointerup', soltar);
     cab.addEventListener('pointercancel', soltar);
 
-    /* ---------- hilo del avión: cómo trabajamos ---------- */
-    var seccion = document.getElementById('como');
-    var pasos = document.getElementById('pasos');
-    var items = pasos ? pasos.querySelectorAll('li') : [];
+    /* ---------- historia a pantalla completa ---------- */
+    var historia = document.getElementById('como');
+    var pista = document.getElementById('historia-pista');
+    var escena = document.getElementById('historia-escena');
     var pendiente = false;
     function medir() {
         pendiente = false;
-        var r = seccion.getBoundingClientRect(), vh = window.innerHeight;
-        var p = (vh * 0.78 - r.top) / (r.height * 0.8);
-        p = Math.max(0, Math.min(1, p));
-        pasos.style.setProperty('--p', p.toFixed(3));
-        for (var i = 0; i < items.length; i++) {
-            items[i].classList.toggle('on', p >= (i + 0.15) / items.length || (i === 0 && p > 0.02));
-        }
+        var r = pista.getBoundingClientRect();
+        var total = Math.max(1, r.height - window.innerHeight);
+        var p = Math.max(0, Math.min(1, -r.top / total));
+        var e = p < 0.34 ? 1 : (p < 0.68 ? 2 : 3);
+        escena.className = 'historia-escena e' + e;
+        escena.style.setProperty('--p', p.toFixed(3));
     }
-    if (pasos && seccion) {
-        medir();
-        window.addEventListener('scroll', function () { if (!pendiente) { pendiente = true; window.requestAnimationFrame(medir); } }, { passive: true });
-        window.addEventListener('resize', medir);
+    if (historia && pista && escena) {
+        if (reducir) {
+            historia.classList.add('estatico');
+        } else {
+            medir();
+            window.addEventListener('scroll', medir, { passive: true });
+            window.addEventListener('resize', medir);
+        }
     }
 })();
 </script>
