@@ -3,6 +3,7 @@
 <head>
 <meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
+<script>(function(){try{var t=null,m=/[?&]tema=(noche|dia)/.exec(location.search);if(m){t=m[1];try{localStorage.setItem('planeador_tema',t)}catch(e){}}else{try{t=localStorage.getItem('planeador_tema')}catch(e){}}if(t==='noche'||t==='dia'){document.documentElement.setAttribute('data-tema',t)}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>El Planeador</title>
 <meta name="description" content="Agencia chilena de marketing digital: páginas web, publicidad en redes sociales y buscadores, y gestión de contenido para negocios, ejecutivos y empresas de todo rubro.">
@@ -571,6 +572,68 @@
     .v-credito { position: absolute; right: 14px; bottom: 10px; z-index: 2; font-size: 11.5px; color: rgba(255, 255, 255, .78); }
     @media (max-width: 760px) { .v-foto { object-position: 76% 50%; } .viaje-escena::after { background: linear-gradient(180deg, rgba(20, 22, 100, .6), rgba(20, 22, 100, 0) 70%); } }
     @media (prefers-reduced-motion: reduce) { .v-foto { transform: none; } }
+
+    /* ================= cinco recursos ================= */
+    .hero .acento { color: var(--oro); }
+    .constelacion { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: block; }
+    .avion { display: none; }
+    .hero .vivo .hero-objeto { position: absolute; right: -34px; bottom: -92px; width: clamp(110px, 13vw, 210px); aspect-ratio: 1; z-index: 3; pointer-events: none; display: grid; place-items: center; }
+    .hero-objeto .halo { position: absolute; inset: -34%; border-radius: 50%; background: radial-gradient(circle, rgba(255, 196, 61, .85) 0%, rgba(255, 176, 0, .35) 38%, rgba(255, 176, 0, 0) 68%); }
+    .hero-objeto svg { position: relative; width: 100%; height: 100%; display: block; filter: drop-shadow(0 14px 22px rgba(5, 12, 70, .5)); }
+    @media (prefers-reduced-motion: no-preference) {
+        .hero-objeto { animation: planea 6.5s ease-in-out infinite; }
+        .hero-objeto .halo { animation: late 4.2s ease-in-out infinite; }
+        @keyframes planea { 0%, 100% { transform: translate(0, 0) rotate(-4deg); } 50% { transform: translate(-10px, -16px) rotate(3deg); } }
+        @keyframes late { 50% { transform: scale(1.12); opacity: .8; } }
+    }
+    @media (max-width: 760px) { .hero .vivo .hero-objeto { width: 96px; right: -6px; bottom: -34px; } }
+
+    .dolores strong { color: var(--azul); font-size: 1rem; }
+    .dolores span { color: var(--tinta); font-size: 1.12rem; line-height: 1.45; max-width: 30em; }
+    #dolores .boton { margin-top: 36px; }
+    #dolores { background: var(--suelo); }
+
+    .flota-btn { position: fixed; z-index: 30; right: 18px; bottom: 18px; display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 20px 0 16px; border: 0; border-radius: 999px; background: var(--oro); color: #0B1B5C; font: 700 15px/1 var(--display); cursor: pointer; box-shadow: 0 14px 30px -8px rgba(11, 27, 92, .5); transition: transform .3s var(--ease), background-color .2s; }
+    .flota-btn:hover { transform: translateY(-3px); background: #FFC83D; }
+    .flota-btn svg { width: 24px; height: 24px; display: block; }
+    @media (prefers-reduced-motion: no-preference) { .flota-btn::after { content: ""; position: absolute; inset: -5px; border-radius: 999px; border: 2px solid var(--oro); opacity: 0; animation: pulso 3.4s ease-out infinite; } @keyframes pulso { 0% { transform: scale(.94); opacity: .7; } 70%, 100% { transform: scale(1.18); opacity: 0; } } }
+    @media (max-width: 560px) { .flota-btn { right: 12px; bottom: 12px; font-size: 14px; padding: 0 16px 0 12px; } }
+    .v-credito { right: auto; left: 14px; }
+
+    /* ---- selector dia / noche ---- */
+    .tema-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 14px; font: 700 13px/1 var(--display); color: var(--marino); background: transparent; border: 1px solid var(--linea); border-radius: 12px; cursor: pointer; transition: background-color .2s, border-color .2s; }
+    .tema-btn:hover { border-color: var(--azul); }
+    .tema-btn svg { width: 18px; height: 18px; display: block; }
+    .tema-btn .i-luna { display: none; }
+    html[data-tema="noche"] .tema-btn .i-sol { display: none; }
+    html[data-tema="noche"] .tema-btn .i-luna { display: block; }
+    @media (max-width: 720px) { .tema-btn .tema-txt { display: none; } .tema-btn { padding: 0 11px; } }
+
+    /* ================= MODO NOCHE ================= */
+    html[data-tema="noche"] { color-scheme: dark; --suelo: #070B1E; --superficie: #0F1633; --linea: #25306A; --tinta: #EEF2FF; --suave: #A9B6DC; --marino: #EEF2FF; --azul: #4A67FF; --oro-suave: #2A2310; --valido: #3FD8B0; --valido-suave: #0E2D2B; --hondo: #0A1030; --logo-a: #EEF2FF; --logo-b: #8FA4FF; --sombra: 0 1px 2px rgba(0, 0, 0, .5), 0 28px 56px -18px rgba(0, 0, 0, .75); }
+    html[data-tema="noche"] .hero { background: radial-gradient(900px 520px at 88% 6%, rgba(74, 103, 255, .5) 0%, rgba(74, 103, 255, 0) 62%), radial-gradient(700px 480px at 0% 100%, rgba(255, 92, 122, .22) 0%, rgba(255, 92, 122, 0) 60%), #070B1E; }
+    html[data-tema="noche"] .hero::before { box-shadow: 0 0 140px 30px rgba(255, 176, 0, .32); }
+    html[data-tema="noche"] .hero::after { border-color: rgba(255, 92, 122, .85); }
+    html[data-tema="noche"] .barra .caja { background: rgba(15, 22, 51, .88); }
+    html[data-tema="noche"] .boton-primario { background: var(--azul); color: #fff; }
+    html[data-tema="noche"] .boton-primario:hover { background: #6F86FF; color: #fff; }
+    html[data-tema="noche"] .hero .boton-primario { background: var(--oro); color: #0B1B5C; }
+    html[data-tema="noche"] .cinta { background: var(--superficie); border-block: 1px solid var(--linea); }
+    html[data-tema="noche"] .cinta-pista span { -webkit-text-stroke: 1.6px var(--oro); }
+    html[data-tema="noche"] .cinta-pista span:nth-child(even) { color: var(--oro); -webkit-text-stroke: 0; }
+    html[data-tema="noche"] .cinta-pista span::after { background: var(--azul); }
+    html[data-tema="noche"] #servicios, html[data-tema="noche"] #condiciones, html[data-tema="noche"] #dolores, html[data-tema="noche"] .quienes, html[data-tema="noche"] .pie { background: var(--suelo); }
+    html[data-tema="noche"] #rubros, html[data-tema="noche"] #ejemplos { background: #0B1230; }
+    html[data-tema="noche"] .ejec { background: #111C4F; }
+    html[data-tema="noche"] .historia.hondo, html[data-tema="noche"] .hondo { background: #0A1030; }
+    html[data-tema="noche"] .lista-ed > .item::after { border-color: var(--linea); }
+    html[data-tema="noche"] .lista-ed > .item:hover::after { background-color: var(--oro); }
+    html[data-tema="noche"] .mq-marco { border-color: var(--linea); }
+    html[data-tema="noche"] .hoja-cerrar { color: var(--tinta); }
+    html[data-tema="noche"] .velo { background: rgba(3, 6, 20, .66); }
+    html[data-tema="noche"] .dolores strong { color: #8FA4FF; }
+    html[data-tema="noche"] .flota-btn { box-shadow: 0 14px 34px -8px rgba(255, 176, 0, .35); }
+
 </style>
 </head>
 <body>
@@ -599,6 +662,7 @@
             <a href="#rubros">Para quién</a>
             <a href="#como">Cómo trabajamos</a>
             <a href="#ejemplos">Ejemplos</a>
+            <button type="button" class="tema-btn" id="tema" aria-pressed="false" aria-label="Cambiar entre modo día y modo noche"><svg class="i-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.9 1.9M16.8 16.8l1.9 1.9M18.7 5.3l-1.9 1.9M7.2 16.8l-1.9 1.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><svg class="i-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.4 8.4 0 0 1 9.4 4 8.4 8.4 0 1 0 20 14.6z" fill="currentColor"/></svg><span class="tema-txt">Noche</span></button>
             <button type="button" class="menu-btn" data-hoja="menu" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Menú</button>
             <a class="boton boton-primario" href="#contacto" data-hoja="contacto">Hablemos</a>
         </nav>
@@ -607,13 +671,14 @@
 
 <main>
     <section class="hero">
+        <canvas class="constelacion" aria-hidden="true"></canvas>
         <svg class="ruta" viewBox="0 0 1440 700" preserveAspectRatio="xMinYMin slice" aria-hidden="true">
             <path d="M 760 760 C 1040 720, 1240 520, 1310 320 S 1400 90, 1470 20"/>
         </svg>
         <svg class="avion" viewBox="0 0 200 200" aria-hidden="true"><use href="#planeador-claro"/></svg>
         <div class="caja">
             <div>
-                <h1>Planeamos tu estrategia <span class="subraya">de marketing digital.</span></h1>
+                <h1>Planeamos tu <span class="acento">estrategia</span> <span class="subraya">de marketing digital.</span></h1>
                 <p class="bajada">Y la ejecutamos: tu página web, publicidad en redes sociales y buscadores, y los contactos de quienes te necesitan. Somos El Planeador, by BTo Innova soluciones.</p>
                 <ul class="controles" aria-label="Qué busca el marketing digital">
                     <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Que te encuentren</strong><span>Publicidad en redes sociales y en buscadores, dirigida a quien busca lo que ofreces.</span></li>
@@ -626,6 +691,7 @@
                 </div>
             </div>
             <div class="vivo" id="vivo">
+                <div class="hero-objeto" aria-hidden="true"><span class="halo"></span><svg viewBox="0 0 200 200"><use href="#planeador-claro"/></svg></div>
                 <div class="vivo-rubros" role="group" aria-label="Elige tu rubro para ver cómo se vería tu página">
                     <button type="button" class="vchip" data-r="restaurante" aria-pressed="true">Restaurante</button>
                     <button type="button" class="vchip" data-r="ejecutivo" aria-pressed="false">Ejecutivo de ventas</button>
@@ -701,6 +767,23 @@
                     <p>El Planeador es la agencia de marketing digital de BTo Innova soluciones, un grupo chileno que también desarrolla software. Nos encargamos de la promoción; el contenido y las decisiones de cada negocio son de su dueño.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="seccion" id="dolores">
+        <div class="caja">
+            <h2 class="titulo-sec">¿Te suena alguna de estas?</h2>
+            <div class="lista-ed dolores">
+                <div><strong>Restaurante</strong><span>Tienes una carta que da hambre, pero la gente no sabe cómo pedirte.</span></div>
+                <div><strong>Restaurante</strong><span>Te encuentran en Google, pero tu competencia aparece antes que tú.</span></div>
+                <div><strong>Ejecutivo de ventas</strong><span>Dependes de que te recuerden, porque no tienes una página propia donde mandar a quien te pregunta.</span></div>
+                <div><strong>Ejecutivo de ventas</strong><span>Pagas publicidad y no sabes de dónde viene cada contacto.</span></div>
+                <div><strong>Profesional</strong><span>Te escriben fuera de horario porque nadie ve tu agenda ni cómo pedir una hora.</span></div>
+                <div><strong>Profesional</strong><span>Tus redes se ven abandonadas y eso le resta confianza a lo que haces.</span></div>
+                <div><strong>Comercio</strong><span>Subes productos a las redes y cada venta termina en una conversación interminable.</span></div>
+                <div><strong>Comercio</strong><span>No sabes qué campaña te trae clientes y cuál solo gasta presupuesto.</span></div>
+            </div>
+            <a class="boton boton-primario" id="dolores-cta" href="#contacto" data-hoja="contacto">Si alguna te suena, conversemos</a>
         </div>
     </section>
 
@@ -855,6 +938,8 @@
         <span>El Planeador es una marca de BTo Innova SpA · RUT 78.533.592-9 · Chile · by BTo Innova soluciones</span>
     </div>
 </footer>
+
+<button type="button" class="flota-btn" data-hoja="contacto" aria-haspopup="dialog"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#planeador"/></svg>Habla con el Planeador</button>
 
 <div class="velo" id="velo" aria-hidden="true"></div>
 <aside class="hoja" id="hoja" role="dialog" aria-modal="true" aria-labelledby="hoja-tit" aria-hidden="true" tabindex="-1">
@@ -1172,6 +1257,76 @@
             medir();
             window.addEventListener('scroll', medir, { passive: true });
             window.addEventListener('resize', medir);
+        }
+    }
+    /* ---------- modo dia / noche ---------- */
+    var temaBtn = document.getElementById('tema');
+    function guardarLocal(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* sin almacenamiento */ } }
+    function aplicarTema(t) {
+        raiz.setAttribute('data-tema', t);
+        if (temaBtn) {
+            temaBtn.setAttribute('aria-pressed', t === 'noche' ? 'true' : 'false');
+            var tx = temaBtn.querySelector('.tema-txt');
+            if (tx) tx.textContent = t === 'noche' ? 'Día' : 'Noche';
+        }
+    }
+    aplicarTema(raiz.getAttribute('data-tema') === 'noche' ? 'noche' : 'dia');
+    if (temaBtn) {
+        temaBtn.addEventListener('click', function () {
+            var nuevo = raiz.getAttribute('data-tema') === 'noche' ? 'dia' : 'noche';
+            aplicarTema(nuevo);
+            guardarLocal('planeador_tema', nuevo);
+        });
+    }
+
+    /* ---------- constelacion de la portada ---------- */
+    var cv = document.querySelector('.constelacion');
+    if (cv && cv.getContext) {
+        var cx = cv.getContext('2d'), pts = [], W = 0, H = 0, visible = true, raton = null;
+        var tamanio = function () {
+            var r = cv.parentNode.getBoundingClientRect(), d = Math.min(2, window.devicePixelRatio || 1);
+            W = r.width; H = r.height;
+            cv.width = Math.round(W * d); cv.height = Math.round(H * d);
+            cx.setTransform(d, 0, 0, d, 0, 0);
+            var n = Math.max(18, Math.min(64, Math.round(W * H / 21000)));
+            pts = [];
+            for (var i = 0; i < n; i++) pts.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - 0.5) * 0.28, vy: (Math.random() - 0.5) * 0.28 });
+        };
+        var pintarC = function (mover) {
+            cx.clearRect(0, 0, W, H);
+            var noche = raiz.getAttribute('data-tema') === 'noche';
+            var col = noche ? '255,176,0' : '255,255,255';
+            var i, j, p, q, dx, dy, dd;
+            for (i = 0; i < pts.length; i++) {
+                p = pts[i];
+                if (mover) {
+                    p.x += p.vx; p.y += p.vy;
+                    if (p.x < 0 || p.x > W) p.vx *= -1;
+                    if (p.y < 0 || p.y > H) p.vy *= -1;
+                }
+                cx.fillStyle = 'rgba(' + col + ',.75)';
+                cx.beginPath(); cx.arc(p.x, p.y, 1.8, 0, 6.2832); cx.fill();
+                for (j = i + 1; j < pts.length; j++) {
+                    q = pts[j]; dx = p.x - q.x; dy = p.y - q.y; dd = Math.sqrt(dx * dx + dy * dy);
+                    if (dd < 150) { cx.strokeStyle = 'rgba(' + col + ',' + ((1 - dd / 150) * 0.34).toFixed(3) + ')'; cx.lineWidth = 1; cx.beginPath(); cx.moveTo(p.x, p.y); cx.lineTo(q.x, q.y); cx.stroke(); }
+                }
+                if (raton) {
+                    dx = p.x - raton.x; dy = p.y - raton.y; dd = Math.sqrt(dx * dx + dy * dy);
+                    if (dd < 170) { cx.strokeStyle = 'rgba(' + col + ',' + ((1 - dd / 170) * 0.55).toFixed(3) + ')'; cx.beginPath(); cx.moveTo(p.x, p.y); cx.lineTo(raton.x, raton.y); cx.stroke(); }
+                }
+            }
+        };
+        tamanio();
+        if (reducir) {
+            pintarC(false);
+            window.addEventListener('resize', function () { tamanio(); pintarC(false); });
+        } else {
+            var bucle = function () { if (visible) pintarC(true); window.requestAnimationFrame(bucle); };
+            window.requestAnimationFrame(bucle);
+            window.addEventListener('resize', tamanio);
+            if (window.IntersectionObserver) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(cv.parentNode);
+            cv.parentNode.addEventListener('pointermove', function (ev) { var r = cv.getBoundingClientRect(); raton = { x: ev.clientX - r.left, y: ev.clientY - r.top }; });
+            cv.parentNode.addEventListener('pointerleave', function () { raton = null; });
         }
     }
 })();
