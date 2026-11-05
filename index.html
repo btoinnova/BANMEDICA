@@ -222,6 +222,40 @@
     #condiciones .no-hacemos { max-width: 44em; margin-top: 32px; }
     #condiciones .no-hacemos svg { color: var(--valido); }
 
+    /* maquetas de ejemplo */
+    .maquetas { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px); align-items: start; }
+    .mq { margin: 0; display: grid; gap: 14px; }
+    .mq-marco { background: var(--superficie); border: 1px solid var(--linea); border-radius: 16px; box-shadow: var(--sombra); overflow: hidden; }
+    .mq-barra { display: flex; gap: 6px; padding: 10px 12px; background: var(--suelo); border-bottom: 1px solid var(--linea); }
+    .mq-barra i { width: 9px; height: 9px; border-radius: 50%; background: var(--linea); display: block; }
+    .mq-cuerpo { padding: 14px; display: grid; gap: 12px; min-height: 300px; align-content: start; }
+    .mq-cab { display: flex; align-items: center; gap: 10px; }
+    .mq-logo { width: 22px; height: 22px; border-radius: 7px; background: var(--marino); display: block; }
+    .mq-linea { display: block; height: 8px; border-radius: 4px; background: var(--linea); width: 100%; }
+    .mq-linea.corta { width: 55%; }
+    .mq-portada { display: grid; gap: 12px; padding: 18px 14px; border-radius: 12px; background: var(--hondo); justify-items: start; }
+    .mq-portada.alta { padding: 34px 14px; }
+    .mq-tit { font: 800 1.15rem/1.1 var(--display); color: #EEF2F7; letter-spacing: -.02em; }
+    .mq-btn { display: inline-block; padding: 8px 12px; border-radius: 9px; background: var(--oro); color: #0C1A33; font: 700 12px/1 var(--display); }
+    .mq-btn.ancho { text-align: center; }
+    .mq-fila { display: grid; grid-template-columns: 38px 1fr 28px; gap: 10px; align-items: center; }
+    .mq-img { width: 38px; height: 38px; border-radius: 9px; background: var(--oro-suave); display: block; }
+    .mq-textos { display: grid; gap: 6px; }
+    .mq-chip { height: 18px; border-radius: 9px; background: var(--valido-suave); display: block; }
+    .mq-perfil { display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: center; }
+    .mq-foto { width: 52px; height: 52px; border-radius: 16px; background: var(--linea); display: block; }
+    .mq-lista { display: grid; gap: 8px; }
+    .mq-form { display: grid; gap: 8px; padding: 12px; border: 1px solid var(--linea); border-radius: 12px; justify-items: start; }
+    .mq-campo { display: block; height: 22px; width: 100%; border-radius: 7px; background: var(--suelo); border: 1px solid var(--linea); }
+    .mq-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .mq-bloque { height: 56px; border-radius: 10px; background: var(--oro-suave); display: block; }
+    .mq-mapa { height: 70px; border-radius: 12px; background: var(--valido-suave); display: grid; place-items: center; }
+    .mq-pin { width: 16px; height: 16px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--valido); display: block; }
+    .mq figcaption { display: grid; gap: 2px; }
+    .mq figcaption strong { font: 700 1.2rem/1.2 var(--display); color: var(--marino); letter-spacing: -.02em; }
+    .mq figcaption span { color: var(--suave); font-size: 1rem; }
+    @media (max-width: 900px) { .maquetas { grid-template-columns: 1fr; max-width: 420px; } .mq-cuerpo { min-height: 0; } }
+
     /* quiénes somos */
     .quienes { padding-bottom: 24px; }
     .quienes .titulo-sec { max-width: 17em; }
@@ -266,10 +300,7 @@
             <a href="#servicios">Servicios</a>
             <a href="#rubros">Para quién</a>
             <a href="#como">Cómo trabajamos</a>
-            <div class="sub">
-                <button type="button" class="sub-boton" aria-expanded="false" aria-controls="sub-ej">Ejemplos <span aria-hidden="true">▾</span></button>
-                <div class="sub-lista" id="sub-ej"><a href="salud/banmedica/">Página de planes de salud</a></div>
-            </div>
+            <a href="#ejemplos">Ejemplos</a>
             <a class="boton boton-primario" href="#contacto">Hablemos</a>
         </nav>
     </div>
@@ -351,6 +382,53 @@
         </div>
     </section>
 
+    <section class="seccion" id="ejemplos">
+        <div class="caja">
+            <h2 class="titulo-sec">Así podría verse tu página.</h2>
+            <p class="intro">Maquetas ilustrativas de lo que podemos construir. Cada proyecto se diseña según tu negocio y lo que necesites mostrar.</p>
+            <div class="maquetas">
+                <figure class="mq">
+                    <div class="mq-marco" aria-hidden="true">
+                        <div class="mq-barra"><i></i><i></i><i></i></div>
+                        <div class="mq-cuerpo">
+                            <div class="mq-cab"><span class="mq-logo"></span><span class="mq-linea corta"></span></div>
+                            <div class="mq-portada"><span class="mq-tit">Tu carta, a un toque</span><span class="mq-btn">Pedir por WhatsApp</span></div>
+                            <div class="mq-fila"><span class="mq-img"></span><span class="mq-textos"><span class="mq-linea"></span><span class="mq-linea corta"></span></span><span class="mq-chip"></span></div>
+                            <div class="mq-fila"><span class="mq-img"></span><span class="mq-textos"><span class="mq-linea"></span><span class="mq-linea corta"></span></span><span class="mq-chip"></span></div>
+                            <div class="mq-fila"><span class="mq-img"></span><span class="mq-textos"><span class="mq-linea"></span><span class="mq-linea corta"></span></span><span class="mq-chip"></span></div>
+                        </div>
+                    </div>
+                    <figcaption><strong>Delivery y pedidos</strong><span>Carta, pedido por WhatsApp y datos del local.</span></figcaption>
+                </figure>
+                <figure class="mq">
+                    <div class="mq-marco" aria-hidden="true">
+                        <div class="mq-barra"><i></i><i></i><i></i></div>
+                        <div class="mq-cuerpo">
+                            <div class="mq-cab"><span class="mq-logo"></span><span class="mq-linea corta"></span></div>
+                            <div class="mq-perfil"><span class="mq-foto"></span><span class="mq-textos"><span class="mq-linea"></span><span class="mq-linea corta"></span></span></div>
+                            <div class="mq-lista"><span class="mq-linea"></span><span class="mq-linea"></span><span class="mq-linea corta"></span></div>
+                            <div class="mq-form"><span class="mq-campo"></span><span class="mq-campo"></span><span class="mq-btn">Escríbeme</span></div>
+                        </div>
+                    </div>
+                    <figcaption><strong>Ejecutivo de ventas o profesional</strong><span>Por ejemplo, un ejecutivo de una institución de salud: su presentación, los planes o servicios que ofrece y un formulario para que le escriban.</span></figcaption>
+                </figure>
+                <figure class="mq">
+                    <div class="mq-marco" aria-hidden="true">
+                        <div class="mq-barra"><i></i><i></i><i></i></div>
+                        <div class="mq-cuerpo">
+                            <div class="mq-cab"><span class="mq-logo"></span><span class="mq-linea corta"></span></div>
+                            <div class="mq-portada alta"><span class="mq-tit">Visítanos</span></div>
+                            <div class="mq-cols"><span class="mq-bloque"></span><span class="mq-bloque"></span><span class="mq-bloque"></span></div>
+                            <div class="mq-mapa"><span class="mq-pin"></span></div>
+                            <span class="mq-btn ancho">Reservar</span>
+                        </div>
+                    </div>
+                    <figcaption><strong>Local o comercio</strong><span>Qué ofreces, dónde estás, horarios y reservas.</span></figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
     <section class="seccion hondo" id="como">
         <div class="caja">
             <h2 class="titulo-sec">Así trabajamos contigo.</h2>
@@ -366,7 +444,8 @@
         <div class="caja">
             <h2 class="titulo-sec">Lo tuyo sigue siendo tuyo.</h2>
             <ul class="no-hacemos" aria-label="Condiciones del servicio">
-                <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Tu página, tus cuentas y los contactos que lleguen son tuyos. Nosotros trabajamos en ellos por encargo.</span></li>
+                <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Tu página, su dominio, tus cuentas y los contactos que lleguen están a tu nombre y son tuyos. Nosotros los administramos con tu autorización.</span></li>
+                <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Se contrata por separado el desarrollo de la página y su administración: compra y renovación del sitio, y todo lo necesario para mantenerla activa.</span></li>
                 <li><svg aria-hidden="true"><use href="#ok"/></svg><span>El contenido que se publica es responsabilidad de quien contrata el servicio. Tú nos entregas o apruebas los textos, planes, precios y condiciones.</span></li>
                 <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Si representas a una empresa, antes de publicar validamos que trabajas para ella.</span></li>
                 <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Podemos retirar una página si su contenido no se puede respaldar.</span></li>
