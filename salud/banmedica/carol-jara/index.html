@@ -190,8 +190,8 @@
         .seguro-cifras { display: flex; gap: 34px; flex-wrap: wrap; margin: 10px 0 6px; }
         .seguro-cifras div { display: flex; flex-direction: column; gap: 6px; }
         .seguro-cifras span { font-size: 15px; font-weight: 600; max-width: 12em; line-height: 1.25; }
-        .bt-seguro .nota-bt { font-size: 15px; opacity: .95; border-top: 1px solid rgba(255,255,255,.35); padding-top: 14px; margin-top: 6px; }
-        .bt a.ver { font-weight: 700; color: var(--rojo); text-decoration: underline; text-underline-offset: 4px; }
+        .bt-seguro .nota-bt { font-size: 15px; border-top: 1px solid rgba(255,255,255,.35); padding-top: 14px; margin-top: 6px; }
+        .bt a.ver { font-weight: 700; color: var(--rojo-hondo); text-decoration: underline; text-underline-offset: 4px; }
         .bt details { margin-top: 6px; }
         .bt details summary { cursor: pointer; font-weight: 700; font-size: 15px; text-decoration: underline; text-underline-offset: 4px; }
         .bt details ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 4px; font-size: 14.5px; }
@@ -286,7 +286,7 @@
         .se-info p { color: #CFCBC6; font-size: 16px; }
         .tramos { display: flex; gap: 10px; margin-top: 16px; }
         .tramo { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; }
-        .tramo.b { background: var(--verde); } .tramo.c { background: #F5A623; } .tramo.d { background: var(--rojo); }
+        .tramo.c { background: #F5A623; } .tramo.d { background: var(--rojo); }
         .se-cierre { margin-top: 56px; padding: 26px 30px; background: var(--rojo); border-radius: 24px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
         .se-cierre p { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 17px; }
         .se-cierre a { color: #fff; font-weight: 700; text-underline-offset: 4px; }
@@ -426,11 +426,20 @@
         /* ---- movimiento sobrio (pagina ejecutiva) ---- */
         @media (prefers-reduced-motion: no-preference) {
             .js .rv:not(.vista) { opacity: 0; transform: translateY(16px); }
-            .js .rv { transition: opacity .7s cubic-bezier(.16,.84,.3,1) calc(var(--i, 0) * 70ms), transform .7s cubic-bezier(.16,.84,.3,1) calc(var(--i, 0) * 70ms), box-shadow .35s; }
+            .js .rv { transition: opacity .7s cubic-bezier(.16,.84,.3,1) calc(var(--i, 0) * 70ms), transform .7s cubic-bezier(.16,.84,.3,1), box-shadow .35s; }
             .js .rv.vista { opacity: 1; transform: none; }
+            .js .bt.vista:hover { transform: translateY(-4px); }
             .js .bt [class*="bt-foto"] { clip-path: inset(0 100% 0 0); }
             .js .bt.vista [class*="bt-foto"] { clip-path: inset(0 0 0 0); transition: clip-path 1.1s cubic-bezier(.16,.84,.3,1) .2s; }
         }
+
+        /* ---- ajustes de la auditoria ---- */
+        div.whatsapp-fijo { box-shadow: 0 0 0 3px #fff, 0 8px 24px rgba(20,22,27,.3); }
+        .plan.dentro:hover { box-shadow: 0 0 0 3px var(--rojo), var(--sombra); }
+        .bt .gran { font-variant-numeric: tabular-nums; }
+        .reg-zona, .noticia { border: 1px solid var(--linea); background: #fff; border-radius: 18px; }
+        .plan-red + .plan-sub { color: var(--tinta); font-weight: 700; }
+        .plan-osc .plan-red + .plan-sub { color: #fff; }
     </style>
 </head>
 <body>
@@ -515,7 +524,7 @@
         <p class="planes-hint" id="planes-hint">Desliza para ver los 6 planes →</p>
         <p class="plan-regalo-frase"><strong>Por contratar el plan, vienen beneficios adicionales de regalo.</strong></p>
         <p class="plan-comun"><strong>En la mayoría de los planes:</strong> Farmacia Ambulatoria Lite, OMT MEDY, Asistencia en viaje (solo titulares hombres) y Salud Extendida.</p>
-        <div class="planes-grid">
+        <div class="planes-grid" id="planes-grid">
             <article class="plan" data-clinicas="dav ves" data-nombre="Plan Conecta"><span class="plan-fam">Plan cerrado</span><h3>Plan Conecta</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Copago $0 en exámenes e imagenología (Dávila y Vespucio)</li><li>50% de descuento en exámenes por 3 meses</li><li>Cobertura ambulatoria Plus Vidaintegra</li><li>Telemedicina MEDY</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Conecta%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article>
             <article class="plan" data-clinicas="dav ves rs huch ind" data-nombre="Plan Clásico Silver"><span class="plan-fam">Clásico</span><h3>Plan Clásico Silver</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila Recoleta</li><li>Vespucio</li><li>RedSalud Santiago</li><li>RedSalud Providencia</li><li>Hosp. U. de Chile</li><li>Indisa</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Seguro de accidentes (Dávila y Vespucio)</li><li>Exámenes con copago cero</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Cl%C3%A1sico%20Silver%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article>
             <article class="plan" data-clinicas="dav ves rs ind sm meds uch" data-nombre="Plan Gold One"><span class="plan-fam">Clásico y Superior</span><h3>Plan Gold One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Vespucio</li><li>RedSalud Providencia</li><li>RedSalud Santiago</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hosp. UC</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Seguro de accidentes (Dávila y Vespucio)</li><li>Exámenes con copago cero</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Gold%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article>
