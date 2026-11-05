@@ -15,7 +15,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' rx='44' fill='%230F2547'/%3E%3Cpath d='M176 28L30 92l54 16z' fill='%23F4F6F8'/%3E%3Cpath d='M176 28L84 108l14 60z' fill='%239DB8E8'/%3E%3Cpath d='M84 108l14 60 20-36z' fill='%23D2A55A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap">
 <style>
     :root {
         --suelo: #EEF2F7;
@@ -392,6 +392,81 @@
     :is(html:not(.js) .historia, .historia.estatico) .aviso { opacity: 1; transform: none; }
     :is(html:not(.js) .historia, .historia.estatico) .h-url { background: var(--valido); opacity: .85; }
 
+
+    /* ---- maquetas realistas ---- */
+    .vivo-pagina { padding: 0; gap: 0; min-height: 0; display: block; }
+    .vivo-marco { background: #fff; }
+    .sitio { --s-display: var(--display); --s-fondo: #fff; --s-tinta: #0C1A33; --s-suave: #51617A; --s-acento: #1D4C9E; --s-card: #fff; --s-linea: rgba(12, 26, 51, .12); background: var(--s-fondo); color: var(--s-tinta); font: 400 12px/1.4 var(--texto); display: grid; align-content: start; min-height: 340px; color-scheme: light; text-align: left; }
+    .sitio * { box-sizing: border-box; }
+    .sitio.r-restaurante { --s-display: "Fraunces", Georgia, serif; --s-fondo: #FBF3E6; --s-tinta: #3B1F12; --s-suave: #7A5B49; --s-acento: #D6492B; --s-linea: rgba(59, 31, 18, .14); }
+    .sitio.r-tienda { --s-fondo: #F2F7F4; --s-tinta: #10261F; --s-suave: #4D6A60; --s-acento: #0B7766; --s-linea: rgba(16, 38, 31, .14); }
+    .sitio.r-profesional { --s-fondo: #FFFAF0; --s-tinta: #2A2112; --s-suave: #6F6048; --s-acento: #C98F1E; --s-linea: rgba(42, 33, 18, .14); }
+    .s-cab { display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-bottom: 1px solid var(--s-linea); }
+    .s-logo { font: 600 16px/1 var(--s-display); letter-spacing: -.01em; display: inline-flex; align-items: center; gap: 7px; }
+    .s-logo i { width: 18px; height: 18px; border-radius: 6px; background: var(--s-acento); display: block; }
+    .s-nav { margin-left: auto; display: flex; gap: 12px; font-size: 11px; color: var(--s-suave); }
+    .s-hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 10px; align-items: center; padding: 18px 14px 12px; }
+    .s-tit { font: 600 clamp(1.3rem, 2.5vw, 1.9rem)/1.04 var(--s-display); letter-spacing: -.02em; }
+    .s-sub { margin-top: 7px; color: var(--s-suave); font-size: 12px; }
+    .s-btn { display: inline-block; margin-top: 12px; padding: 9px 14px; border-radius: 999px; background: var(--s-acento); color: #fff; font: 700 11.5px/1 var(--display); }
+    .r-profesional .s-btn { color: #2A2112; }
+    .s-ilus { width: 100%; max-width: 150px; justify-self: center; display: block; }
+    .s-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 6px 14px 16px; }
+    .s-grid.cuatro { grid-template-columns: repeat(4, 1fr); }
+    .s-card { background: var(--s-card); border: 1px solid var(--s-linea); border-radius: 12px; padding: 9px; display: grid; gap: 5px; align-content: start; }
+    .s-card strong { font: 700 11.5px/1.2 var(--display); }
+    .s-card span { color: var(--s-suave); font-size: 10.5px; }
+    .s-card svg { width: 100%; height: 44px; display: block; }
+    .s-card em { font: 700 10.5px/1 var(--display); color: var(--s-acento); font-style: normal; }
+    .s-perfil { display: grid; grid-template-columns: 54px 1fr; gap: 12px; align-items: center; padding: 16px 14px 8px; }
+    .s-perfil svg { width: 54px; height: 54px; display: block; }
+    .s-perfil strong { font: 700 17px/1.1 var(--s-display); letter-spacing: -.02em; display: block; }
+    .s-perfil span { color: var(--s-suave); font-size: 11.5px; }
+    .s-sello { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; padding: 4px 9px; border-radius: 999px; background: #DDF2EC; color: #0B7766; font: 700 10.5px/1 var(--display); }
+    .s-sello svg { width: 12px; height: 12px; }
+    .s-form { display: flex; gap: 8px; padding: 0 14px 16px; }
+    .s-form i { flex: 1; height: 30px; border-radius: 9px; border: 1px solid var(--s-linea); background: #fff; display: block; }
+    .s-form .s-btn { margin: 0; align-self: center; }
+    .s-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 14px 8px; }
+    .s-chips span { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--s-linea); font-size: 11px; background: #fff; }
+    .s-agenda { display: grid; grid-template-columns: 1.1fr .9fr; gap: 12px; padding: 4px 14px 16px; align-items: start; }
+    .s-cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; font-size: 10px; text-align: center; color: var(--s-suave); }
+    .s-cal b { display: grid; place-items: center; height: 22px; border-radius: 7px; font-weight: 600; background: #fff; border: 1px solid var(--s-linea); color: var(--s-tinta); }
+    .s-cal b.on { background: var(--s-acento); color: #2A2112; border-color: var(--s-acento); }
+    .s-horas { display: grid; gap: 6px; }
+    .s-horas span { padding: 8px 10px; border-radius: 9px; border: 1px solid var(--s-linea); background: #fff; font: 700 11px/1 var(--display); text-align: center; }
+    .s-horas span.on { background: var(--s-tinta); color: #fff; border-color: var(--s-tinta); }
+    @media (max-width: 640px) { .sitio { min-height: 300px; } .s-nav { display: none; } .s-grid.cuatro { grid-template-columns: repeat(2, 1fr); } }
+    @media (prefers-reduced-motion: no-preference) {
+        .vivo-pagina.entra [data-a] { animation: aparece .65s var(--ease) both; animation-delay: calc(var(--i, 0) * 70ms); }
+    }
+    .capa-pagina { padding: 0; }
+    .mq .mq-cuerpo { padding: 0; min-height: 0; gap: 0; }
+
+    /* ---- el recorrido del planeador ---- */
+    .viaje { background: #050C1A; }
+    .viaje-pista { height: 320svh; position: relative; }
+    .viaje-escena { position: sticky; top: 0; height: 100dvh; overflow: hidden; display: grid; align-items: center; --vp: 0; }
+    .v-capa, .v-ruta { position: absolute; left: 0; width: 100%; pointer-events: none; }
+    .v-capa { height: 124%; top: -12%; will-change: transform; }
+    .v-ruta { height: 100%; top: 0; }
+    .v-cielo { transform: translate3d(0, calc((var(--vp) - .5) * 36px), 0); }
+    .v-lejos { transform: translate3d(0, calc((var(--vp) - .5) * -70px), 0); }
+    .v-medio { transform: translate3d(0, calc((var(--vp) - .5) * -140px), 0); }
+    .v-cerca { transform: translate3d(0, calc((var(--vp) - .5) * -250px), 0); }
+    .v-texto { position: relative; z-index: 2; display: grid; gap: clamp(2px, 1vh, 12px); align-self: center; padding-bottom: 6vh; }
+    .v-linea { font: 800 clamp(2.6rem, 9.4vw, 6rem)/.96 var(--display); letter-spacing: -.04em; color: #EEF2F7; opacity: 0; transform: translateY(46px); filter: blur(12px); transition: opacity .9s var(--ease), transform .9s var(--ease), filter .9s var(--ease); text-shadow: 0 4px 30px rgba(5, 12, 26, .55); }
+    .vl1 .v-linea:nth-child(1), .vl2 .v-linea:nth-child(-n+2), .vl3 .v-linea { opacity: 1; transform: none; filter: none; }
+    .vl2 .v-linea:nth-child(1), .vl3 .v-linea:nth-child(-n+2) { color: #B5C3DC; }
+    .v-sub { text-decoration: underline; text-decoration-color: #E2B04A; text-decoration-thickness: .08em; text-underline-offset: .12em; text-decoration-skip-ink: none; }
+    @media (max-width: 760px) { .viaje-pista { height: 280svh; } .v-texto { padding-bottom: 14vh; align-self: start; padding-top: 22vh; } }
+    @media (prefers-reduced-motion: reduce) {
+        .viaje-pista { height: auto; }
+        .viaje-escena { position: relative; height: 84vh; }
+        .v-capa { transform: none; }
+        .v-linea { opacity: 1; transform: none; filter: none; color: #EEF2F7 !important; }
+    }
+
     /* maquetas de ejemplo */
     .maquetas { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px); align-items: start; }
     .mq { margin: 0; display: grid; gap: 14px; }
@@ -458,6 +533,11 @@
         <path style="fill:#C98F1E" d="M84 108l14 60 20-36z"/>
         <path style="stroke:#C98F1E" d="M14 176C34 186 60 176 72 150" fill="none" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 13"/>
     </symbol>
+    <symbol id="planeador-claro" viewBox="0 0 200 200">
+        <path style="fill:#EEF2F7" d="M176 28 30 92l54 16z"/>
+        <path style="fill:#9DB8E8" d="M176 28 84 108l14 60z"/>
+        <path style="fill:#D2A55A" d="M84 108l14 60 20-36z"/>
+    </symbol>
     <symbol id="ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="no" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
     <symbol id="persona" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 21c1.2-4 4.2-6 8-6s6.8 2 8 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
@@ -506,11 +586,7 @@
                 </div>
                 <div class="vivo-marco" aria-hidden="true">
                     <div class="mq-barra"><i></i><i></i><i></i><span class="vivo-url"></span></div>
-                    <div class="vivo-pagina entra" id="vivo-pagina" data-r="restaurante">
-                        <div class="vp-cab"><span class="mq-logo"></span><span class="mq-linea corta"></span><span class="vp-nav"><i></i><i></i><i></i></span></div>
-                        <div class="vp-portada"><span class="vp-tit" id="vp-tit"></span><span class="vp-sub" id="vp-sub"></span><span class="mq-btn" id="vp-btn"></span></div>
-                        <div class="vp-filas" id="vp-filas"></div>
-                    </div>
+                    <div class="vivo-pagina entra" id="vivo-pagina" data-r="restaurante"></div>
                 </div>
                 <p class="vivo-nota" id="vivo-nota" aria-live="polite">Así podría verse la página de un restaurante. Maqueta ilustrativa: elige tu rubro.</p>
             </div>
@@ -518,6 +594,45 @@
     </section>
 
     <div class="cinta" aria-hidden="true"><div class="cinta-pista"><span>Páginas web</span><span>Publicidad</span><span>Redes sociales</span><span>Posicionamiento</span><span>Contactos</span><span>Páginas web</span><span>Publicidad</span><span>Redes sociales</span><span>Posicionamiento</span><span>Contactos</span><span>Páginas web</span><span>Publicidad</span><span>Redes sociales</span><span>Posicionamiento</span><span>Contactos</span><span>Páginas web</span><span>Publicidad</span><span>Redes sociales</span><span>Posicionamiento</span><span>Contactos</span></div></div>
+
+    <section class="viaje" id="viaje" aria-labelledby="v-tit">
+        <h2 class="solo-lector" id="v-tit">Planeamos, despegamos, te encuentran.</h2>
+        <div class="viaje-pista" id="viaje-pista">
+            <div class="viaje-escena" id="viaje-escena">
+                <svg class="v-capa v-cielo" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="g-cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050C1A"/><stop offset=".55" stop-color="#0F2547"/><stop offset=".82" stop-color="#27407A"/><stop offset="1" stop-color="#C98F1E" stop-opacity=".55"/></linearGradient>
+                        <radialGradient id="g-luna"><stop offset="0" stop-color="#F6E7C3"/><stop offset=".6" stop-color="#F6E7C3" stop-opacity=".25"/><stop offset="1" stop-color="#F6E7C3" stop-opacity="0"/></radialGradient>
+                    </defs>
+                    <rect width="1440" height="800" fill="url(#g-cielo)"/>
+                    <circle cx="683" cy="97" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="168" cy="294" r="1.0" fill="#EEF2F7" opacity="0.70"/><circle cx="1213" cy="49" r="1.2" fill="#EEF2F7" opacity="0.35"/><circle cx="196" cy="242" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="512" cy="66" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="1178" cy="83" r="1.2" fill="#EEF2F7" opacity="0.35"/><circle cx="1201" cy="319" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="472" cy="43" r="1.2" fill="#EEF2F7" opacity="0.70"/><circle cx="878" cy="93" r="1.0" fill="#EEF2F7" opacity="0.70"/><circle cx="1167" cy="112" r="1.0" fill="#EEF2F7" opacity="0.50"/><circle cx="782" cy="69" r="1.0" fill="#EEF2F7" opacity="0.35"/><circle cx="1287" cy="125" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="663" cy="258" r="2.0" fill="#EEF2F7" opacity="0.70"/><circle cx="633" cy="147" r="1.2" fill="#EEF2F7" opacity="0.50"/><circle cx="187" cy="314" r="1.6" fill="#EEF2F7" opacity="0.90"/><circle cx="723" cy="249" r="1.6" fill="#EEF2F7" opacity="0.35"/><circle cx="261" cy="282" r="2.0" fill="#EEF2F7" opacity="0.50"/><circle cx="720" cy="97" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="100" cy="59" r="1.6" fill="#EEF2F7" opacity="0.70"/><circle cx="737" cy="324" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="160" cy="67" r="1.6" fill="#EEF2F7" opacity="0.90"/><circle cx="1380" cy="53" r="1.0" fill="#EEF2F7" opacity="0.70"/><circle cx="1345" cy="315" r="2.0" fill="#EEF2F7" opacity="0.70"/><circle cx="810" cy="197" r="1.0" fill="#EEF2F7" opacity="0.90"/><circle cx="747" cy="106" r="1.0" fill="#EEF2F7" opacity="0.90"/><circle cx="140" cy="131" r="1.6" fill="#EEF2F7" opacity="0.50"/><circle cx="527" cy="223" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="185" cy="105" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="1145" cy="162" r="1.2" fill="#EEF2F7" opacity="0.90"/><circle cx="1146" cy="162" r="2.0" fill="#EEF2F7" opacity="0.70"/><circle cx="1418" cy="214" r="1.2" fill="#EEF2F7" opacity="0.50"/><circle cx="189" cy="110" r="1.2" fill="#EEF2F7" opacity="0.50"/><circle cx="1368" cy="139" r="1.0" fill="#EEF2F7" opacity="0.90"/><circle cx="1226" cy="113" r="1.6" fill="#EEF2F7" opacity="0.70"/><circle cx="28" cy="94" r="2.0" fill="#EEF2F7" opacity="0.70"/><circle cx="1268" cy="309" r="1.6" fill="#EEF2F7" opacity="0.50"/><circle cx="1075" cy="47" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="835" cy="224" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="1006" cy="225" r="1.0" fill="#EEF2F7" opacity="0.50"/><circle cx="157" cy="126" r="2.0" fill="#EEF2F7" opacity="0.50"/><circle cx="245" cy="194" r="1.0" fill="#EEF2F7" opacity="0.35"/><circle cx="20" cy="310" r="1.2" fill="#EEF2F7" opacity="0.35"/><circle cx="764" cy="33" r="1.0" fill="#EEF2F7" opacity="0.50"/><circle cx="1277" cy="212" r="1.2" fill="#EEF2F7" opacity="0.70"/><circle cx="731" cy="328" r="1.6" fill="#EEF2F7" opacity="0.90"/><circle cx="271" cy="79" r="2.0" fill="#EEF2F7" opacity="0.90"/>
+                    <circle cx="1130" cy="170" r="150" fill="url(#g-luna)"/>
+                    <circle cx="1130" cy="170" r="46" fill="#F6E7C3"/>
+                </svg>
+                <svg class="v-capa v-lejos" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                    <g fill="#EEF2F7" opacity=".07"><ellipse cx="260" cy="300" rx="170" ry="26"/><ellipse cx="340" cy="282" rx="110" ry="22"/><ellipse cx="900" cy="360" rx="200" ry="28"/><ellipse cx="1000" cy="340" rx="120" ry="22"/></g>
+                    <path d="M0 560 C200 480 380 540 560 500 S 900 440 1100 500 S 1360 520 1440 480 L1440 800 L0 800Z" fill="#1A2F5C"/>
+                </svg>
+                <svg class="v-capa v-medio" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                    <path d="M0 640 C220 580 420 650 640 600 S 1000 560 1220 620 S 1400 640 1440 610 L1440 800 L0 800Z" fill="#12254A"/>
+                    <circle cx="180" cy="650" r="2.2" fill="#E2B04A" opacity="0.80"/><circle cx="214" cy="646" r="2.2" fill="#E2B04A" opacity="0.50"/><circle cx="250" cy="655" r="2.2" fill="#E2B04A" opacity="0.90"/><circle cx="520" cy="632" r="2.2" fill="#E2B04A" opacity="0.70"/><circle cx="556" cy="628" r="2.2" fill="#E2B04A" opacity="0.90"/><circle cx="590" cy="636" r="2.2" fill="#E2B04A" opacity="0.50"/><circle cx="940" cy="598" r="2.2" fill="#E2B04A" opacity="0.80"/><circle cx="972" cy="594" r="2.2" fill="#E2B04A" opacity="0.60"/><circle cx="1010" cy="600" r="2.2" fill="#E2B04A" opacity="0.90"/><circle cx="1230" cy="636" r="2.2" fill="#E2B04A" opacity="0.60"/><circle cx="1262" cy="632" r="2.2" fill="#E2B04A" opacity="0.90"/>
+                </svg>
+                <svg class="v-ruta" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                    <path id="v-trazo" d="M -60 560 C 240 420, 480 600, 760 400 S 1200 240, 1500 140" fill="none" stroke="#E2B04A" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="2 14" opacity=".55"/>
+                    <g id="v-avion"><use href="#planeador-claro" x="-48" y="-48" width="96" height="96"/></g>
+                </svg>
+                <svg class="v-capa v-cerca" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                    <path d="M0 720 C260 680 520 740 760 700 S 1180 670 1440 710 L1440 800 L0 800Z" fill="#0A1630"/>
+                    <circle cx="110" cy="716" r="2.6" fill="#F6E7C3" opacity="0.90"/><circle cx="150" cy="720" r="2.6" fill="#F6E7C3" opacity="0.60"/><circle cx="700" cy="704" r="2.6" fill="#F6E7C3" opacity="0.80"/><circle cx="742" cy="708" r="2.6" fill="#F6E7C3" opacity="0.90"/><circle cx="1100" cy="690" r="2.6" fill="#F6E7C3" opacity="0.80"/><circle cx="1138" cy="694" r="2.6" fill="#F6E7C3" opacity="0.60"/><circle cx="1350" cy="706" r="2.6" fill="#F6E7C3" opacity="0.90"/>
+                </svg>
+                <div class="caja v-texto" aria-hidden="true">
+                    <p class="v-linea">Planeamos.</p>
+                    <p class="v-linea">Despegamos.</p>
+                    <p class="v-linea"><span class="v-sub">Te encuentran.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="seccion quienes" id="quienes">
         <div class="caja">
@@ -705,6 +820,42 @@
     raiz.classList.add('js');
     var reducir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    /* ---------- maquetas realistas ---------- */
+    var CHECK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var PLANT = {
+        restaurante: '<div class="sitio r-restaurante">' +
+            '<div class="s-cab" data-a><span class="s-logo"><i></i>Tu restaurante</span><span class="s-nav"><span>Carta</span><span>Local</span><span>Pedir</span></span></div>' +
+            '<div class="s-hero"><div><div class="s-tit" data-a>Sabor de casa, a un toque.</div><div class="s-sub" data-a>Mira la carta y pide por WhatsApp.</div><span class="s-btn" data-a>Pedir ahora</span></div>' +
+            '<svg class="s-ilus" viewBox="0 0 120 120" aria-hidden="true" data-a><circle cx="60" cy="60" r="56" fill="#fff" stroke="#E7D8C2" stroke-width="3"/><circle cx="60" cy="60" r="44" fill="#F3E3C8"/><circle cx="60" cy="60" r="36" fill="#D6492B"/><circle cx="60" cy="60" r="31" fill="#F2C14E"/><g fill="#6B8E4E"><circle cx="48" cy="50" r="4"/><circle cx="72" cy="56" r="4"/><circle cx="56" cy="74" r="4"/><circle cx="74" cy="76" r="3.4"/></g><g stroke="#D6492B" stroke-width="2"><path d="M60 29v62M29 60h62M38 38l44 44M82 38L38 82" opacity=".35"/></g></svg></div>' +
+            '<div class="s-grid"><div class="s-card" data-a><svg viewBox="0 0 80 44" aria-hidden="true"><circle cx="22" cy="22" r="18" fill="#F2C14E"/><circle cx="22" cy="22" r="12" fill="#D6492B"/><circle cx="58" cy="22" r="18" fill="#E7D8C2"/><path d="M46 22c6-8 18-8 24 0" fill="none" stroke="#7A5B49" stroke-width="3" stroke-linecap="round"/></svg><strong>Platos de la casa</strong><span>Lo que más piden</span><em>Ver carta</em></div>' +
+            '<div class="s-card" data-a><svg viewBox="0 0 80 44" aria-hidden="true"><path d="M14 38 30 6l16 32z" fill="#F3E3C8" stroke="#7A5B49" stroke-width="2"/><circle cx="30" cy="7" r="4" fill="#D6492B"/><rect x="52" y="14" width="22" height="24" rx="4" fill="#E7D8C2"/></svg><strong>Postres</strong><span>Para cerrar bien</span><em>Ver carta</em></div>' +
+            '<div class="s-card" data-a><svg viewBox="0 0 80 44" aria-hidden="true"><path d="M26 6h28l-4 34H30z" fill="#C8E0DA" stroke="#4D6A60" stroke-width="2"/><path d="M30 18h20" stroke="#4D6A60" stroke-width="2"/><circle cx="62" cy="26" r="10" fill="#F2C14E"/></svg><strong>Bebidas</strong><span>Frías y calientes</span><em>Ver carta</em></div></div></div>',
+        ejecutivo: '<div class="sitio r-ejecutivo">' +
+            '<div class="s-cab" data-a><span class="s-logo"><i></i>Tu nombre</span><span class="s-nav"><span>Planes</span><span>Contacto</span></span></div>' +
+            '<div class="s-perfil" data-a><svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="27" fill="#DCE6F7"/><circle cx="27" cy="21" r="9" fill="#1D4C9E"/><path d="M8 48c3-10 11-14 19-14s16 4 19 14" fill="#1D4C9E"/></svg><div><strong>Tu nombre aquí</strong><span>Ejecutivo de ventas</span><div><span class="s-sello">' + CHECK + 'Vínculo laboral validado</span></div></div></div>' +
+            '<div class="s-grid"><div class="s-card" data-a><strong>Plan Esencial</strong><span>Lo básico, bien explicado</span><em>Cotizar</em></div><div class="s-card" data-a><strong>Plan Familiar</strong><span>Pensado para tus cargas</span><em>Cotizar</em></div><div class="s-card" data-a><strong>Plan Completo</strong><span>Más cobertura y red</span><em>Cotizar</em></div></div>' +
+            '<div class="s-form" data-a><i></i><i></i><span class="s-btn">Escríbeme</span></div></div>',
+        tienda: '<div class="sitio r-tienda">' +
+            '<div class="s-cab" data-a><span class="s-logo"><i></i>Tu tienda</span><span class="s-nav"><span>Catálogo</span><span>Ofertas</span><span>Contacto</span></span></div>' +
+            '<div class="s-hero"><div><div class="s-tit" data-a>Lo que buscas, a la vista.</div><div class="s-sub" data-a>Catálogo claro y compra por mensaje.</div><span class="s-btn" data-a>Ver catálogo</span></div>' +
+            '<svg class="s-ilus" viewBox="0 0 120 100" aria-hidden="true" data-a><rect x="14" y="30" width="62" height="58" rx="8" fill="#0B7766"/><path d="M30 30v-6a15 15 0 0 1 30 0v6" fill="none" stroke="#0B7766" stroke-width="5"/><circle cx="92" cy="62" r="20" fill="#F2C14E"/><path d="M82 62l7 7 12-13" fill="none" stroke="#10261F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' +
+            '<div class="s-grid cuatro"><div class="s-card" data-a><svg viewBox="0 0 60 44" aria-hidden="true"><rect x="14" y="14" width="32" height="26" rx="5" fill="#0B7766"/><path d="M22 14v-3a8 8 0 0 1 16 0v3" fill="none" stroke="#0B7766" stroke-width="3"/></svg><strong>Producto</strong><em>Agregar</em></div>' +
+            '<div class="s-card" data-a><svg viewBox="0 0 60 44" aria-hidden="true"><rect x="16" y="12" width="24" height="28" rx="5" fill="#F2C14E"/><path d="M40 18h6a5 5 0 0 1 0 12h-6" fill="none" stroke="#F2C14E" stroke-width="3"/></svg><strong>Producto</strong><em>Agregar</em></div>' +
+            '<div class="s-card" data-a><svg viewBox="0 0 60 44" aria-hidden="true"><path d="M30 6l14 34H16z" fill="#C8E0DA"/><path d="M30 6v34" stroke="#0B7766" stroke-width="3"/></svg><strong>Producto</strong><em>Agregar</em></div>' +
+            '<div class="s-card" data-a><svg viewBox="0 0 60 44" aria-hidden="true"><circle cx="30" cy="22" r="14" fill="#E4A1A1"/><circle cx="30" cy="22" r="6" fill="#fff"/></svg><strong>Producto</strong><em>Agregar</em></div></div></div>',
+        profesional: '<div class="sitio r-profesional">' +
+            '<div class="s-cab" data-a><span class="s-logo"><i></i>Tu nombre</span><span class="s-nav"><span>Servicios</span><span>Agenda</span></span></div>' +
+            '<div class="s-perfil" data-a><svg viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="27" fill="#F6E7C3"/><circle cx="27" cy="21" r="9" fill="#2A2112"/><path d="M8 48c3-10 11-14 19-14s16 4 19 14" fill="#2A2112"/></svg><div><strong>Tu especialidad aquí</strong><span>Atención con hora</span></div></div>' +
+            '<div class="s-chips" data-a><span>Consulta</span><span>Evaluación</span><span>Seguimiento</span></div>' +
+            '<div class="s-agenda"><div class="s-cal" data-a><b>L</b><b>M</b><b>M</b><b>J</b><b>V</b><b>S</b><b>D</b><b>1</b><b>2</b><b>3</b><b>4</b><b class="on">5</b><b>6</b><b>7</b><b>8</b><b>9</b><b>10</b><b>11</b><b>12</b><b>13</b><b>14</b></div>' +
+            '<div class="s-horas" data-a><span>10:00</span><span class="on">11:30</span><span>15:00</span><span class="s-btn" style="margin:0;background:#C98F1E">Reservar hora</span></div></div></div>'
+    };
+    function hidratar(host, clave) {
+        host.innerHTML = PLANT[clave];
+        var a = host.querySelectorAll('[data-a]');
+        for (var i = 0; i < a.length; i++) a[i].style.setProperty('--i', i);
+    }
+
     /* ---------- portada: maqueta viva ---------- */
     var RUBROS = {
         restaurante: { nota: 'un restaurante', tit: 'Tu carta, a un toque', sub: 'Pedidos por WhatsApp y datos del local', btn: 'Pedir por WhatsApp', tipo: 'lista' },
@@ -729,36 +880,9 @@
         var d = RUBROS[clave];
         actual = clave;
         pagina.setAttribute('data-r', clave);
-        document.getElementById('vp-tit').textContent = d.tit;
-        document.getElementById('vp-sub').textContent = d.sub;
-        document.getElementById('vp-btn').textContent = d.btn;
-        document.getElementById('vp-tit').style.setProperty('--i', 0);
-        document.getElementById('vp-sub').style.setProperty('--i', 1);
-        document.getElementById('vp-btn').style.setProperty('--i', 2);
-        filas.textContent = '';
-        var n, c;
-        if (d.tipo === 'lista') {
-            for (n = 0; n < 3; n++) {
-                c = crear('div', 'vp-fila', n + 3);
-                c.appendChild(crear('span', 'mq-img'));
-                var t = crear('span', 'mq-textos');
-                t.appendChild(crear('span', 'mq-linea'));
-                t.appendChild(crear('span', 'mq-linea corta'));
-                c.appendChild(t);
-                c.appendChild(crear('span', 'mq-chip'));
-                filas.appendChild(c);
-            }
-        } else if (d.tipo === 'grid') {
-            c = crear('div', 'vp-grid', 3);
-            for (n = 0; n < 4; n++) c.appendChild(crear('span', 'vp-prod'));
-            filas.appendChild(c);
-        } else {
-            c = crear('div', 'vp-horas', 3);
-            for (n = 0; n < 6; n++) c.appendChild(crear('span', 'vp-hora'));
-            filas.appendChild(c);
-        }
+        hidratar(pagina, clave);
         nota.textContent = 'Así podría verse la página de ' + d.nota + '. Maqueta ilustrativa: elige tu rubro.';
-        for (n = 0; n < chips.length; n++) chips[n].setAttribute('aria-pressed', chips[n].getAttribute('data-r') === clave ? 'true' : 'false');
+        for (var n = 0; n < chips.length; n++) chips[n].setAttribute('aria-pressed', chips[n].getAttribute('data-r') === clave ? 'true' : 'false');
     }
     function cambiar(clave) {
         if (clave === actual) return;
@@ -946,6 +1070,44 @@
     }
     cab.addEventListener('pointerup', soltar);
     cab.addEventListener('pointercancel', soltar);
+
+    /* ---------- ejemplos y mini-maqueta de la historia con las mismas plantillas ---------- */
+    var mapaEj = ['restaurante', 'ejecutivo', 'tienda'];
+    document.querySelectorAll('#ejemplos .mq-cuerpo').forEach(function (c, i) {
+        if (mapaEj[i]) { c.innerHTML = PLANT[mapaEj[i]].replace(/ data-a/g, ''); }
+    });
+    var capaHist = document.querySelector('.capa-pagina');
+    if (capaHist) { capaHist.innerHTML = PLANT.restaurante.replace(/ data-a/g, ''); }
+
+    /* ---------- el recorrido del planeador ---------- */
+    var vPista = document.getElementById('viaje-pista');
+    var vEscena = document.getElementById('viaje-escena');
+    var vTrazo = document.getElementById('v-trazo');
+    var vAvion = document.getElementById('v-avion');
+    function viaje() {
+        var r = vPista.getBoundingClientRect();
+        var total = Math.max(1, r.height - window.innerHeight);
+        var p = Math.max(0, Math.min(1, -r.top / total));
+        vEscena.style.setProperty('--vp', p.toFixed(3));
+        vEscena.className = 'viaje-escena' + (p > 0.12 ? ' vl1' : '') + (p > 0.38 ? ' vl2' : '') + (p > 0.64 ? ' vl3' : '');
+        var L = vTrazo.getTotalLength();
+        var q = 0.04 + p * 0.92;
+        var pt = vTrazo.getPointAtLength(L * q);
+        var pt2 = vTrazo.getPointAtLength(Math.min(L, L * q + 4));
+        var ang = Math.atan2(pt2.y - pt.y, pt2.x - pt.x) * 180 / Math.PI;
+        vAvion.setAttribute('transform', 'translate(' + pt.x.toFixed(1) + ' ' + pt.y.toFixed(1) + ') rotate(' + (ang + 12).toFixed(1) + ')');
+    }
+    if (vPista && vEscena && vTrazo && vAvion) {
+        if (reducir) {
+            vEscena.className = 'viaje-escena vl3';
+            var Ls = vTrazo.getTotalLength(), pm = vTrazo.getPointAtLength(Ls * 0.55);
+            vAvion.setAttribute('transform', 'translate(' + pm.x.toFixed(1) + ' ' + pm.y.toFixed(1) + ') rotate(-18)');
+        } else {
+            viaje();
+            window.addEventListener('scroll', viaje, { passive: true });
+            window.addEventListener('resize', viaje);
+        }
+    }
 
     /* ---------- historia a pantalla completa ---------- */
     var historia = document.getElementById('como');
