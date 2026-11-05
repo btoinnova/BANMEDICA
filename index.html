@@ -3,7 +3,6 @@
 <head>
 <meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
-<script>(function(){try{var t=null,m=/[?&]tema=(noche|dia)/.exec(location.search);if(m){t=m[1];try{localStorage.setItem('planeador_tema',t)}catch(e){}}else{try{t=localStorage.getItem('planeador_tema')}catch(e){}}if(t==='noche'||t==='dia'){document.documentElement.setAttribute('data-tema',t)}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>El Planeador</title>
 <meta name="description" content="Agencia chilena de marketing digital: páginas web, publicidad en redes sociales y buscadores, y gestión de contenido para negocios, ejecutivos y empresas de todo rubro.">
@@ -16,7 +15,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' rx='44' fill='%230F2547'/%3E%3Cpath d='M176 28L30 92l54 16z' fill='%23F4F6F8'/%3E%3Cpath d='M176 28L84 108l14 60z' fill='%239DB8E8'/%3E%3Cpath d='M84 108l14 60 20-36z' fill='%23D2A55A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap">
 <style>
     :root {
         color-scheme: light;
@@ -572,136 +571,6 @@
     .v-credito { position: absolute; right: 14px; bottom: 10px; z-index: 2; font-size: 11.5px; color: rgba(255, 255, 255, .78); }
     @media (max-width: 760px) { .v-foto { object-position: 76% 50%; } .viaje-escena::after { background: linear-gradient(180deg, rgba(20, 22, 100, .6), rgba(20, 22, 100, 0) 70%); } }
     @media (prefers-reduced-motion: reduce) { .v-foto { transform: none; } }
-
-    /* ================= cinco recursos ================= */
-    .hero .acento { color: var(--oro); }
-    .constelacion { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: block; }
-    .avion { display: none; }
-    .hero .vivo .hero-objeto { position: absolute; right: -34px; bottom: -92px; width: clamp(110px, 13vw, 210px); aspect-ratio: 1; z-index: 3; pointer-events: none; display: grid; place-items: center; }
-    .hero-objeto .halo { position: absolute; inset: -34%; border-radius: 50%; background: radial-gradient(circle, rgba(255, 196, 61, .85) 0%, rgba(255, 176, 0, .35) 38%, rgba(255, 176, 0, 0) 68%); }
-    .hero-objeto svg { position: relative; width: 100%; height: 100%; display: block; filter: drop-shadow(0 14px 22px rgba(5, 12, 70, .5)); }
-    @media (prefers-reduced-motion: no-preference) {
-        .hero-objeto { animation: planea 6.5s ease-in-out infinite; }
-        .hero-objeto .halo { animation: late 4.2s ease-in-out infinite; }
-        @keyframes planea { 0%, 100% { transform: translate(0, 0) rotate(-4deg); } 50% { transform: translate(-10px, -16px) rotate(3deg); } }
-        @keyframes late { 50% { transform: scale(1.12); opacity: .8; } }
-    }
-    @media (max-width: 760px) { .hero .vivo .hero-objeto { width: 96px; right: -6px; bottom: -34px; } }
-
-    .dolores strong { color: var(--azul); font-size: 1rem; }
-    .dolores span { color: var(--tinta); font-size: 1.12rem; line-height: 1.45; max-width: 30em; }
-    #dolores .boton { margin-top: 36px; }
-    #dolores { background: var(--suelo); }
-
-    .flota-btn { position: fixed; z-index: 30; right: 18px; bottom: 18px; display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 20px 0 16px; border: 0; border-radius: 999px; background: var(--oro); color: #0B1B5C; font: 700 15px/1 var(--display); cursor: pointer; box-shadow: 0 14px 30px -8px rgba(11, 27, 92, .5); transition: transform .3s var(--ease), background-color .2s; }
-    .flota-btn:hover { transform: translateY(-3px); background: #FFC83D; }
-    .flota-btn svg { width: 24px; height: 24px; display: block; }
-    @media (prefers-reduced-motion: no-preference) { .flota-btn::after { content: ""; position: absolute; inset: -5px; border-radius: 999px; border: 2px solid var(--oro); opacity: 0; animation: pulso 3.4s ease-out infinite; } @keyframes pulso { 0% { transform: scale(.94); opacity: .7; } 70%, 100% { transform: scale(1.18); opacity: 0; } } }
-    @media (max-width: 560px) { .flota-btn { right: 12px; bottom: 12px; font-size: 14px; padding: 0 16px 0 12px; } }
-    .v-credito { right: auto; left: 14px; }
-
-    /* ---- selector dia / noche ---- */
-    .tema-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 14px; font: 700 13px/1 var(--display); color: var(--marino); background: transparent; border: 1px solid var(--linea); border-radius: 12px; cursor: pointer; transition: background-color .2s, border-color .2s; }
-    .tema-btn:hover { border-color: var(--azul); }
-    .tema-btn svg { width: 18px; height: 18px; display: block; }
-    .tema-btn .i-luna { display: none; }
-    html[data-tema="noche"] .tema-btn .i-sol { display: none; }
-    html[data-tema="noche"] .tema-btn .i-luna { display: block; }
-    @media (max-width: 720px) { .tema-btn .tema-txt { display: none; } .tema-btn { padding: 0 11px; } }
-
-    /* ================= MODO NOCHE ================= */
-    html[data-tema="noche"] { color-scheme: dark; --suelo: #070B1E; --superficie: #0F1633; --linea: #25306A; --tinta: #EEF2FF; --suave: #A9B6DC; --marino: #EEF2FF; --azul: #4A67FF; --oro-suave: #2A2310; --valido: #3FD8B0; --valido-suave: #0E2D2B; --hondo: #0A1030; --logo-a: #EEF2FF; --logo-b: #8FA4FF; --sombra: 0 1px 2px rgba(0, 0, 0, .5), 0 28px 56px -18px rgba(0, 0, 0, .75); }
-    html[data-tema="noche"] .hero { background: radial-gradient(900px 520px at 88% 6%, rgba(74, 103, 255, .5) 0%, rgba(74, 103, 255, 0) 62%), radial-gradient(700px 480px at 0% 100%, rgba(255, 92, 122, .22) 0%, rgba(255, 92, 122, 0) 60%), #070B1E; }
-    html[data-tema="noche"] .hero::before { box-shadow: 0 0 140px 30px rgba(255, 176, 0, .32); }
-    html[data-tema="noche"] .hero::after { border-color: rgba(255, 92, 122, .85); }
-    html[data-tema="noche"] .barra .caja { background: rgba(15, 22, 51, .88); }
-    html[data-tema="noche"] .boton-primario { background: var(--azul); color: #fff; }
-    html[data-tema="noche"] .boton-primario:hover { background: #6F86FF; color: #fff; }
-    html[data-tema="noche"] .hero .boton-primario { background: var(--oro); color: #0B1B5C; }
-    html[data-tema="noche"] .cinta { background: var(--superficie); border-block: 1px solid var(--linea); }
-    html[data-tema="noche"] .cinta-pista span { -webkit-text-stroke: 1.6px var(--oro); }
-    html[data-tema="noche"] .cinta-pista span:nth-child(even) { color: var(--oro); -webkit-text-stroke: 0; }
-    html[data-tema="noche"] .cinta-pista span::after { background: var(--azul); }
-    html[data-tema="noche"] #servicios, html[data-tema="noche"] #condiciones, html[data-tema="noche"] #dolores, html[data-tema="noche"] .quienes, html[data-tema="noche"] .pie { background: var(--suelo); }
-    html[data-tema="noche"] #rubros, html[data-tema="noche"] #ejemplos { background: #0B1230; }
-    html[data-tema="noche"] .ejec { background: #111C4F; }
-    html[data-tema="noche"] .historia.hondo, html[data-tema="noche"] .hondo { background: #0A1030; }
-    html[data-tema="noche"] .lista-ed > .item::after { border-color: var(--linea); }
-    html[data-tema="noche"] .lista-ed > .item:hover::after { background-color: var(--oro); }
-    html[data-tema="noche"] .mq-marco { border-color: var(--linea); }
-    html[data-tema="noche"] .hoja-cerrar { color: var(--tinta); }
-    html[data-tema="noche"] .velo { background: rgba(3, 6, 20, .66); }
-    html[data-tema="noche"] .dolores strong { color: #8FA4FF; }
-    html[data-tema="noche"] .flota-btn { box-shadow: 0 14px 34px -8px rgba(255, 176, 0, .35); }
-
-
-    /* ================= efectos con nombre ================= */
-    /* campo "cuentanos" */
-    .cuentanos { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
-    .cuentanos input { flex: 1 1 260px; min-height: 52px; padding: 0 18px; border-radius: 14px; border: 2px solid rgba(255, 255, 255, .38); background: rgba(255, 255, 255, .12); color: #fff; font: 500 16px/1 var(--texto); transition: border-color .2s, background-color .2s; }
-    .cuentanos input::placeholder { color: #D2DCFF; opacity: 1; }
-    .cuentanos input:focus { outline: 0; border-color: var(--oro); background: rgba(255, 255, 255, .2); }
-    .cuentanos .boton { min-height: 52px; }
-    .hero .acciones { margin-top: 18px; }
-
-    /* mask: el color sube por dentro de las letras (relleno plano, sin degradado) */
-    .hero .acento { background: linear-gradient(to bottom, #FFFFFF 50%, var(--oro) 50%); background-size: 100% 200%; background-position: 0 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
-    @media (prefers-reduced-motion: no-preference) {
-        .hero .acento { animation: sube-color 1.5s var(--ease) .6s both; }
-        @keyframes sube-color { from { background-position: 0 0; } to { background-position: 0 100%; } }
-        /* variable font: el titular se estira al entrar */
-        .hero h1 { animation: sube .7s var(--ease) both, estira 1.4s var(--ease) both; }
-        @keyframes estira { from { font-variation-settings: "wdth" 76, "wght" 480; } to { font-variation-settings: "wdth" 100, "wght" 800; } }
-        .v-linea { font-variation-settings: "wdth" 76, "wght" 520; transition: opacity .9s var(--ease), transform .9s var(--ease), filter .9s var(--ease), font-variation-settings 1.2s var(--ease); }
-        .vl1 .v-linea:nth-child(1), .vl2 .v-linea:nth-child(-n+2), .vl3 .v-linea { font-variation-settings: "wdth" 100, "wght" 800; }
-        .marca { transition: font-variation-settings .35s var(--ease); }
-        .marca:hover { font-variation-settings: "wdth" 100, "wght" 800; letter-spacing: -.01em; }
-    }
-
-    /* perspective: la maqueta sigue al mouse */
-    .hero .vivo { perspective: 1200px; }
-    .vivo-marco { transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .35s var(--ease); transform-origin: 50% 60%; }
-    .hero .vivo .hero-objeto { translate: calc(var(--tx, 0) * 1px) calc(var(--ty, 0) * 1px); transition: translate .35s var(--ease); }
-
-    /* stagger: las listas entran en cascada */
-    @media (prefers-reduced-motion: no-preference) {
-        .js .lista-ed:not(.vista) > * { opacity: 0; }
-        .js .lista-ed.vista > * { animation: entra-lista .8s var(--ease) both; animation-delay: calc(var(--i, 0) * 90ms); }
-        @keyframes entra-lista { from { opacity: 0; transform: translateY(22px); } }
-        /* spring: el boton flotante cae con resorte */
-        .flota-btn { animation: resorte .9s cubic-bezier(.34, 1.56, .64, 1) 1.3s backwards; }
-        @keyframes resorte { from { transform: translateY(90px) scale(.6); opacity: 0; } }
-    }
-
-    /* stroke draw: el trazo se dibuja y un punto de luz lo recorre */
-    #flujo { background: var(--suelo); }
-    .flujo { margin-top: 36px; }
-    .flujo svg { width: 100%; height: auto; display: block; overflow: visible; }
-    .flujo svg.flujo-v { display: none; max-width: 340px; margin-inline: auto; }
-    .flujo .trazo { stroke: var(--azul); stroke-width: 3; stroke-linecap: round; }
-    .flujo .nodo rect { fill: var(--superficie); stroke: var(--linea); stroke-width: 2; }
-    .flujo .nodo.final rect { fill: var(--oro-suave); stroke: var(--oro); }
-    .flujo .n-t { font: 700 17px/1 var(--display); fill: var(--marino); }
-    .flujo .n-s { font: 500 12.5px/1 var(--texto); fill: var(--suave); }
-    .flujo .viajero { fill: var(--oro); filter: drop-shadow(0 0 8px var(--oro)); }
-    html[data-tema="noche"] .flujo .nodo.final rect { fill: #2A2310; }
-    @media (max-width: 760px) { .flujo svg.flujo-h { display: none; } .flujo svg.flujo-v { display: block; } .flujo .n-t { font-size: 19px; } .flujo .n-s { font-size: 14px; } }
-    @media (prefers-reduced-motion: no-preference) {
-        .js .flujo .trazo { stroke-dasharray: var(--L, 1400); stroke-dashoffset: var(--L, 1400); transition: stroke-dashoffset 2.4s var(--ease); }
-        .js .flujo.vista .trazo { stroke-dashoffset: 0; }
-        .js .flujo .nodo { opacity: 0; transform: scale(.9); transform-box: fill-box; transform-origin: center; transition: opacity .6s var(--ease), transform .7s cubic-bezier(.34, 1.56, .64, 1); }
-        .js .flujo.vista .nodo { opacity: 1; transform: none; }
-        .js .flujo.vista .nodo:nth-of-type(1) { transition-delay: .1s; } .js .flujo.vista .nodo:nth-of-type(2) { transition-delay: .7s; }
-        .js .flujo.vista .nodo:nth-of-type(3) { transition-delay: 1.3s; } .js .flujo.vista .nodo:nth-of-type(4) { transition-delay: 1.9s; }
-    }
-    @media (prefers-reduced-motion: reduce) { .flujo .viajero { display: none; } }
-
-    /* particles: el planeador se arma con puntos */
-    .ejec { position: relative; overflow: hidden; }
-    .ejec > * { position: relative; z-index: 1; }
-    .ejec > canvas.particulas { position: absolute; z-index: 0; right: 2%; top: 50%; transform: translateY(-50%); width: min(300px, 30%); aspect-ratio: 1; height: auto; pointer-events: none; display: block; }
-    @media (max-width: 860px) { .ejec > canvas.particulas { display: none; } }
-
 </style>
 </head>
 <body>
@@ -730,7 +599,6 @@
             <a href="#rubros">Para quién</a>
             <a href="#como">Cómo trabajamos</a>
             <a href="#ejemplos">Ejemplos</a>
-            <button type="button" class="tema-btn" id="tema" aria-pressed="false" aria-label="Cambiar entre modo día y modo noche"><svg class="i-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.9 1.9M16.8 16.8l1.9 1.9M18.7 5.3l-1.9 1.9M7.2 16.8l-1.9 1.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><svg class="i-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.4 8.4 0 0 1 9.4 4 8.4 8.4 0 1 0 20 14.6z" fill="currentColor"/></svg><span class="tema-txt">Noche</span></button>
             <button type="button" class="menu-btn" data-hoja="menu" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Menú</button>
             <a class="boton boton-primario" href="#contacto" data-hoja="contacto">Hablemos</a>
         </nav>
@@ -739,29 +607,25 @@
 
 <main>
     <section class="hero">
-        <canvas class="constelacion" aria-hidden="true"></canvas>
         <svg class="ruta" viewBox="0 0 1440 700" preserveAspectRatio="xMinYMin slice" aria-hidden="true">
             <path d="M 760 760 C 1040 720, 1240 520, 1310 320 S 1400 90, 1470 20"/>
         </svg>
         <svg class="avion" viewBox="0 0 200 200" aria-hidden="true"><use href="#planeador-claro"/></svg>
         <div class="caja">
             <div>
-                <h1>Planeamos tu <span class="acento">estrategia</span> <span class="subraya">de marketing digital.</span></h1>
+                <h1>Planeamos tu estrategia <span class="subraya">de marketing digital.</span></h1>
                 <p class="bajada">Y la ejecutamos: tu página web, publicidad en redes sociales y buscadores, y los contactos de quienes te necesitan. Somos El Planeador, by BTo Innova soluciones.</p>
                 <ul class="controles" aria-label="Qué busca el marketing digital">
                     <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Que te encuentren</strong><span>Publicidad en redes sociales y en buscadores, dirigida a quien busca lo que ofreces.</span></li>
                     <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Que te contacten</strong><span>Una página web clara, con formulario y botón de WhatsApp, para que te escriban.</span></li>
                     <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Que sepas qué funciona</strong><span>Revisamos de dónde llegan tus contactos y ajustamos las campañas.</span></li>
                 </ul>
-                <form class="cuentanos" id="cuentanos" autocomplete="off">
-                    <label class="solo-lector" for="cuentanos-txt">Cuéntanos de tu negocio</label>
-                    <input id="cuentanos-txt" type="text" maxlength="240" placeholder="Ej.: tengo un restaurante y quiero que me pidan por WhatsApp">
-                    <button class="boton boton-primario" type="submit">Quiero mi página</button>
-                </form>
-                <div class="acciones"><a class="enlace" href="#servicios">Ver qué hacemos</a></div>
+                <div class="acciones">
+                    <a class="boton boton-primario" href="#contacto">Quiero mi página</a>
+                    <a class="enlace" href="#servicios">Ver qué hacemos</a>
+                </div>
             </div>
             <div class="vivo" id="vivo">
-                <div class="hero-objeto" aria-hidden="true"><span class="halo"></span><svg viewBox="0 0 200 200"><use href="#planeador-claro"/></svg></div>
                 <div class="vivo-rubros" role="group" aria-label="Elige tu rubro para ver cómo se vería tu página">
                     <button type="button" class="vchip" data-r="restaurante" aria-pressed="true">Restaurante</button>
                     <button type="button" class="vchip" data-r="ejecutivo" aria-pressed="false">Ejecutivo de ventas</button>
@@ -840,23 +704,6 @@
         </div>
     </section>
 
-    <section class="seccion" id="dolores">
-        <div class="caja">
-            <h2 class="titulo-sec">¿Te suena alguna de estas?</h2>
-            <div class="lista-ed dolores">
-                <div><strong>Restaurante</strong><span>Tienes una carta que da hambre, pero la gente no sabe cómo pedirte.</span></div>
-                <div><strong>Restaurante</strong><span>Te encuentran en Google, pero tu competencia aparece antes que tú.</span></div>
-                <div><strong>Ejecutivo de ventas</strong><span>Dependes de que te recuerden, porque no tienes una página propia donde mandar a quien te pregunta.</span></div>
-                <div><strong>Ejecutivo de ventas</strong><span>Pagas publicidad y no sabes de dónde viene cada contacto.</span></div>
-                <div><strong>Profesional</strong><span>Te escriben fuera de horario porque nadie ve tu agenda ni cómo pedir una hora.</span></div>
-                <div><strong>Profesional</strong><span>Tus redes se ven abandonadas y eso le resta confianza a lo que haces.</span></div>
-                <div><strong>Comercio</strong><span>Subes productos a las redes y cada venta termina en una conversación interminable.</span></div>
-                <div><strong>Comercio</strong><span>No sabes qué campaña te trae clientes y cuál solo gasta presupuesto.</span></div>
-            </div>
-            <a class="boton boton-primario" id="dolores-cta" href="#contacto" data-hoja="contacto">Si alguna te suena, conversemos</a>
-        </div>
-    </section>
-
     <section class="seccion" id="servicios">
         <div class="caja">
             <h2 class="titulo-sec">Lo que podemos hacer por ti.</h2>
@@ -868,17 +715,6 @@
                 <button type="button" class="item" data-hoja="s-gestion" aria-haspopup="dialog"><strong>Gestión de redes y contenido</strong><span>Publicaciones, imágenes y textos para que tu negocio se vea activo y claro.</span></button>
                 <button type="button" class="item" data-hoja="s-contactos" aria-haspopup="dialog"><strong>Captación de contactos</strong><span>Formularios y mensajes para que quien se interesa pueda escribirte fácil.</span></button>
                 <button type="button" class="item" data-hoja="s-resultados" aria-haspopup="dialog"><strong>Revisión de resultados</strong><span>Qué campañas traen contactos y cuáles ajustar. Te lo contamos en simple.</span></button>
-            </div>
-        </div>
-    </section>
-
-    <section class="seccion" id="flujo" aria-labelledby="flujo-tit">
-        <div class="caja">
-            <h2 class="titulo-sec" id="flujo-tit">Así llega un contacto a ti.</h2>
-            <p class="intro">Del anuncio a tu bandeja, con cada paso a la vista.</p>
-            <div class="flujo" role="img" aria-label="Diagrama: tu publicidad lleva a tu página, de ahí a un formulario o WhatsApp, y el contacto te llega a ti.">
-                <svg class="flujo-h" viewBox="0 0 1050 230" aria-hidden="true"><path id="flujo-h-linea" class="trazo" d="M 120 115 C 255 45, 255 185, 390 115 S 525 45, 660 115 S 795 185, 930 115" fill="none"/><g class="nodo "><rect x="35" y="73" width="170" height="84" rx="18"/><text x="120" y="111" text-anchor="middle" class="n-t">Tu publicidad</text><text x="120" y="135" text-anchor="middle" class="n-s">Google y redes</text></g><g class="nodo "><rect x="305" y="73" width="170" height="84" rx="18"/><text x="390" y="111" text-anchor="middle" class="n-t">Tu página</text><text x="390" y="135" text-anchor="middle" class="n-s">hecha por nosotros</text></g><g class="nodo "><rect x="575" y="73" width="170" height="84" rx="18"/><text x="660" y="111" text-anchor="middle" class="n-t">Formulario o WhatsApp</text><text x="660" y="135" text-anchor="middle" class="n-s">quien se interesa escribe</text></g><g class="nodo final"><rect x="845" y="73" width="170" height="84" rx="18"/><text x="930" y="111" text-anchor="middle" class="n-t">Tu contacto</text><text x="930" y="135" text-anchor="middle" class="n-s">te llega a ti</text></g><circle class="viajero" r="8"><animateMotion dur="5s" begin="3s" repeatCount="indefinite" rotate="auto"><mpath href="#flujo-h-linea"/></animateMotion></circle></svg>
-                <svg class="flujo-v" viewBox="0 0 300 620" aria-hidden="true"><path id="flujo-v-linea" class="trazo" d="M 150 70 C 40 120, 260 180, 150 230 S 40 340, 150 390 S 260 500, 150 550" fill="none"/><g class="nodo "><rect x="35" y="28" width="230" height="84" rx="18"/><text x="150" y="66" text-anchor="middle" class="n-t">Tu publicidad</text><text x="150" y="90" text-anchor="middle" class="n-s">Google y redes</text></g><g class="nodo "><rect x="35" y="188" width="230" height="84" rx="18"/><text x="150" y="226" text-anchor="middle" class="n-t">Tu página</text><text x="150" y="250" text-anchor="middle" class="n-s">hecha por nosotros</text></g><g class="nodo "><rect x="35" y="348" width="230" height="84" rx="18"/><text x="150" y="386" text-anchor="middle" class="n-t">Formulario o WhatsApp</text><text x="150" y="410" text-anchor="middle" class="n-s">quien se interesa escribe</text></g><g class="nodo final"><rect x="35" y="508" width="230" height="84" rx="18"/><text x="150" y="546" text-anchor="middle" class="n-t">Tu contacto</text><text x="150" y="570" text-anchor="middle" class="n-s">te llega a ti</text></g><circle class="viajero" r="8"><animateMotion dur="6s" begin="3s" repeatCount="indefinite"><mpath href="#flujo-v-linea"/></animateMotion></circle></svg>
             </div>
         </div>
     </section>
@@ -997,7 +833,6 @@
     <section class="seccion" id="contacto">
         <div class="caja">
             <div class="ejec">
-                <canvas class="particulas" id="particulas" aria-hidden="true"></canvas>
                 <div>
                     <h2>Cuéntanos qué quieres promover.</h2>
                     <p>Escríbenos con el nombre de tu negocio o servicio y lo que te gustaría lograr. Te respondemos para conversar y ver cómo podemos ayudarte.</p>
@@ -1020,8 +855,6 @@
         <span>El Planeador es una marca de BTo Innova SpA · RUT 78.533.592-9 · Chile · by BTo Innova soluciones</span>
     </div>
 </footer>
-
-<button type="button" class="flota-btn" data-hoja="contacto" aria-haspopup="dialog"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#planeador"/></svg>Habla con el Planeador</button>
 
 <div class="velo" id="velo" aria-hidden="true"></div>
 <aside class="hoja" id="hoja" role="dialog" aria-modal="true" aria-labelledby="hoja-tit" aria-hidden="true" tabindex="-1">
@@ -1131,10 +964,6 @@
 
     /* ---------- hojas deslizables ---------- */
     var OK = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-    var mensajeInicial = '';
-    function mailHref() {
-        return MAIL + (mensajeInicial ? '&body=' + encodeURIComponent('Hola, les escribo desde su página.\n\n' + mensajeInicial) : '');
-    }
     var MAIL = 'mailto:contacto@elplaneador.cl?subject=Quiero%20conversar%20sobre%20marketing%20digital';
     var HOJAS = {
         menu: { menu: [['#servicios', 'Servicios'], ['#rubros', 'Para quién'], ['#ejemplos', 'Ejemplos'], ['#como', 'Cómo trabajamos'], ['#condiciones', 'Lo tuyo sigue siendo tuyo']], cta: ['Hablemos', 'contacto'] },
@@ -1207,13 +1036,7 @@
             cuerpo.appendChild(c);
         }
         if (d.mail) {
-            if (mensajeInicial) {
-                var q = document.createElement('p');
-                q.className = 'nota';
-                q.textContent = 'Tu mensaje: ' + mensajeInicial;
-                cuerpo.appendChild(q);
-            }
-            cuerpo.appendChild(boton('boton-oro', d.mail, mailHref()));
+            cuerpo.appendChild(boton('boton-oro', d.mail, MAIL));
             var n = document.createElement('p');
             n.className = 'nota';
             n.textContent = d.nota;
@@ -1349,179 +1172,6 @@
             medir();
             window.addEventListener('scroll', medir, { passive: true });
             window.addEventListener('resize', medir);
-        }
-    }
-    /* ---------- modo dia / noche ---------- */
-    var temaBtn = document.getElementById('tema');
-    function guardarLocal(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* sin almacenamiento */ } }
-    function aplicarTema(t) {
-        raiz.setAttribute('data-tema', t);
-        if (temaBtn) {
-            temaBtn.setAttribute('aria-pressed', t === 'noche' ? 'true' : 'false');
-            var tx = temaBtn.querySelector('.tema-txt');
-            if (tx) tx.textContent = t === 'noche' ? 'Día' : 'Noche';
-        }
-    }
-    aplicarTema(raiz.getAttribute('data-tema') === 'noche' ? 'noche' : 'dia');
-    if (temaBtn) {
-        temaBtn.addEventListener('click', function () {
-            var nuevo = raiz.getAttribute('data-tema') === 'noche' ? 'dia' : 'noche';
-            aplicarTema(nuevo);
-            guardarLocal('planeador_tema', nuevo);
-        });
-    }
-
-    /* ---------- constelacion de la portada ---------- */
-    var cv = document.querySelector('.constelacion');
-    if (cv && cv.getContext) {
-        var cx = cv.getContext('2d'), pts = [], W = 0, H = 0, visible = true, raton = null;
-        var tamanio = function () {
-            var r = cv.parentNode.getBoundingClientRect(), d = Math.min(2, window.devicePixelRatio || 1);
-            W = r.width; H = r.height;
-            cv.width = Math.round(W * d); cv.height = Math.round(H * d);
-            cx.setTransform(d, 0, 0, d, 0, 0);
-            var n = Math.max(18, Math.min(64, Math.round(W * H / 21000)));
-            pts = [];
-            for (var i = 0; i < n; i++) pts.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - 0.5) * 0.28, vy: (Math.random() - 0.5) * 0.28 });
-        };
-        var pintarC = function (mover) {
-            cx.clearRect(0, 0, W, H);
-            var noche = raiz.getAttribute('data-tema') === 'noche';
-            var col = noche ? '255,176,0' : '255,255,255';
-            var i, j, p, q, dx, dy, dd;
-            for (i = 0; i < pts.length; i++) {
-                p = pts[i];
-                if (mover) {
-                    p.x += p.vx; p.y += p.vy;
-                    if (p.x < 0 || p.x > W) p.vx *= -1;
-                    if (p.y < 0 || p.y > H) p.vy *= -1;
-                }
-                cx.fillStyle = 'rgba(' + col + ',.75)';
-                cx.beginPath(); cx.arc(p.x, p.y, 1.8, 0, 6.2832); cx.fill();
-                for (j = i + 1; j < pts.length; j++) {
-                    q = pts[j]; dx = p.x - q.x; dy = p.y - q.y; dd = Math.sqrt(dx * dx + dy * dy);
-                    if (dd < 150) { cx.strokeStyle = 'rgba(' + col + ',' + ((1 - dd / 150) * 0.34).toFixed(3) + ')'; cx.lineWidth = 1; cx.beginPath(); cx.moveTo(p.x, p.y); cx.lineTo(q.x, q.y); cx.stroke(); }
-                }
-                if (raton) {
-                    dx = p.x - raton.x; dy = p.y - raton.y; dd = Math.sqrt(dx * dx + dy * dy);
-                    if (dd < 170) { cx.strokeStyle = 'rgba(' + col + ',' + ((1 - dd / 170) * 0.55).toFixed(3) + ')'; cx.beginPath(); cx.moveTo(p.x, p.y); cx.lineTo(raton.x, raton.y); cx.stroke(); }
-                }
-            }
-        };
-        tamanio();
-        if (reducir) {
-            pintarC(false);
-            window.addEventListener('resize', function () { tamanio(); pintarC(false); });
-        } else {
-            var bucle = function () { if (visible) pintarC(true); window.requestAnimationFrame(bucle); };
-            window.requestAnimationFrame(bucle);
-            window.addEventListener('resize', tamanio);
-            if (window.IntersectionObserver) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(cv.parentNode);
-            cv.parentNode.addEventListener('pointermove', function (ev) { var r = cv.getBoundingClientRect(); raton = { x: ev.clientX - r.left, y: ev.clientY - r.top }; });
-            cv.parentNode.addEventListener('pointerleave', function () { raton = null; });
-        }
-    }
-    /* ---------- campo "cuentanos" ---------- */
-    var fCuenta = document.getElementById('cuentanos');
-    if (fCuenta) {
-        fCuenta.addEventListener('submit', function (ev) {
-            ev.preventDefault();
-            var t = document.getElementById('cuentanos-txt');
-            mensajeInicial = (t.value || '').trim();
-            abrir('contacto', fCuenta.querySelector('button'));
-        });
-    }
-
-    /* ---------- perspective: la maqueta y el planeador siguen al mouse ---------- */
-    var heroEl = document.querySelector('.hero'), vivoEl = document.getElementById('vivo');
-    var marcoEl = vivoEl && vivoEl.querySelector('.vivo-marco'), objEl = vivoEl && vivoEl.querySelector('.hero-objeto');
-    if (heroEl && vivoEl && marcoEl && !reducir && window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
-        heroEl.addEventListener('pointermove', function (ev) {
-            var r = vivoEl.getBoundingClientRect();
-            var dx = Math.max(-1, Math.min(1, (ev.clientX - (r.left + r.width / 2)) / (window.innerWidth / 2)));
-            var dy = Math.max(-1, Math.min(1, (ev.clientY - (r.top + r.height / 2)) / (window.innerHeight / 2)));
-            marcoEl.style.setProperty('--ry', (dx * 7).toFixed(2) + 'deg');
-            marcoEl.style.setProperty('--rx', (-dy * 5).toFixed(2) + 'deg');
-            if (objEl) { objEl.style.setProperty('--tx', (dx * -24).toFixed(1)); objEl.style.setProperty('--ty', (dy * -16).toFixed(1)); }
-        });
-        heroEl.addEventListener('pointerleave', function () {
-            marcoEl.style.setProperty('--ry', '0deg'); marcoEl.style.setProperty('--rx', '0deg');
-            if (objEl) { objEl.style.setProperty('--tx', '0'); objEl.style.setProperty('--ty', '0'); }
-        });
-    }
-
-    /* ---------- stagger y stroke draw al entrar a la vista ---------- */
-    var obsVista = window.IntersectionObserver ? new IntersectionObserver(function (es) {
-        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('vista'); obsVista.unobserve(e.target); } });
-    }, { threshold: 0.18 }) : null;
-    document.querySelectorAll('.lista-ed').forEach(function (l) {
-        for (var i = 0; i < l.children.length; i++) l.children[i].style.setProperty('--i', i);
-        if (obsVista) obsVista.observe(l); else l.classList.add('vista');
-    });
-    var flujoEl = document.querySelector('.flujo');
-    if (flujoEl) {
-        flujoEl.querySelectorAll('.trazo').forEach(function (p) { try { p.style.setProperty('--L', Math.ceil(p.getTotalLength())); } catch (e) { /* sin medida */ } });
-        if (obsVista) obsVista.observe(flujoEl); else flujoEl.classList.add('vista');
-    }
-
-    /* ---------- particles: el planeador se arma con puntos ---------- */
-    var pc = document.getElementById('particulas');
-    if (pc && pc.getContext) {
-        var pctx = pc.getContext('2d'), parts = [], PW = 0, activo = false, p0 = 0, tIni = 0, mouseP = null;
-        var tris = [[[176, 28], [30, 92], [84, 108]], [[176, 28], [84, 108], [98, 168]], [[84, 108], [98, 168], [118, 132]]];
-        var colTri = ['#EEF2F7', '#9DB8E8', '#FFC83D'];
-        var sem = 11;
-        var rnd = function () { sem = (sem * 16807) % 2147483647; return sem / 2147483647; };
-        var area = function (t) { return Math.abs(t[0][0] * (t[1][1] - t[2][1]) + t[1][0] * (t[2][1] - t[0][1]) + t[2][0] * (t[0][1] - t[1][1])) / 2; };
-        var areas = tris.map(area), suma = areas[0] + areas[1] + areas[2];
-        var construir = function () {
-            parts = [];
-            for (var i = 0; i < 380; i++) {
-                var u = rnd() * suma, k = u < areas[0] ? 0 : (u < areas[0] + areas[1] ? 1 : 2), T = tris[k];
-                var r1 = Math.sqrt(rnd()), r2 = rnd();
-                var x = (1 - r1) * T[0][0] + r1 * (1 - r2) * T[1][0] + r1 * r2 * T[2][0];
-                var y = (1 - r1) * T[0][1] + r1 * (1 - r2) * T[1][1] + r1 * r2 * T[2][1];
-                parts.push({ tx: x / 200, ty: y / 200, sx: rnd(), sy: rnd(), k: k, ox: 0, oy: 0, ph: rnd() * 6.28 });
-            }
-        };
-        var medirP = function () {
-            var r = pc.getBoundingClientRect(), d = Math.min(2, window.devicePixelRatio || 1);
-            PW = r.width; pc.width = Math.round(PW * d); pc.height = Math.round(PW * d);
-            pctx.setTransform(d, 0, 0, d, 0, 0);
-        };
-        var dibujarP = function (t) {
-            var e = p0 >= 1 ? 1 : 1 - Math.pow(1 - p0, 3);
-            pctx.clearRect(0, 0, PW, PW);
-            for (var i = 0; i < parts.length; i++) {
-                var q = parts[i];
-                var jx = Math.sin(t / 900 + q.ph) * 1.2 * e, jy = Math.cos(t / 1100 + q.ph) * 1.2 * e;
-                var x = (q.sx + (q.tx - q.sx) * e) * PW + q.ox + jx, y = (q.sy + (q.ty - q.sy) * e) * PW + q.oy + jy;
-                if (mouseP) {
-                    var dx = x - mouseP.x, dy = y - mouseP.y, dd = Math.sqrt(dx * dx + dy * dy);
-                    if (dd < 60 && dd > 0.1) { q.ox += (dx / dd) * (60 - dd) * 0.08; q.oy += (dy / dd) * (60 - dd) * 0.08; }
-                }
-                q.ox *= 0.92; q.oy *= 0.92;
-                pctx.fillStyle = colTri[q.k];
-                pctx.globalAlpha = 0.35 + 0.65 * e;
-                pctx.beginPath(); pctx.arc(x, y, 2.1, 0, 6.2832); pctx.fill();
-            }
-            pctx.globalAlpha = 1;
-        };
-        construir(); medirP();
-        if (reducir) {
-            p0 = 1; dibujarP(0);
-        } else {
-            window.addEventListener('resize', medirP);
-            var bucleP = function (t) {
-                if (activo) { if (!tIni) tIni = t; p0 = Math.min(1, (t - tIni) / 2200); dibujarP(t); }
-                window.requestAnimationFrame(bucleP);
-            };
-            window.requestAnimationFrame(bucleP);
-            if (window.IntersectionObserver) {
-                new IntersectionObserver(function (es) { if (es[0].isIntersecting) { if (!activo) { activo = true; tIni = 0; } } else if (activo) { activo = false; tIni = 0; p0 = 0; } }, { threshold: 0.3 }).observe(pc.parentNode);
-            } else { activo = true; }
-            pc.parentNode.addEventListener('pointermove', function (ev) { var r = pc.getBoundingClientRect(); mouseP = { x: ev.clientX - r.left, y: ev.clientY - r.top }; });
-            pc.parentNode.addEventListener('pointerleave', function () { mouseP = null; });
         }
     }
 })();
