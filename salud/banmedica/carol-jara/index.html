@@ -237,6 +237,12 @@
         .tramo.c { color: var(--tinta); }
         .plan-fam { color: var(--rojo-hondo); }
         .bp-nota { margin-top: 26px; font-size: 14px; color: var(--suave); max-width: 52em; }
+        .regional { margin-top: 44px; }
+        .regional h3 { font-size: 24px; }
+        .reg-grid { margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+        .reg-zona { border: 1px solid rgba(128,128,128,.35); border-radius: 12px; padding: 16px 18px; }
+        .reg-zona h4 { font-size: 16px; margin-bottom: 8px; }
+        .reg-zona ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; font-size: 15px; }
 
         /* CÓMO TE ACOMPAÑO */
         #acompano { padding: 72px 0; }
@@ -503,6 +509,17 @@
         </div>
         <div class="planes-dots" id="planes-dots" aria-hidden="true"></div>
         <p class="bp-nota">Algunos beneficios tienen vigencia o condiciones: te las cuento antes de que decidas. Las clínicas y condiciones dependen de cada plan y de las condiciones vigentes de Banmédica. Te confirmo lo que aplica a tu caso al cotizar.</p>
+        <div class="regional" id="regionales">
+            <h3>Planes regionales: clínicas por zona</h3>
+            <p class="pl-sub">También hay planes regionales. Estas son las clínicas y centros médicos que aparecen en el tarifario de regiones de Banmédica (3 de noviembre).</p>
+            <div class="reg-grid">
+                <div class="reg-zona"><h4>Zona norte</h4><ul><li>Clínica San José / San José Interclínica</li><li>Clínica San José de Arica</li><li>Clínica Tarapacá</li><li>Clínica Portada ACHS Salud</li><li>RedSalud Iquique</li><li>Clínica Atacama ACHS Salud</li><li>RedSalud Elqui</li><li>Clínica Antofagasta</li></ul></div>
+                <div class="reg-zona"><h4>Quinta Región y zona centro</h4><ul><li>Clínica Los Carrera Interclínica</li><li>Clínica RedSalud Valparaíso</li><li>Clínica Ciudad del Mar</li><li>Hospital Clínico Viña del Mar</li><li>Hospital Clínico FUSAT</li><li>Clínica Isamédica</li><li>Clínica Bupa Reñaca</li></ul></div>
+                <div class="reg-zona"><h4>Octava Región y zona sur</h4><ul><li>Clínica Biobío</li><li>Andes Salud Concepción</li><li>Sanatorio Alemán</li><li>RedSalud Mayor Temuco</li><li>Clínica Alemana Temuco</li><li>Clínica Alemana Osorno</li><li>Clínica Puerto Montt ACHS Salud</li><li>Andes Salud Puerto Montt</li><li>Clínica Alemana Valdivia</li><li>RedSalud Magallanes</li><li>Clínica Puerto Varas</li><li>Clínica Magallanes</li></ul></div>
+                <div class="reg-zona"><h4>Santiago: prestadores preferentes</h4><ul><li>Clínica Dávila</li><li>Clínica Dávila Vespucio</li><li>RedSalud Santiago</li><li>RedSalud Providencia</li><li>Clínica Indisa</li><li>Clínica Santa María</li><li>Hospital Clínico UC</li><li>Clínica UC</li><li>Clínica Las Condes</li><li>Clínica San Carlos</li><li>Clínica Universidad de los Andes</li><li>Clínica MEDS</li><li>CSCA</li></ul></div>
+            </div>
+            <p class="bp-nota">Es una lista consolidada de nombres: no significa que todas las clínicas estén incluidas en todos los planes ni que tengan el mismo porcentaje de cobertura. Los porcentajes dependen de cada línea y código de plan. Te confirmo lo que aplica a tu región al cotizar.</p>
+        </div>
         <a href="#cotizar" class="boton boton-rojo" style="margin-top:22px">Quiero mi cotización</a>
     </div>
 </section>

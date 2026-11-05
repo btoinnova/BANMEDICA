@@ -5,10 +5,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>El Planeador</title>
-<meta name="description" content="Plataforma de marketing digital que valida la identidad y el vínculo laboral de ejecutivos de ventas. Habla con un ejecutivo real; no te cobramos y no pedimos tus datos en esta página.">
+<meta name="description" content="Agencia chilena de marketing digital: páginas web, publicidad en redes sociales y buscadores, y gestión de contenido para negocios, ejecutivos y empresas de todo rubro.">
 <link rel="canonical" href="https://elplaneador.cl/">
-<meta property="og:title" content="El Planeador · Plataforma de marketing digital que valida la identidad de los ejecutivos">
-<meta property="og:description" content="Validamos la identidad y el vínculo laboral de los ejecutivos de ventas antes de publicar su página. Sin costo para ti.">
+<meta property="og:title" content="El Planeador · Agencia de marketing digital">
+<meta property="og:description" content="Páginas web y publicidad en redes y buscadores para tu negocio o servicio.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CL">
 <meta name="theme-color" content="#0F2547">
@@ -213,6 +213,15 @@
     .pie-enlaces a { text-decoration: none; padding: 8px 0; }
     .pie-enlaces a:hover { color: var(--azul); text-decoration: underline; text-underline-offset: 4px; }
 
+    /* listas editoriales (servicios y rubros) */
+    .lista-ed { margin-top: 40px; display: grid; grid-template-columns: repeat(2, 1fr); column-gap: clamp(24px, 5vw, 72px); border-top: 2px solid var(--marino); }
+    .lista-ed > div { display: grid; gap: 4px; padding: 20px 0; border-bottom: 1px solid var(--linea); align-content: start; }
+    .lista-ed strong { font: 700 1.25rem/1.2 var(--display); color: var(--marino); letter-spacing: -.02em; }
+    .lista-ed span { color: var(--suave); font-size: 1rem; max-width: 34em; }
+    @media (max-width: 760px) { .lista-ed { grid-template-columns: 1fr; } }
+    #condiciones .no-hacemos { max-width: 44em; margin-top: 32px; }
+    #condiciones .no-hacemos svg { color: var(--valido); }
+
     /* quiénes somos */
     .quienes { padding-bottom: 24px; }
     .quienes .titulo-sec { max-width: 17em; }
@@ -254,14 +263,14 @@
     <div class="caja">
         <a class="marca" href="./" aria-label="El Planeador, inicio"><svg class="logo" aria-hidden="true"><use href="#planeador"/></svg>El Planeador</a>
         <nav class="menu" aria-label="Principal">
-            <a href="#quienes">Quiénes somos</a>
-            <a href="#validacion">Qué validamos</a>
-            <a href="#como">Cómo funciona</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#rubros">Para quién</a>
+            <a href="#como">Cómo trabajamos</a>
             <div class="sub">
-                <button type="button" class="sub-boton" aria-expanded="false" aria-controls="sub-salud">Planes de salud <span aria-hidden="true">▾</span></button>
-                <div class="sub-lista" id="sub-salud"><a href="salud/banmedica/">Banmédica</a></div>
+                <button type="button" class="sub-boton" aria-expanded="false" aria-controls="sub-ej">Ejemplos <span aria-hidden="true">▾</span></button>
+                <div class="sub-lista" id="sub-ej"><a href="salud/banmedica/">Página de planes de salud</a></div>
             </div>
-            <a class="boton boton-primario" href="#ejecutivos">Soy ejecutivo</a>
+            <a class="boton boton-primario" href="#contacto">Hablemos</a>
         </nav>
     </div>
 </header>
@@ -274,130 +283,105 @@
         <svg class="avion" viewBox="0 0 200 200" aria-hidden="true"><use href="#planeador"/></svg>
         <div class="caja">
             <div>
-                <h1>Una plataforma de marketing digital <span class="subraya">que valida la identidad de los ejecutivos.</span></h1>
-                <p class="bajada">Hacemos la página y la publicidad de ejecutivos de ventas, hoy en planes de salud, y antes de publicarla validamos su identidad y su vínculo laboral con la empresa que representan. Somos una plataforma chilena, by BTo Innova soluciones.</p>
-                <ul class="controles" aria-label="Lo que hacemos por ti">
-                    <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Identidad validada</strong><span>Revisamos su cédula y su contrato de trabajo vigente para confirmar que es quien dice ser y que trabaja para esa empresa.</span></li>
-                    <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Tus datos, donde decides</strong><span>Aquí no pedimos datos personales; los dejas en la página del ejecutivo.</span></li>
-                    <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Sin costo para ti</strong><span>Los ejecutivos pagan por su página y su publicidad.</span></li>
+                <h1>Marketing digital <span class="subraya">para tu negocio o tu servicio.</span></h1>
+                <p class="bajada">Creamos tu página web y promocionamos lo que ofreces en redes sociales y buscadores como Google, para que las personas que te necesitan te encuentren y te contacten. Somos una agencia chilena, by BTo Innova soluciones.</p>
+                <ul class="controles" aria-label="Qué busca el marketing digital">
+                    <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Que te encuentren</strong><span>Publicidad en redes sociales y en buscadores, dirigida a quien busca lo que ofreces.</span></li>
+                    <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Que te contacten</strong><span>Una página web clara, con formulario y botón de WhatsApp, para que te escriban.</span></li>
+                    <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Que sepas qué funciona</strong><span>Revisamos de dónde llegan tus contactos y ajustamos las campañas.</span></li>
                 </ul>
                 <div class="acciones">
-                    <a class="boton boton-primario" href="#consulta">Cuéntanos qué necesitas</a>
-                    <a class="enlace" href="#ejecutivos">Soy ejecutivo: quiero mi página</a>
+                    <a class="boton boton-primario" href="#contacto">Quiero mi página</a>
+                    <a class="enlace" href="#servicios">Ver qué hacemos</a>
                 </div>
             </div>
-            <form class="consulta" id="consulta" action="salud/banmedica/carol-jara/" method="get" aria-labelledby="c-tit">
-                <h2 id="c-tit">¿Qué necesitas?</h2>
-                <p>Dinos qué buscas y te llevamos a la página de un ejecutivo con identidad validada. Aquí no te pedimos ningún dato personal.</p>
-                <fieldset>
-                    <legend class="solo-lector">Rubro</legend>
-                    <label class="op"><input type="radio" name="rubro" value="salud" checked><span>Salud</span></label>
-                    <label class="op off"><input type="radio" name="rubro" value="seguros" disabled><span>Seguros <small>pronto</small></span></label>
-                    <label class="op off"><input type="radio" name="rubro" value="educacion" disabled><span>Educación <small>pronto</small></span></label>
-                    <label class="op off"><input type="radio" name="rubro" value="telefonia" disabled><span>Telefonía <small>pronto</small></span></label>
-                    <label class="op off"><input type="radio" name="rubro" value="internet" disabled><span>Internet <small>pronto</small></span></label>
-                </fieldset>
-                <label class="campo" for="busco">¿Qué estás buscando?
-                    <select id="busco" name="busco" required>
-                        <option value="" disabled selected>Elige una opción</option>
-                        <option value="plan-nuevo">Un plan de salud nuevo</option>
-                        <option value="cambiar">Cambiarme de plan o de isapre</option>
-                        <option value="entender">Entender mi plan actual</option>
-                        <option value="otro">Otra consulta de salud</option>
-                    </select>
-                </label>
-                <button class="boton boton-primario" type="submit">Hablar con un ejecutivo</button>
-                <p class="nota">Esta página no pide datos personales. Si decides dejarlos en la página del ejecutivo, ahí verás cómo se tratan antes de enviarlos.</p>
-            </form>
+            <div class="consulta" aria-labelledby="c-tit">
+                <h2 id="c-tit">Para todo rubro</h2>
+                <p>Restaurantes, ejecutivos de venta, profesionales, comercios y empresas. Cuéntanos qué quieres promover y armamos el plan contigo.</p>
+                <a class="boton boton-primario" href="mailto:contacto@elplaneador.cl?subject=Quiero%20conversar%20sobre%20marketing%20digital">Agenda una conversación</a>
+                <p class="nota">Escríbenos y conversamos sobre lo que necesitas, sin compromiso de contratar.</p>
+            </div>
         </div>
     </section>
 
     <section class="seccion quienes" id="quienes">
         <div class="caja">
-            <h2 class="titulo-sec">Hoy cuesta confiar en quien publica y pide tus datos en internet.</h2>
+            <h2 class="titulo-sec">Marketing digital: que quien te necesita te encuentre.</h2>
             <div class="quienes-cols">
                 <div>
-                    <h3>El problema</h3>
-                    <p>Cualquiera puede publicar un anuncio, decir que representa a una empresa y pedirte el RUT o el teléfono. A la mayoría de las personas les pasa lo mismo: no saben con quién están hablando.</p>
+                    <h3>Qué es</h3>
+                    <p>Es dar a conocer lo que ofreces por internet: en buscadores como Google, en redes sociales y en tu propia página web. Cada vez más personas buscan ahí antes de decidir a quién contratar o dónde comprar.</p>
                 </div>
                 <div>
-                    <h3>Cómo lo resolvemos</h3>
-                    <p>Antes de publicar a un ejecutivo, confirmamos que es quien dice ser y que trabaja para la empresa que representa. Solo entonces le hacemos su página y su publicidad, para que sepas con quién hablas.</p>
+                    <h3>Qué hacemos</h3>
+                    <p>Creamos y administramos tu página, diseñamos las campañas de publicidad y gestionamos tus redes. Trabajamos sobre tus propias cuentas y páginas, que siguen siendo tuyas.</p>
                 </div>
                 <div>
                     <h3>Quiénes somos</h3>
-                    <p>Somos El Planeador, una plataforma chilena de marketing digital, by BTo Innova soluciones. No asesoramos, no comparamos planes ni cobramos comisión por ventas: eso lo ve cada persona directamente con el ejecutivo.</p>
+                    <p>El Planeador es la agencia de marketing digital de BTo Innova soluciones, un grupo chileno que también desarrolla software. Nos encargamos de la promoción; el contenido y las decisiones de cada negocio son de su dueño.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="seccion" id="validacion">
-        <div class="caja validacion">
-            <div>
-                <h2 class="titulo-sec">Antes de publicar a un ejecutivo, revisamos dos cosas.</h2>
-                <p class="intro">Su identidad y su vínculo laboral con la empresa que dice representar. Para eso revisamos su cédula de identidad y su contrato de trabajo vigente, antes de que su página llegue a ti. Es lo único que validamos.</p>
-                <ul class="no-hacemos" aria-label="Lo que no hacemos">
-                    <li><svg aria-hidden="true"><use href="#no"/></svg><span>No asesoramos ni recomendamos planes: eso lo hace el ejecutivo.</span></li>
-                    <li><svg aria-hidden="true"><use href="#no"/></svg><span>No comparamos ni cerramos ventas.</span></li>
-                    <li><svg aria-hidden="true"><use href="#no"/></svg><span>No cobramos comisión ni te cobramos a ti.</span></li>
-                </ul>
+    <section class="seccion" id="servicios">
+        <div class="caja">
+            <h2 class="titulo-sec">Lo que podemos hacer por ti.</h2>
+            <p class="intro">Puedes pedirnos una sola cosa o todo junto. Lo definimos según lo que necesites promover.</p>
+            <div class="lista-ed">
+                <div><strong>Páginas web</strong><span>Creación, actualización y mantención de tu sitio, con formulario de contacto y botón de WhatsApp.</span></div>
+                <div><strong>Publicidad y posicionamiento en buscadores</strong><span>Campañas y mejoras de tu página para aparecer cuando alguien busca lo que ofreces.</span></div>
+                <div><strong>Publicidad en redes sociales</strong><span>Anuncios dirigidos a las personas que pueden necesitar tu servicio.</span></div>
+                <div><strong>Gestión de redes y contenido</strong><span>Publicaciones, imágenes y textos para que tu negocio se vea activo y claro.</span></div>
+                <div><strong>Captación de contactos</strong><span>Formularios y mensajes para que quien se interesa pueda escribirte fácil.</span></div>
+                <div><strong>Revisión de resultados</strong><span>Qué campañas traen contactos y cuáles ajustar. Te lo contamos en simple.</span></div>
             </div>
-            <div class="ficha" role="img" aria-label="Ejemplo de ficha de ejecutivo validado, con identidad y vínculo laboral validados">
-                <span class="ficha-ejemplo">Ejemplo de ficha</span>
-                <div class="ficha-cab">
-                    <div class="ficha-foto"><svg aria-hidden="true"><use href="#persona"/></svg></div>
-                    <div><strong>Nombre del ejecutivo</strong><span>Empresa que representa</span></div>
-                </div>
-                <dl>
-                    <div><dt>Identidad<small>Cédula de identidad</small></dt><dd class="valido" style="margin:0"><svg aria-hidden="true"><use href="#ok"/></svg>Validada</dd></div>
-                    <div><dt>Vínculo laboral<small>Contrato de trabajo vigente</small></dt><dd class="valido" style="margin:0"><svg aria-hidden="true"><use href="#ok"/></svg>Validado</dd></div>
-                </dl>
-                <p class="ficha-pie">Cada ficha muestra su fecha de validación. Si el vínculo laboral termina, la ficha se retira. ¿Algo no cuadra con un ejecutivo? Escríbenos a contacto@elplaneador.cl y revisamos su ficha.</p>
+        </div>
+    </section>
+
+    <section class="seccion" id="rubros">
+        <div class="caja">
+            <h2 class="titulo-sec">Para quien necesita que lo encuentren.</h2>
+            <div class="lista-ed">
+                <div><strong>Restaurantes y cafés</strong><span>Que te encuentren cuando buscan dónde comer cerca, con tu carta, ubicación y reservas a la vista.</span></div>
+                <div><strong>Ejecutivos de venta</strong><span>Tu propia página para que quien te necesita te escriba directo, y publicidad para que te encuentre.</span></div>
+                <div><strong>Profesionales y consultas</strong><span>Una presencia clara de lo que haces, con horarios y forma de contacto.</span></div>
+                <div><strong>Comercios y empresas</strong><span>Página, redes y campañas para tus productos y servicios.</span></div>
             </div>
         </div>
     </section>
 
     <section class="seccion hondo" id="como">
         <div class="caja">
-            <h2 class="titulo-sec">Así llegas a un ejecutivo, sin dar un solo dato antes de decidir.</h2>
+            <h2 class="titulo-sec">Así trabajamos contigo.</h2>
             <ol class="pasos">
-                <li><h3>Eliges el rubro y qué buscas</h3><p>Con tus palabras, sin tecnicismos. Aquí no se pide ningún dato personal.</p></li>
-                <li><h3>Te llevamos a su página</h3><p>La de un ejecutivo con identidad y vínculo laboral validados. Nosotros no comparamos ni recomendamos planes.</p></li>
-                <li><h3>Decides tú</h3><p>Si te convence, le dejas tus datos en su página, donde verás cómo se tratan antes de enviarlos.</p></li>
+                <li><h3>Conversamos</h3><p>Nos cuentas qué ofreces, a quién quieres llegar y qué te gustaría lograr.</p></li>
+                <li><h3>Armamos y publicamos</h3><p>Creamos tu página y tus campañas. Tú revisas el contenido antes de que salga.</p></li>
+                <li><h3>Administramos y ajustamos</h3><p>Mantenemos todo al día y revisamos qué funciona para mejorarlo.</p></li>
             </ol>
         </div>
     </section>
 
-    <section class="seccion">
+    <section class="seccion" id="condiciones">
         <div class="caja">
-            <h2 class="titulo-sec">Antes de hablar con alguien, entiende tus números.</h2>
-            <div class="herr">
-                <article class="calc">
-                    <div class="gran" aria-hidden="true">7%</div>
-                    <div>
-                        <h3>Calculadora del 7%</h3>
-                        <p>Mira cuánto es el 7% de tu sueldo y cuánto sale realmente de tu bolsillo. Primero ves el resultado, después decides.</p>
-                    </div>
-                    <a class="boton boton-oro" href="salud/">Calcular ahora</a>
-                </article>
-                <div class="guias">
-                    <div class="guias-tit">Guías de salud</div>
-                    <a href="salud/articulos/licencia-medica-rechazada.html"><strong>Licencia médica rechazada</strong><span>Qué hacer, paso a paso.</span><em>Leer la guía →</em></a>
-                    <a href="salud/articulos/cuando-puedo-cambiarme-de-isapre.html"><strong>Cambiarse de isapre</strong><span>Cuándo puedes hacerlo y cómo.</span><em>Leer la guía →</em></a>
-                </div>
-            </div>
+            <h2 class="titulo-sec">Lo tuyo sigue siendo tuyo.</h2>
+            <ul class="no-hacemos" aria-label="Condiciones del servicio">
+                <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Tu página, tus cuentas y los contactos que lleguen son tuyos. Nosotros trabajamos en ellos por encargo.</span></li>
+                <li><svg aria-hidden="true"><use href="#ok"/></svg><span>El contenido que se publica es responsabilidad de quien contrata el servicio. Tú nos entregas o apruebas los textos, planes, precios y condiciones.</span></li>
+                <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Si representas a una empresa, antes de publicar validamos que trabajas para ella.</span></li>
+                <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Podemos retirar una página si su contenido no se puede respaldar.</span></li>
+            </ul>
         </div>
     </section>
 
-    <section class="seccion" id="ejecutivos">
+    <section class="seccion" id="contacto">
         <div class="caja">
             <div class="ejec">
                 <div>
-                    <h2>¿Eres ejecutivo de ventas? Te hacemos la página y la publicidad.</h2>
-                    <p>Validamos tu identidad y tu vínculo laboral antes de publicarte. Después las personas que buscan en tu rubro llegan a tu página. La página y la publicidad son un servicio con costo mensual: escríbenos y te contamos.</p>
+                    <h2>Cuéntanos qué quieres promover.</h2>
+                    <p>Escríbenos con el nombre de tu negocio o servicio y lo que te gustaría lograr. Te respondemos para conversar y ver cómo podemos ayudarte.</p>
                 </div>
-                <a class="boton boton-oro" href="mailto:contacto@elplaneador.cl?subject=Quiero%20que%20me%20validen%20y%20publiquen%20en%20El%20Planeador">Quiero que me validen</a>
+                <a class="boton boton-oro" href="mailto:contacto@elplaneador.cl?subject=Quiero%20conversar%20sobre%20marketing%20digital">Escribir a El Planeador</a>
             </div>
         </div>
     </section>
@@ -407,10 +391,10 @@
     <div class="caja">
         <a class="marca" href="./"><svg class="logo" aria-hidden="true"><use href="#planeador"/></svg>El Planeador</a>
         <nav class="pie-enlaces" aria-label="Pie de página">
-            <a href="#quienes">Quiénes somos</a>
-            <a href="#validacion">Qué validamos</a>
-            <a href="#como">Cómo funciona</a>
-            <a href="#ejecutivos">Soy ejecutivo</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#rubros">Para quién</a>
+            <a href="#como">Cómo trabajamos</a>
+            <a href="#contacto">Contacto</a>
         </nav>
         <span>Chile · by BTo Innova soluciones</span>
     </div>
