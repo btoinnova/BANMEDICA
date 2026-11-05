@@ -222,6 +222,104 @@
     #condiciones .no-hacemos { max-width: 44em; margin-top: 32px; }
     #condiciones .no-hacemos svg { color: var(--valido); }
 
+
+    /* ---- base nueva ---- */
+    html { scrollbar-gutter: stable; }
+    html.panel-abierto { overflow: hidden; }
+    :root { --ease: cubic-bezier(.16, .84, .3, 1); }
+
+    /* ---- portada: maqueta viva ---- */
+    @media (min-width: 961px) { .hero .caja { grid-template-columns: 1fr 1fr; } }
+    .hero h1 { font-size: clamp(2.3rem, 4.8vw, 4rem); }
+    .vivo { display: grid; gap: 14px; }
+    .vivo-rubros { display: flex; flex-wrap: wrap; gap: 8px; }
+    .vchip { font: 700 14px/1 var(--display); padding: 11px 16px; border-radius: 999px; border: 1px solid var(--linea); background: var(--superficie); color: var(--tinta); cursor: pointer; transition: background-color .25s, color .25s, border-color .25s, transform .25s var(--ease); }
+    .vchip:hover { transform: translateY(-2px); border-color: var(--azul); }
+    .vchip[aria-pressed="true"] { background: var(--marino); color: var(--suelo); border-color: var(--marino); }
+    .vivo-marco { background: var(--superficie); border: 1px solid var(--linea); border-radius: 20px; box-shadow: var(--sombra); overflow: hidden; }
+    .vivo-marco .mq-barra { align-items: center; }
+    .vivo-url { margin-left: 10px; flex: 1; height: 16px; border-radius: 8px; background: var(--linea); opacity: .7; display: block; }
+    .vivo-pagina { --acento: var(--oro); --acento-suave: var(--oro-suave); padding: 16px; display: grid; gap: 14px; min-height: 340px; align-content: start; transition: opacity .18s ease; }
+    .vivo-pagina[data-r="ejecutivo"] { --acento: var(--azul); --acento-suave: color-mix(in srgb, var(--azul) 18%, var(--superficie)); }
+    .vivo-pagina[data-r="tienda"] { --acento: var(--valido); --acento-suave: var(--valido-suave); }
+    .vivo-pagina[data-r="profesional"] { --acento: var(--marino); --acento-suave: color-mix(in srgb, var(--marino) 14%, var(--superficie)); }
+    .vivo-pagina.sale { opacity: 0; }
+    .vp-cab { display: flex; align-items: center; gap: 10px; }
+    .vp-cab .mq-logo { background: var(--acento); }
+    .vp-nav { margin-left: auto; display: flex; gap: 8px; }
+    .vp-nav i { width: 28px; height: 7px; border-radius: 4px; background: var(--linea); display: block; }
+    .vp-portada { display: grid; gap: 10px; padding: 22px 18px; border-radius: 14px; background: var(--hondo); justify-items: start; }
+    .vp-tit { font: 800 clamp(1.25rem, 2.6vw, 1.7rem)/1.05 var(--display); color: #EEF2F7; letter-spacing: -.03em; }
+    .vp-sub { color: #B5C3DC; font-size: .95rem; line-height: 1.4; }
+    .vivo-pagina .mq-btn { background: var(--acento); color: #fff; }
+    .vivo-pagina[data-r="restaurante"] .mq-btn { color: #0C1A33; }
+    .vp-filas { display: grid; gap: 12px; }
+    .vp-fila { display: grid; grid-template-columns: 42px 1fr 34px; gap: 12px; align-items: center; }
+    .vp-fila .mq-img { width: 42px; height: 42px; background: var(--acento-suave); }
+    .vp-fila .mq-chip { background: var(--acento-suave); height: 20px; }
+    .vp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .vp-prod { height: 84px; border-radius: 12px; background: var(--acento-suave); display: block; position: relative; }
+    .vp-prod::after { content: ""; position: absolute; left: 10px; bottom: 10px; width: 46%; height: 7px; border-radius: 4px; background: var(--acento); opacity: .55; }
+    .vp-horas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .vp-hora { height: 34px; border-radius: 10px; border: 1px solid var(--linea); background: var(--acento-suave); display: block; }
+    .vp-hora:nth-child(2) { background: var(--acento); border-color: var(--acento); }
+    .vivo-nota { font-size: 13.5px; color: var(--suave); }
+    @media (prefers-reduced-motion: no-preference) {
+        .vivo-pagina.entra .vp-tit, .vivo-pagina.entra .vp-sub, .vivo-pagina.entra .mq-btn, .vivo-pagina.entra .vp-filas > * { animation: aparece .6s var(--ease) both; animation-delay: calc(var(--i, 0) * 75ms); }
+        @keyframes aparece { from { opacity: 0; transform: translateY(14px); } }
+        .vivo { animation: sube .8s var(--ease) .12s both; }
+    }
+    @media (max-width: 640px) { .vivo-pagina { min-height: 300px; } }
+
+    /* ---- menú móvil ---- */
+    .menu-btn { display: none; align-items: center; gap: 8px; min-height: 42px; padding: 0 14px; font: 700 13px/1 var(--display); color: var(--marino); background: transparent; border: 1px solid var(--linea); border-radius: 12px; cursor: pointer; }
+    .menu-btn svg { width: 18px; height: 18px; }
+    @media (max-width: 720px) { .menu-btn { display: inline-flex; } }
+
+    /* ---- filas que abren hoja ---- */
+    .lista-ed > .item { text-align: left; font: inherit; color: inherit; background: none; border: 0; border-bottom: 1px solid var(--linea); padding: 20px 44px 20px 0; display: grid; gap: 4px; align-content: start; cursor: pointer; position: relative; transition: padding-left .3s var(--ease); }
+    .lista-ed > .item:hover { padding-left: 10px; }
+    .lista-ed > .item::after { content: ""; position: absolute; right: 8px; top: 50%; width: 22px; height: 22px; margin-top: -11px; border-radius: 50%; background: linear-gradient(var(--azul), var(--azul)) center / 10px 2px no-repeat, linear-gradient(var(--azul), var(--azul)) center / 2px 10px no-repeat; border: 1px solid var(--linea); transition: transform .35s var(--ease), background-color .25s; }
+    .lista-ed > .item:hover::after { transform: rotate(90deg); background-color: var(--oro-suave); }
+
+    /* ---- velo y hoja deslizable ---- */
+    .velo { position: fixed; inset: 0; z-index: 40; background: rgba(5, 12, 24, .58); opacity: 0; pointer-events: none; transition: opacity .4s ease; }
+    @supports (backdrop-filter: blur(1px)) { .velo { backdrop-filter: blur(3px) saturate(.85); } }
+    html.panel-abierto .velo { opacity: 1; pointer-events: auto; }
+    .hoja { position: fixed; z-index: 50; left: 0; right: 0; bottom: 0; max-height: 88dvh; overflow: auto; overscroll-behavior: contain; background: var(--superficie); color: var(--tinta); border-radius: 26px 26px 0 0; box-shadow: 0 -24px 60px -12px rgba(0,0,0,.45); transform: translateY(104%); visibility: hidden; transition: transform .5s var(--ease), visibility 0s linear .5s; outline: 0; }
+    html.panel-abierto .hoja { transform: none; visibility: visible; transition: transform .5s var(--ease), visibility 0s; }
+    .hoja.arrastra { transition: none; }
+    .hoja-cab { position: sticky; top: 0; z-index: 1; height: 40px; display: grid; place-items: center; background: var(--superficie); cursor: grab; touch-action: none; }
+    .hoja-cab span { width: 46px; height: 5px; border-radius: 3px; background: var(--linea); display: block; }
+    .hoja-cerrar { position: absolute; top: 8px; right: 12px; z-index: 2; width: 40px; height: 40px; display: grid; place-items: center; background: var(--suelo); border: 1px solid var(--linea); border-radius: 12px; cursor: pointer; color: var(--marino); }
+    .hoja-cerrar svg { width: 18px; height: 18px; }
+    .hoja-cuerpo { padding: 4px 24px 32px; display: grid; gap: 16px; }
+    .hoja-cuerpo h2 { font-size: clamp(1.7rem, 4vw, 2.1rem); font-weight: 800; padding-right: 40px; }
+    .hoja-cuerpo p { color: var(--suave); }
+    .hoja-lista { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+    .hoja-lista li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; }
+    .hoja-lista svg { width: 20px; height: 20px; color: var(--valido); margin-top: 3px; }
+    .hoja-menu { display: grid; border-top: 2px solid var(--marino); }
+    .hoja-menu a { padding: 18px 4px; font: 700 1.25rem/1.2 var(--display); color: var(--marino); text-decoration: none; border-bottom: 1px solid var(--linea); letter-spacing: -.02em; }
+    .hoja-cuerpo .boton { justify-self: start; }
+    .hoja-cuerpo .nota { margin-top: -4px; }
+    @media (min-width: 900px) {
+        .hoja { left: auto; top: 12px; right: 12px; bottom: 12px; width: min(470px, 92vw); max-height: none; border-radius: 26px; transform: translateX(112%); box-shadow: -24px 0 60px -12px rgba(0,0,0,.45); }
+        .hoja-cab { height: 8px; cursor: default; touch-action: auto; } .hoja-cab span { display: none; }
+        .hoja-cuerpo { padding-top: 36px; }
+    }
+
+    /* ---- hilo del avión en cómo trabajamos ---- */
+    .pasos-avion { position: absolute; z-index: 2; width: 38px; height: 38px; top: -5px; left: calc(var(--p, 0) * 100%); margin-left: -19px; pointer-events: none; transform: rotate(8deg); filter: drop-shadow(0 6px 10px rgba(0,0,0,.35)); }
+    .pasos-avion svg { width: 100%; height: 100%; display: block; }
+    .js .pasos li { transition: opacity .6s var(--ease), transform .6s var(--ease); }
+    .js .pasos li:not(.on) { opacity: .32; transform: translateY(10px); }
+    .js .pasos li.on::before { background: #E2B04A; }
+    @media (max-width: 760px) {
+        .pasos-avion { left: -9px; top: calc(var(--p, 0) * 100%); margin-left: 0; margin-top: -19px; transform: rotate(100deg); }
+    }
+    @media (prefers-reduced-motion: reduce) { .js .pasos li:not(.on) { opacity: 1; transform: none; } }
+
     /* maquetas de ejemplo */
     .maquetas { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px); align-items: start; }
     .mq { margin: 0; display: grid; gap: 14px; }
@@ -301,7 +399,8 @@
             <a href="#rubros">Para quién</a>
             <a href="#como">Cómo trabajamos</a>
             <a href="#ejemplos">Ejemplos</a>
-            <a class="boton boton-primario" href="#contacto">Hablemos</a>
+            <button type="button" class="menu-btn" data-hoja="menu" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Menú</button>
+            <a class="boton boton-primario" href="#contacto" data-hoja="contacto">Hablemos</a>
         </nav>
     </div>
 </header>
@@ -326,11 +425,22 @@
                     <a class="enlace" href="#servicios">Ver qué hacemos</a>
                 </div>
             </div>
-            <div class="consulta" aria-labelledby="c-tit">
-                <h2 id="c-tit">Para todo rubro</h2>
-                <p>Restaurantes, ejecutivos de venta, profesionales, comercios y empresas. Cuéntanos qué quieres promover y armamos el plan contigo.</p>
-                <a class="boton boton-primario" href="mailto:contacto@elplaneador.cl?subject=Quiero%20conversar%20sobre%20marketing%20digital">Agenda una conversación</a>
-                <p class="nota">Escríbenos y conversamos sobre lo que necesitas, sin compromiso de contratar.</p>
+            <div class="vivo" id="vivo">
+                <div class="vivo-rubros" role="group" aria-label="Elige tu rubro para ver cómo se vería tu página">
+                    <button type="button" class="vchip" data-r="restaurante" aria-pressed="true">Restaurante</button>
+                    <button type="button" class="vchip" data-r="ejecutivo" aria-pressed="false">Ejecutivo de ventas</button>
+                    <button type="button" class="vchip" data-r="tienda" aria-pressed="false">Tienda</button>
+                    <button type="button" class="vchip" data-r="profesional" aria-pressed="false">Profesional</button>
+                </div>
+                <div class="vivo-marco" aria-hidden="true">
+                    <div class="mq-barra"><i></i><i></i><i></i><span class="vivo-url"></span></div>
+                    <div class="vivo-pagina entra" id="vivo-pagina" data-r="restaurante">
+                        <div class="vp-cab"><span class="mq-logo"></span><span class="mq-linea corta"></span><span class="vp-nav"><i></i><i></i><i></i></span></div>
+                        <div class="vp-portada"><span class="vp-tit" id="vp-tit"></span><span class="vp-sub" id="vp-sub"></span><span class="mq-btn" id="vp-btn"></span></div>
+                        <div class="vp-filas" id="vp-filas"></div>
+                    </div>
+                </div>
+                <p class="vivo-nota" id="vivo-nota" aria-live="polite">Así podría verse la página de un restaurante. Maqueta ilustrativa: elige tu rubro.</p>
             </div>
         </div>
     </section>
@@ -358,14 +468,14 @@
     <section class="seccion" id="servicios">
         <div class="caja">
             <h2 class="titulo-sec">Lo que podemos hacer por ti.</h2>
-            <p class="intro">Puedes pedirnos una sola cosa o todo junto. Lo definimos según lo que necesites promover.</p>
+            <p class="intro">Puedes pedirnos una sola cosa o todo junto. Toca cada una para ver qué incluye.</p>
             <div class="lista-ed">
-                <div><strong>Páginas web</strong><span>Creación, actualización y mantención de tu sitio, con formulario de contacto y botón de WhatsApp.</span></div>
-                <div><strong>Publicidad y posicionamiento en buscadores</strong><span>Campañas y mejoras de tu página para aparecer cuando alguien busca lo que ofreces.</span></div>
-                <div><strong>Publicidad en redes sociales</strong><span>Anuncios dirigidos a las personas que pueden necesitar tu servicio.</span></div>
-                <div><strong>Gestión de redes y contenido</strong><span>Publicaciones, imágenes y textos para que tu negocio se vea activo y claro.</span></div>
-                <div><strong>Captación de contactos</strong><span>Formularios y mensajes para que quien se interesa pueda escribirte fácil.</span></div>
-                <div><strong>Revisión de resultados</strong><span>Qué campañas traen contactos y cuáles ajustar. Te lo contamos en simple.</span></div>
+                <button type="button" class="item" data-hoja="s-paginas" aria-haspopup="dialog"><strong>Páginas web</strong><span>Creación, actualización y mantención de tu sitio, con formulario de contacto y botón de WhatsApp.</span></button>
+                <button type="button" class="item" data-hoja="s-buscadores" aria-haspopup="dialog"><strong>Publicidad y posicionamiento en buscadores</strong><span>Campañas y mejoras de tu página para aparecer cuando alguien busca lo que ofreces.</span></button>
+                <button type="button" class="item" data-hoja="s-redes" aria-haspopup="dialog"><strong>Publicidad en redes sociales</strong><span>Anuncios dirigidos a las personas que pueden necesitar tu servicio.</span></button>
+                <button type="button" class="item" data-hoja="s-gestion" aria-haspopup="dialog"><strong>Gestión de redes y contenido</strong><span>Publicaciones, imágenes y textos para que tu negocio se vea activo y claro.</span></button>
+                <button type="button" class="item" data-hoja="s-contactos" aria-haspopup="dialog"><strong>Captación de contactos</strong><span>Formularios y mensajes para que quien se interesa pueda escribirte fácil.</span></button>
+                <button type="button" class="item" data-hoja="s-resultados" aria-haspopup="dialog"><strong>Revisión de resultados</strong><span>Qué campañas traen contactos y cuáles ajustar. Te lo contamos en simple.</span></button>
             </div>
         </div>
     </section>
@@ -374,10 +484,10 @@
         <div class="caja">
             <h2 class="titulo-sec">Para quien necesita que lo encuentren.</h2>
             <div class="lista-ed">
-                <div><strong>Restaurantes y cafés</strong><span>Que te encuentren cuando buscan dónde comer cerca, con tu carta, ubicación y reservas a la vista.</span></div>
-                <div><strong>Ejecutivos de venta</strong><span>Tu propia página para que quien te necesita te escriba directo, y publicidad para que te encuentre.</span></div>
-                <div><strong>Profesionales y consultas</strong><span>Una presencia clara de lo que haces, con horarios y forma de contacto.</span></div>
-                <div><strong>Comercios y empresas</strong><span>Página, redes y campañas para tus productos y servicios.</span></div>
+                <button type="button" class="item" data-hoja="r-restaurantes" aria-haspopup="dialog"><strong>Restaurantes y cafés</strong><span>Que te encuentren cuando buscan dónde comer cerca, con tu carta, ubicación y reservas a la vista.</span></button>
+                <button type="button" class="item" data-hoja="r-ejecutivos" aria-haspopup="dialog"><strong>Ejecutivos de venta</strong><span>Tu propia página para que quien te necesita te escriba directo, y publicidad para que te encuentre.</span></button>
+                <button type="button" class="item" data-hoja="r-profesionales" aria-haspopup="dialog"><strong>Profesionales y consultas</strong><span>Una presencia clara de lo que haces, con horarios y forma de contacto.</span></button>
+                <button type="button" class="item" data-hoja="r-comercios" aria-haspopup="dialog"><strong>Comercios y empresas</strong><span>Página, redes y campañas para tus productos y servicios.</span></button>
             </div>
         </div>
     </section>
@@ -432,7 +542,8 @@
     <section class="seccion hondo" id="como">
         <div class="caja">
             <h2 class="titulo-sec">Así trabajamos contigo.</h2>
-            <ol class="pasos">
+            <ol class="pasos" id="pasos">
+                <span class="pasos-avion" aria-hidden="true"><svg viewBox="0 0 200 200"><use href="#planeador"/></svg></span>
                 <li><h3>Planeamos</h3><p>Conversamos qué ofreces, a quién quieres llegar y qué te gustaría lograr, y armamos un plan simple.</p></li>
                 <li><h3>Armamos y publicamos</h3><p>Creamos tu página y tus campañas. Tú revisas el contenido antes de que salga.</p></li>
                 <li><h3>Administramos y ajustamos</h3><p>Mantenemos todo al día y revisamos qué funciona para mejorarlo.</p></li>
@@ -479,22 +590,282 @@
     </div>
 </footer>
 
+<div class="velo" id="velo" aria-hidden="true"></div>
+<aside class="hoja" id="hoja" role="dialog" aria-modal="true" aria-labelledby="hoja-tit" aria-hidden="true" tabindex="-1">
+    <div class="hoja-cab" id="hoja-cab" aria-hidden="true"><span></span></div>
+    <button type="button" class="hoja-cerrar" id="hoja-cerrar" aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="hoja-cuerpo" id="hoja-cuerpo"></div>
+</aside>
+
 <script>
 (function () {
-    var f = document.getElementById('consulta');
-    if (f) {
-        f.addEventListener('submit', function (e) {
-            e.preventDefault();
-            try { sessionStorage.setItem('planeador_busca', JSON.stringify({ rubro: f.rubro.value, busco: f.busco.value })); } catch (x) { /* sin almacenamiento */ }
-            window.location.href = f.getAttribute('action');
-        });
+    'use strict';
+    var raiz = document.documentElement;
+    raiz.classList.add('js');
+    var reducir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---------- portada: maqueta viva ---------- */
+    var RUBROS = {
+        restaurante: { nota: 'un restaurante', tit: 'Tu carta, a un toque', sub: 'Pedidos por WhatsApp y datos del local', btn: 'Pedir por WhatsApp', tipo: 'lista' },
+        ejecutivo: { nota: 'un ejecutivo de ventas', tit: 'Conoce lo que ofrezco', sub: 'Planes y respuestas claras, con contacto directo', btn: 'Escríbeme', tipo: 'lista' },
+        tienda: { nota: 'una tienda', tit: 'Tus productos, a la vista', sub: 'Catálogo y compra por mensaje', btn: 'Ver catálogo', tipo: 'grid' },
+        profesional: { nota: 'un profesional', tit: 'Agenda tu hora', sub: 'Tu presentación, horarios y contacto', btn: 'Reservar hora', tipo: 'horas' }
+    };
+    var ORDEN = ['restaurante', 'ejecutivo', 'tienda', 'profesional'];
+    var pagina = document.getElementById('vivo-pagina');
+    var filas = document.getElementById('vp-filas');
+    var nota = document.getElementById('vivo-nota');
+    var chips = document.querySelectorAll('.vchip');
+    var actual = 'restaurante', detenido = false, temporizador = null;
+
+    function crear(tag, cls, i) {
+        var e = document.createElement(tag);
+        if (cls) e.className = cls;
+        if (i !== undefined) e.style.setProperty('--i', i);
+        return e;
     }
-    document.querySelectorAll('.sub-boton').forEach(function (b) {
-        b.addEventListener('click', function () {
-            var s = b.parentNode, a = s.classList.toggle('abierto');
-            b.setAttribute('aria-expanded', a ? 'true' : 'false');
+    function pintar(clave) {
+        var d = RUBROS[clave];
+        actual = clave;
+        pagina.setAttribute('data-r', clave);
+        document.getElementById('vp-tit').textContent = d.tit;
+        document.getElementById('vp-sub').textContent = d.sub;
+        document.getElementById('vp-btn').textContent = d.btn;
+        document.getElementById('vp-tit').style.setProperty('--i', 0);
+        document.getElementById('vp-sub').style.setProperty('--i', 1);
+        document.getElementById('vp-btn').style.setProperty('--i', 2);
+        filas.textContent = '';
+        var n, c;
+        if (d.tipo === 'lista') {
+            for (n = 0; n < 3; n++) {
+                c = crear('div', 'vp-fila', n + 3);
+                c.appendChild(crear('span', 'mq-img'));
+                var t = crear('span', 'mq-textos');
+                t.appendChild(crear('span', 'mq-linea'));
+                t.appendChild(crear('span', 'mq-linea corta'));
+                c.appendChild(t);
+                c.appendChild(crear('span', 'mq-chip'));
+                filas.appendChild(c);
+            }
+        } else if (d.tipo === 'grid') {
+            c = crear('div', 'vp-grid', 3);
+            for (n = 0; n < 4; n++) c.appendChild(crear('span', 'vp-prod'));
+            filas.appendChild(c);
+        } else {
+            c = crear('div', 'vp-horas', 3);
+            for (n = 0; n < 6; n++) c.appendChild(crear('span', 'vp-hora'));
+            filas.appendChild(c);
+        }
+        nota.textContent = 'Así podría verse la página de ' + d.nota + '. Maqueta ilustrativa: elige tu rubro.';
+        for (n = 0; n < chips.length; n++) chips[n].setAttribute('aria-pressed', chips[n].getAttribute('data-r') === clave ? 'true' : 'false');
+    }
+    function cambiar(clave) {
+        if (clave === actual) return;
+        if (reducir) { pintar(clave); return; }
+        pagina.classList.remove('entra');
+        pagina.classList.add('sale');
+        window.setTimeout(function () {
+            pintar(clave);
+            pagina.classList.remove('sale');
+            void pagina.offsetWidth;
+            pagina.classList.add('entra');
+        }, 170);
+    }
+    function avanzar() {
+        if (detenido || document.hidden) return;
+        cambiar(ORDEN[(ORDEN.indexOf(actual) + 1) % ORDEN.length]);
+    }
+    if (pagina) {
+        pintar('restaurante');
+        chips.forEach(function (b) {
+            b.addEventListener('click', function () {
+                detenido = true;
+                window.clearInterval(temporizador);
+                cambiar(b.getAttribute('data-r'));
+            });
         });
+        if (!reducir) temporizador = window.setInterval(avanzar, 5200);
+    }
+
+    /* ---------- hojas deslizables ---------- */
+    var OK = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var MAIL = 'mailto:contacto@elplaneador.cl?subject=Quiero%20conversar%20sobre%20marketing%20digital';
+    var HOJAS = {
+        menu: { menu: [['#servicios', 'Servicios'], ['#rubros', 'Para quién'], ['#ejemplos', 'Ejemplos'], ['#como', 'Cómo trabajamos'], ['#condiciones', 'Lo tuyo sigue siendo tuyo']], cta: ['Hablemos', 'contacto'] },
+        contacto: { t: 'Cuéntanos qué quieres promover', p: 'Escríbenos con el nombre de tu negocio o servicio y lo que te gustaría lograr. Te respondemos para conversar y ver cómo podemos ayudarte.', mail: 'Escribir a El Planeador', nota: 'Conversar no te compromete a contratar.' },
+        's-paginas': { t: 'Páginas web', p: 'Diseñamos y armamos tu sitio para que quien llegue entienda rápido qué ofreces y cómo contactarte.', l: ['Formulario de contacto y botón de WhatsApp', 'Versión pensada para celular', 'Actualización y mantención cuando la necesites'] },
+        's-buscadores': { t: 'Publicidad y posicionamiento en buscadores', p: 'Campañas para que tu negocio aparezca cuando alguien busca lo que ofreces, y mejoras en tu página para que los buscadores la entiendan mejor.', l: ['Definir qué palabras busca tu cliente', 'Campañas con un presupuesto que tú defines', 'Ajustes según qué trae contactos'] },
+        's-redes': { t: 'Publicidad en redes sociales', p: 'Anuncios dirigidos a las personas que pueden necesitar lo que ofreces.', l: ['Definir a quién llegar', 'Textos e imágenes del anuncio', 'Revisión de qué funciona y qué no'] },
+        's-gestion': { t: 'Gestión de redes y contenido', p: 'Publicaciones, imágenes y textos para que tu negocio se vea activo y claro.', l: ['Un plan de contenidos simple', 'Publicaciones diseñadas para tu marca', 'Revisión periódica de resultados'] },
+        's-contactos': { t: 'Captación de contactos', p: 'Formularios y mensajes para que quien se interesa pueda escribirte fácil.', l: ['Formulario y botón de WhatsApp en tu página', 'Aviso de cada contacto que llega', 'Los contactos llegan a ti y son tuyos'] },
+        's-resultados': { t: 'Revisión de resultados', p: 'Qué campañas traen contactos y cuáles ajustar, explicado en simple.', l: ['Resumen de contactos según su origen', 'Qué mantener y qué cambiar', 'Recomendación para el siguiente paso'] },
+        'r-restaurantes': { t: 'Restaurantes y cafés', p: 'Que te encuentren cuando buscan dónde comer cerca.', l: ['Carta, ubicación y horarios a la vista', 'Pedido o reserva por WhatsApp', 'Publicidad para tu zona'] },
+        'r-ejecutivos': { t: 'Ejecutivos de venta', p: 'Tu propia página, a tu nombre, para que quien te necesita te escriba directo.', l: ['Presentación y lo que ofreces, con claridad', 'Formulario cuyos contactos llegan a ti', 'Si representas a una empresa, validamos que trabajas para ella antes de publicar'] },
+        'r-profesionales': { t: 'Profesionales y consultas', p: 'Una presencia clara de lo que haces.', l: ['Presentación, servicios y horarios', 'Forma simple de pedir una hora', 'Posicionamiento para que te encuentren'] },
+        'r-comercios': { t: 'Comercios y empresas', p: 'Página, redes y campañas para tus productos y servicios.', l: ['Catálogo o presentación de tu oferta', 'Contacto y compra por mensaje', 'Campañas según lo que quieras promover'] }
+    };
+    var velo = document.getElementById('velo');
+    var hoja = document.getElementById('hoja');
+    var cuerpo = document.getElementById('hoja-cuerpo');
+    var cab = document.getElementById('hoja-cab');
+    var fondo = ['header.barra', 'main', 'footer.pie'].map(function (s) { return document.querySelector(s); });
+    var anterior = null, abierta = false;
+
+    function boton(cls, texto, href) {
+        var a = document.createElement('a');
+        a.className = 'boton ' + cls;
+        a.textContent = texto;
+        a.href = href;
+        return a;
+    }
+    function armar(clave) {
+        var d = HOJAS[clave];
+        cuerpo.textContent = '';
+        var h = document.createElement('h2');
+        h.id = 'hoja-tit';
+        h.textContent = d.menu ? 'Menú' : d.t;
+        cuerpo.appendChild(h);
+        if (d.menu) {
+            var nav = document.createElement('nav');
+            nav.className = 'hoja-menu';
+            nav.setAttribute('aria-label', 'Secciones');
+            d.menu.forEach(function (m) {
+                var a = document.createElement('a');
+                a.href = m[0];
+                a.textContent = m[1];
+                nav.appendChild(a);
+            });
+            cuerpo.appendChild(nav);
+            var b = boton('boton-primario', d.cta[0], '#contacto');
+            b.setAttribute('data-hoja', d.cta[1]);
+            cuerpo.appendChild(b);
+            return;
+        }
+        var p = document.createElement('p');
+        p.textContent = d.p;
+        cuerpo.appendChild(p);
+        if (d.l) {
+            var ul = document.createElement('ul');
+            ul.className = 'hoja-lista';
+            d.l.forEach(function (x) {
+                var li = document.createElement('li');
+                li.innerHTML = OK;
+                var s = document.createElement('span');
+                s.textContent = x;
+                li.appendChild(s);
+                ul.appendChild(li);
+            });
+            cuerpo.appendChild(ul);
+            var c = boton('boton-primario', 'Hablemos de esto', '#contacto');
+            c.setAttribute('data-hoja', 'contacto');
+            cuerpo.appendChild(c);
+        }
+        if (d.mail) {
+            cuerpo.appendChild(boton('boton-oro', d.mail, MAIL));
+            var n = document.createElement('p');
+            n.className = 'nota';
+            n.textContent = d.nota;
+            cuerpo.appendChild(n);
+        }
+    }
+    function abrir(clave, origen) {
+        if (!HOJAS[clave]) return;
+        if (abierta) { cerrar(true); }
+        anterior = origen || document.activeElement;
+        armar(clave);
+        hoja.scrollTop = 0;
+        hoja.style.transform = '';
+        fondo.forEach(function (e) { if (e) e.inert = true; });
+        hoja.setAttribute('aria-hidden', 'false');
+        velo.setAttribute('aria-hidden', 'false');
+        raiz.classList.add('panel-abierto');
+        abierta = true;
+        window.setTimeout(function () { try { hoja.focus({ preventScroll: true }); } catch (e) { hoja.focus(); } }, 30);
+    }
+    function cerrar(rapido) {
+        if (!abierta) return;
+        abierta = false;
+        raiz.classList.remove('panel-abierto');
+        hoja.style.transform = '';
+        hoja.setAttribute('aria-hidden', 'true');
+        velo.setAttribute('aria-hidden', 'true');
+        fondo.forEach(function (e) { if (e) e.inert = false; });
+        if (!rapido && anterior && anterior.focus) { try { anterior.focus({ preventScroll: true }); } catch (e) { anterior.focus(); } }
+    }
+    document.addEventListener('click', function (ev) {
+        var t = ev.target.closest ? ev.target.closest('[data-hoja]') : null;
+        if (t) {
+            ev.preventDefault();
+            abrir(t.getAttribute('data-hoja'), t);
+            return;
+        }
+        var a = abierta && ev.target.closest ? ev.target.closest('.hoja-menu a') : null;
+        if (a) {
+            ev.preventDefault();
+            var dest = document.querySelector(a.getAttribute('href'));
+            cerrar(true);
+            if (dest) window.setTimeout(function () { dest.scrollIntoView({ behavior: reducir ? 'auto' : 'smooth', block: 'start' }); }, 120);
+        }
     });
+    velo.addEventListener('click', function () { cerrar(); });
+    document.getElementById('hoja-cerrar').addEventListener('click', function () { cerrar(); });
+    document.addEventListener('keydown', function (ev) {
+        if (!abierta) return;
+        if (ev.key === 'Escape') { cerrar(); return; }
+        if (ev.key === 'Tab') {
+            var f = hoja.querySelectorAll('a[href], button:not([disabled])');
+            if (!f.length) return;
+            var p = f[0], u = f[f.length - 1];
+            if (ev.shiftKey && (document.activeElement === p || document.activeElement === hoja)) { ev.preventDefault(); u.focus(); }
+            else if (!ev.shiftKey && document.activeElement === u) { ev.preventDefault(); p.focus(); }
+        }
+    });
+    /* arrastrar la hoja hacia abajo para cerrarla (celular) */
+    var arr = null;
+    cab.addEventListener('pointerdown', function (ev) {
+        if (window.innerWidth >= 900) return;
+        arr = { y: ev.clientY, dy: 0, t: Date.now() };
+        hoja.classList.add('arrastra');
+        try { cab.setPointerCapture(ev.pointerId); } catch (e) { /* sin captura */ }
+    });
+    cab.addEventListener('pointermove', function (ev) {
+        if (!arr) return;
+        arr.dy = Math.max(0, ev.clientY - arr.y);
+        hoja.style.transform = 'translateY(' + arr.dy + 'px)';
+        velo.style.opacity = String(Math.max(0, 1 - arr.dy / 420));
+    });
+    function soltar() {
+        if (!arr) return;
+        var rapido = arr.dy / Math.max(1, Date.now() - arr.t) > 0.5;
+        var cierra = arr.dy > 110 || (arr.dy > 30 && rapido);
+        arr = null;
+        hoja.classList.remove('arrastra');
+        velo.style.opacity = '';
+        if (cierra) cerrar(); else hoja.style.transform = '';
+    }
+    cab.addEventListener('pointerup', soltar);
+    cab.addEventListener('pointercancel', soltar);
+
+    /* ---------- hilo del avión: cómo trabajamos ---------- */
+    var seccion = document.getElementById('como');
+    var pasos = document.getElementById('pasos');
+    var items = pasos ? pasos.querySelectorAll('li') : [];
+    var pendiente = false;
+    function medir() {
+        pendiente = false;
+        var r = seccion.getBoundingClientRect(), vh = window.innerHeight;
+        var p = (vh * 0.78 - r.top) / (r.height * 0.8);
+        p = Math.max(0, Math.min(1, p));
+        pasos.style.setProperty('--p', p.toFixed(3));
+        for (var i = 0; i < items.length; i++) {
+            items[i].classList.toggle('on', p >= (i + 0.15) / items.length || (i === 0 && p > 0.02));
+        }
+    }
+    if (pasos && seccion) {
+        medir();
+        window.addEventListener('scroll', function () { if (!pendiente) { pendiente = true; window.requestAnimationFrame(medir); } }, { passive: true });
+        window.addEventListener('resize', medir);
+    }
 })();
 </script>
 </body>
