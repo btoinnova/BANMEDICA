@@ -563,6 +563,14 @@
     .vl2 .v-linea:nth-child(1), .vl3 .v-linea:nth-child(-n+2) { color: #FFE2A8; }
     .velo { background: rgba(11, 27, 92, .55); }
 
+
+    /* ---- recorrido con ilustracion: el scroll acerca la imagen ---- */
+    .v-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 50%; transform-origin: 78% 46%; transform: scale(calc(1.02 + var(--vp, 0) * .5)); will-change: transform; display: block; }
+    .v-cielo, .v-lejos, .v-medio, .v-cerca, .v-ruta { display: none; }
+    .viaje-escena::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(20, 22, 100, .66), rgba(20, 22, 100, 0) 62%); }
+    .v-credito { position: absolute; right: 14px; bottom: 10px; z-index: 2; font-size: 11.5px; color: rgba(255, 255, 255, .78); }
+    @media (max-width: 760px) { .v-foto { object-position: 76% 50%; } .viaje-escena::after { background: linear-gradient(180deg, rgba(20, 22, 100, .6), rgba(20, 22, 100, 0) 70%); } }
+    @media (prefers-reduced-motion: reduce) { .v-foto { transform: none; } }
 </style>
 </head>
 <body>
@@ -639,6 +647,8 @@
         <h2 class="solo-lector" id="v-tit">Planeamos, despegamos, te encuentran.</h2>
         <div class="viaje-pista" id="viaje-pista">
             <div class="viaje-escena" id="viaje-escena">
+                <img class="v-foto" src="img/portada-planeador.jpg" alt="" width="1376" height="768" loading="lazy" decoding="async">
+                <span class="v-credito">Ilustración generada con IA</span>
                 <svg class="v-capa v-cielo" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
                     <defs>
                         <linearGradient id="g-cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1FA8"/><stop offset=".35" stop-color="#5B2EE0"/><stop offset=".65" stop-color="#FF5C7A"/><stop offset=".88" stop-color="#FFB000"/><stop offset="1" stop-color="#FFD66B"/></linearGradient>
@@ -1130,18 +1140,10 @@
         var p = Math.max(0, Math.min(1, -r.top / total));
         vEscena.style.setProperty('--vp', p.toFixed(3));
         vEscena.className = 'viaje-escena' + (p > 0.12 ? ' vl1' : '') + (p > 0.38 ? ' vl2' : '') + (p > 0.64 ? ' vl3' : '');
-        var L = vTrazo.getTotalLength();
-        var q = 0.04 + p * 0.92;
-        var pt = vTrazo.getPointAtLength(L * q);
-        var pt2 = vTrazo.getPointAtLength(Math.min(L, L * q + 4));
-        var ang = Math.atan2(pt2.y - pt.y, pt2.x - pt.x) * 180 / Math.PI;
-        vAvion.setAttribute('transform', 'translate(' + pt.x.toFixed(1) + ' ' + pt.y.toFixed(1) + ') rotate(' + (ang + 12).toFixed(1) + ')');
     }
-    if (vPista && vEscena && vTrazo && vAvion) {
+    if (vPista && vEscena) {
         if (reducir) {
             vEscena.className = 'viaje-escena vl3';
-            var Ls = vTrazo.getTotalLength(), pm = vTrazo.getPointAtLength(Ls * 0.55);
-            vAvion.setAttribute('transform', 'translate(' + pm.x.toFixed(1) + ' ' + pm.y.toFixed(1) + ') rotate(-18)');
         } else {
             viaje();
             window.addEventListener('scroll', viaje, { passive: true });
