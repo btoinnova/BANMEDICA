@@ -18,41 +18,27 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap">
 <style>
     :root {
-        --suelo: #EEF2F7;
+        color-scheme: light;
+        --suelo: #F4F7FF;
         --superficie: #FFFFFF;
-        --linea: #D3DCE8;
-        --tinta: #0C1A33;
-        --suave: #46566F;
-        --marino: #0F2547;
-        --azul: #1D4C9E;
-        --oro: #C98F1E;
-        --oro-suave: #F6E7C3;
-        --valido: #0B7766;
-        --valido-suave: #DDF2EC;
-        --hondo: #0F2547;
-        --sobre-hondo: #EEF2F7;
-        --sobre-hondo-suave: #B5C3DC;
-        --foco: #1D4C9E;
-        --sombra: 0 1px 2px rgba(15, 37, 71, .06), 0 24px 48px -16px rgba(15, 37, 71, .18);
-        --logo-a: #0F2547; --logo-b: #3D5A80;
+        --linea: #D2DBF6;
+        --tinta: #0A1235;
+        --suave: #435072;
+        --marino: #0B1B5C;
+        --azul: #2347FF;
+        --oro: #FFB000;
+        --oro-suave: #FFEFC2;
+        --coral: #FF5C7A;
+        --valido: #00967A;
+        --valido-suave: #D7F5EC;
+        --hondo: #1F3FE0;
+        --sobre-hondo: #FFFFFF;
+        --sobre-hondo-suave: #D6DEFF;
+        --foco: #2347FF;
+        --sombra: 0 1px 2px rgba(11, 27, 92, .08), 0 28px 56px -18px rgba(11, 27, 92, .32);
+        --logo-a: #0B1B5C; --logo-b: #2347FF;
         --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
         --texto: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-    }
-    @media (prefers-color-scheme: dark) {
-        :root:not([data-theme="light"]) {
-            --suelo: #08111F; --superficie: #101B2F; --linea: #22314B; --tinta: #EAF0FA; --suave: #A3B1C9;
-            --marino: #EAF0FA; --azul: #8FB2F0; --oro: #E2B04A; --oro-suave: #3A2F14;
-            --valido: #4FD1B8; --valido-suave: #0F2D2A; --hondo: #0C1A33; --foco: #8FB2F0;
-            --sombra: 0 1px 2px rgba(0,0,0,.4), 0 24px 48px -16px rgba(0,0,0,.55);
-            --logo-a: #EAF0FA; --logo-b: #8FB2F0;
-        }
-    }
-    :root[data-theme="dark"] {
-        --suelo: #08111F; --superficie: #101B2F; --linea: #22314B; --tinta: #EAF0FA; --suave: #A3B1C9;
-        --marino: #EAF0FA; --azul: #8FB2F0; --oro: #E2B04A; --oro-suave: #3A2F14;
-        --valido: #4FD1B8; --valido-suave: #0F2D2A; --hondo: #0C1A33; --foco: #8FB2F0;
-        --sombra: 0 1px 2px rgba(0,0,0,.4), 0 24px 48px -16px rgba(0,0,0,.55);
-        --logo-a: #EAF0FA; --logo-b: #8FB2F0;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -444,7 +430,7 @@
     .mq .mq-cuerpo { padding: 0; min-height: 0; gap: 0; }
 
     /* ---- el recorrido del planeador ---- */
-    .viaje { background: #050C1A; }
+    .viaje { background: #1B1FA8; }
     .viaje-pista { height: 320svh; position: relative; }
     .viaje-escena { position: sticky; top: 0; height: 100dvh; overflow: hidden; display: grid; align-items: center; --vp: 0; }
     .v-capa, .v-ruta { position: absolute; left: 0; width: 100%; pointer-events: none; }
@@ -523,6 +509,60 @@
         .hero .bajada { animation-delay: .06s; } .controles { animation-delay: .12s; } .acciones { animation-delay: .18s; } .consulta { animation-delay: .14s; }
         @keyframes sube { from { opacity: 0; transform: translateY(16px); } }
     }
+
+    /* ================= mundo vivo: portada, color y fuerza ================= */
+    body { background: var(--suelo); }
+    .hero { background: radial-gradient(900px 520px at 88% 8%, #5473FF 0%, rgba(84, 115, 255, 0) 62%), radial-gradient(700px 480px at 0% 100%, #2A55FF 0%, rgba(42, 85, 255, 0) 60%), var(--hondo); color: #fff; padding: 56px 0 96px; }
+    .hero::before { content: ""; position: absolute; width: clamp(280px, 38vw, 560px); aspect-ratio: 1; right: -9vw; top: -14vw; border-radius: 50%; background: radial-gradient(circle at 34% 30%, #FFE08A, var(--oro) 58%, #FF8A1F); z-index: 0; }
+    .hero::after { content: ""; position: absolute; width: clamp(160px, 20vw, 300px); aspect-ratio: 1; left: -6vw; bottom: -8vw; border-radius: 50%; border: clamp(18px, 2.4vw, 36px) solid var(--coral); z-index: 0; }
+    .hero h1 { color: #fff; font-size: clamp(2.5rem, 5.2vw, 4.4rem); }
+    .hero h1 .subraya { text-decoration-color: var(--oro); }
+    .hero .bajada { color: #DCE4FF; }
+    .hero .controles { border-top-color: rgba(255, 255, 255, .28); }
+    .hero .controles li + li { border-left-color: rgba(255, 255, 255, .28); }
+    .hero .controles strong { color: #fff; }
+    .hero .controles span { color: #D6DEFF; }
+    .hero .controles svg { color: var(--oro); }
+    .hero .boton-primario { background: var(--oro); color: #0B1B5C; }
+    .hero .boton-primario:hover { background: #FFC83D; color: #0B1B5C; }
+    .hero .enlace { color: #fff; }
+    .hero .ruta path { stroke: #fff; opacity: .5; }
+    .hero .vchip { background: rgba(255, 255, 255, .14); color: #fff; border-color: rgba(255, 255, 255, .38); }
+    .hero .vchip:hover { border-color: #fff; }
+    .hero .vchip[aria-pressed="true"] { background: var(--oro); color: #0B1B5C; border-color: var(--oro); }
+    .hero .vivo-marco { box-shadow: 0 40px 70px -24px rgba(5, 12, 70, .7); border-color: rgba(255, 255, 255, .5); }
+    .hero .vivo-nota { color: #D6DEFF; }
+    @media (prefers-reduced-motion: no-preference) {
+        .hero::before { animation: flota 9s ease-in-out infinite; }
+        .hero::after { animation: flota 11s ease-in-out -4s infinite reverse; }
+        @keyframes flota { 50% { transform: translateY(-18px) rotate(4deg); } }
+    }
+    .barra .caja { background: rgba(255, 255, 255, .92); }
+
+    .cinta { background: var(--oro); border: 0; padding: 26px 0; }
+    .cinta-pista span { -webkit-text-stroke: 1.6px var(--marino); }
+    .cinta-pista span:nth-child(even) { color: var(--marino); }
+    .cinta-pista span::after { background: #fff; }
+
+    #servicios { background: #fff; }
+    #rubros { background: var(--oro-suave); }
+    #ejemplos { background: #E4EBFF; }
+    #condiciones { background: #fff; }
+    .quienes { background: var(--suelo); }
+    .lista-ed > .item::after { border-color: var(--marino); }
+    .lista-ed > .item:hover::after { background-color: var(--oro); }
+    .boton-primario { background: var(--azul); color: #fff; }
+    .boton-primario:hover { background: var(--marino); color: #fff; }
+    .titulo-sec { letter-spacing: -.04em; }
+    .historia.hondo, .hondo { background: var(--hondo); }
+    .ejec { background: var(--marino); }
+    .pie { background: var(--suelo); }
+    .mq-marco { border-color: rgba(11, 27, 92, .16); }
+    .viaje { background: #1B1FA8; }
+    .v-linea { color: #fff; text-shadow: 0 6px 34px rgba(27, 31, 168, .6); }
+    .vl2 .v-linea:nth-child(1), .vl3 .v-linea:nth-child(-n+2) { color: #FFE2A8; }
+    .velo { background: rgba(11, 27, 92, .55); }
+
 </style>
 </head>
 <body>
@@ -562,7 +602,7 @@
         <svg class="ruta" viewBox="0 0 1440 700" preserveAspectRatio="xMinYMin slice" aria-hidden="true">
             <path d="M 760 760 C 1040 720, 1240 520, 1310 320 S 1400 90, 1470 20"/>
         </svg>
-        <svg class="avion" viewBox="0 0 200 200" aria-hidden="true"><use href="#planeador"/></svg>
+        <svg class="avion" viewBox="0 0 200 200" aria-hidden="true"><use href="#planeador-claro"/></svg>
         <div class="caja">
             <div>
                 <h1>Planeamos tu estrategia <span class="subraya">de marketing digital.</span></h1>
@@ -601,20 +641,20 @@
             <div class="viaje-escena" id="viaje-escena">
                 <svg class="v-capa v-cielo" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
                     <defs>
-                        <linearGradient id="g-cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050C1A"/><stop offset=".55" stop-color="#0F2547"/><stop offset=".82" stop-color="#27407A"/><stop offset="1" stop-color="#C98F1E" stop-opacity=".55"/></linearGradient>
-                        <radialGradient id="g-luna"><stop offset="0" stop-color="#F6E7C3"/><stop offset=".6" stop-color="#F6E7C3" stop-opacity=".25"/><stop offset="1" stop-color="#F6E7C3" stop-opacity="0"/></radialGradient>
+                        <linearGradient id="g-cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1FA8"/><stop offset=".35" stop-color="#5B2EE0"/><stop offset=".65" stop-color="#FF5C7A"/><stop offset=".88" stop-color="#FFB000"/><stop offset="1" stop-color="#FFD66B"/></linearGradient>
+                        <radialGradient id="g-sol"><stop offset="0" stop-color="#FFF6D6"/><stop offset=".5" stop-color="#FFE08A" stop-opacity=".55"/><stop offset="1" stop-color="#FFB000" stop-opacity="0"/></radialGradient>
                     </defs>
                     <rect width="1440" height="800" fill="url(#g-cielo)"/>
-                    <circle cx="683" cy="97" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="168" cy="294" r="1.0" fill="#EEF2F7" opacity="0.70"/><circle cx="1213" cy="49" r="1.2" fill="#EEF2F7" opacity="0.35"/><circle cx="196" cy="242" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="512" cy="66" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="1178" cy="83" r="1.2" fill="#EEF2F7" opacity="0.35"/><circle cx="1201" cy="319" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="472" cy="43" r="1.2" fill="#EEF2F7" opacity="0.70"/><circle cx="878" cy="93" r="1.0" fill="#EEF2F7" opacity="0.70"/><circle cx="1167" cy="112" r="1.0" fill="#EEF2F7" opacity="0.50"/><circle cx="782" cy="69" r="1.0" fill="#EEF2F7" opacity="0.35"/><circle cx="1287" cy="125" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="663" cy="258" r="2.0" fill="#EEF2F7" opacity="0.70"/><circle cx="633" cy="147" r="1.2" fill="#EEF2F7" opacity="0.50"/><circle cx="187" cy="314" r="1.6" fill="#EEF2F7" opacity="0.90"/><circle cx="723" cy="249" r="1.6" fill="#EEF2F7" opacity="0.35"/><circle cx="261" cy="282" r="2.0" fill="#EEF2F7" opacity="0.50"/><circle cx="720" cy="97" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="100" cy="59" r="1.6" fill="#EEF2F7" opacity="0.70"/><circle cx="737" cy="324" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="160" cy="67" r="1.6" fill="#EEF2F7" opacity="0.90"/><circle cx="1380" cy="53" r="1.0" fill="#EEF2F7" opacity="0.70"/><circle cx="1345" cy="315" r="2.0" fill="#EEF2F7" opacity="0.70"/><circle cx="810" cy="197" r="1.0" fill="#EEF2F7" opacity="0.90"/><circle cx="747" cy="106" r="1.0" fill="#EEF2F7" opacity="0.90"/><circle cx="140" cy="131" r="1.6" fill="#EEF2F7" opacity="0.50"/><circle cx="527" cy="223" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="185" cy="105" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="1145" cy="162" r="1.2" fill="#EEF2F7" opacity="0.90"/><circle cx="1146" cy="162" r="2.0" fill="#EEF2F7" opacity="0.70"/><circle cx="1418" cy="214" r="1.2" fill="#EEF2F7" opacity="0.50"/><circle cx="189" cy="110" r="1.2" fill="#EEF2F7" opacity="0.50"/><circle cx="1368" cy="139" r="1.0" fill="#EEF2F7" opacity="0.90"/><circle cx="1226" cy="113" r="1.6" fill="#EEF2F7" opacity="0.70"/><circle cx="28" cy="94" r="2.0" fill="#EEF2F7" opacity="0.70"/><circle cx="1268" cy="309" r="1.6" fill="#EEF2F7" opacity="0.50"/><circle cx="1075" cy="47" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="835" cy="224" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="1006" cy="225" r="1.0" fill="#EEF2F7" opacity="0.50"/><circle cx="157" cy="126" r="2.0" fill="#EEF2F7" opacity="0.50"/><circle cx="245" cy="194" r="1.0" fill="#EEF2F7" opacity="0.35"/><circle cx="20" cy="310" r="1.2" fill="#EEF2F7" opacity="0.35"/><circle cx="764" cy="33" r="1.0" fill="#EEF2F7" opacity="0.50"/><circle cx="1277" cy="212" r="1.2" fill="#EEF2F7" opacity="0.70"/><circle cx="731" cy="328" r="1.6" fill="#EEF2F7" opacity="0.90"/><circle cx="271" cy="79" r="2.0" fill="#EEF2F7" opacity="0.90"/>
-                    <circle cx="1130" cy="170" r="150" fill="url(#g-luna)"/>
-                    <circle cx="1130" cy="170" r="46" fill="#F6E7C3"/>
+                    <circle cx="683" cy="97" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="168" cy="294" r="1.0" fill="#EEF2F7" opacity="0.70"/><circle cx="1213" cy="49" r="1.2" fill="#EEF2F7" opacity="0.35"/><circle cx="196" cy="242" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="512" cy="66" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="1178" cy="83" r="1.2" fill="#EEF2F7" opacity="0.35"/><circle cx="1201" cy="319" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="472" cy="43" r="1.2" fill="#EEF2F7" opacity="0.70"/><circle cx="878" cy="93" r="1.0" fill="#EEF2F7" opacity="0.70"/><circle cx="1167" cy="112" r="1.0" fill="#EEF2F7" opacity="0.50"/><circle cx="782" cy="69" r="1.0" fill="#EEF2F7" opacity="0.35"/><circle cx="1287" cy="125" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="663" cy="258" r="2.0" fill="#EEF2F7" opacity="0.70"/><circle cx="633" cy="147" r="1.2" fill="#EEF2F7" opacity="0.50"/><circle cx="187" cy="314" r="1.6" fill="#EEF2F7" opacity="0.90"/><circle cx="723" cy="249" r="1.6" fill="#EEF2F7" opacity="0.35"/><circle cx="261" cy="282" r="2.0" fill="#EEF2F7" opacity="0.50"/><circle cx="720" cy="97" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="100" cy="59" r="1.6" fill="#EEF2F7" opacity="0.70"/><circle cx="737" cy="324" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="160" cy="67" r="1.6" fill="#EEF2F7" opacity="0.90"/><circle cx="1380" cy="53" r="1.0" fill="#EEF2F7" opacity="0.70"/>
+                    <circle cx="1020" cy="470" r="300" fill="url(#g-sol)"/>
+                    <circle cx="1020" cy="470" r="86" fill="#FFF3C4"/>
                 </svg>
                 <svg class="v-capa v-lejos" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-                    <g fill="#EEF2F7" opacity=".07"><ellipse cx="260" cy="300" rx="170" ry="26"/><ellipse cx="340" cy="282" rx="110" ry="22"/><ellipse cx="900" cy="360" rx="200" ry="28"/><ellipse cx="1000" cy="340" rx="120" ry="22"/></g>
-                    <path d="M0 560 C200 480 380 540 560 500 S 900 440 1100 500 S 1360 520 1440 480 L1440 800 L0 800Z" fill="#1A2F5C"/>
+                    <g fill="#FFFFFF" opacity=".22"><ellipse cx="260" cy="300" rx="170" ry="26"/><ellipse cx="340" cy="282" rx="110" ry="22"/><ellipse cx="900" cy="360" rx="200" ry="28"/><ellipse cx="1000" cy="340" rx="120" ry="22"/></g>
+                    <path d="M0 560 C200 480 380 540 560 500 S 900 440 1100 500 S 1360 520 1440 480 L1440 800 L0 800Z" fill="#7A35D8"/>
                 </svg>
                 <svg class="v-capa v-medio" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-                    <path d="M0 640 C220 580 420 650 640 600 S 1000 560 1220 620 S 1400 640 1440 610 L1440 800 L0 800Z" fill="#12254A"/>
+                    <path d="M0 640 C220 580 420 650 640 600 S 1000 560 1220 620 S 1400 640 1440 610 L1440 800 L0 800Z" fill="#4A2BB8"/>
                     <circle cx="180" cy="650" r="2.2" fill="#E2B04A" opacity="0.80"/><circle cx="214" cy="646" r="2.2" fill="#E2B04A" opacity="0.50"/><circle cx="250" cy="655" r="2.2" fill="#E2B04A" opacity="0.90"/><circle cx="520" cy="632" r="2.2" fill="#E2B04A" opacity="0.70"/><circle cx="556" cy="628" r="2.2" fill="#E2B04A" opacity="0.90"/><circle cx="590" cy="636" r="2.2" fill="#E2B04A" opacity="0.50"/><circle cx="940" cy="598" r="2.2" fill="#E2B04A" opacity="0.80"/><circle cx="972" cy="594" r="2.2" fill="#E2B04A" opacity="0.60"/><circle cx="1010" cy="600" r="2.2" fill="#E2B04A" opacity="0.90"/><circle cx="1230" cy="636" r="2.2" fill="#E2B04A" opacity="0.60"/><circle cx="1262" cy="632" r="2.2" fill="#E2B04A" opacity="0.90"/>
                 </svg>
                 <svg class="v-ruta" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
@@ -622,7 +662,7 @@
                     <g id="v-avion"><use href="#planeador-claro" x="-48" y="-48" width="96" height="96"/></g>
                 </svg>
                 <svg class="v-capa v-cerca" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-                    <path d="M0 720 C260 680 520 740 760 700 S 1180 670 1440 710 L1440 800 L0 800Z" fill="#0A1630"/>
+                    <path d="M0 720 C260 680 520 740 760 700 S 1180 670 1440 710 L1440 800 L0 800Z" fill="#241466"/>
                     <circle cx="110" cy="716" r="2.6" fill="#F6E7C3" opacity="0.90"/><circle cx="150" cy="720" r="2.6" fill="#F6E7C3" opacity="0.60"/><circle cx="700" cy="704" r="2.6" fill="#F6E7C3" opacity="0.80"/><circle cx="742" cy="708" r="2.6" fill="#F6E7C3" opacity="0.90"/><circle cx="1100" cy="690" r="2.6" fill="#F6E7C3" opacity="0.80"/><circle cx="1138" cy="694" r="2.6" fill="#F6E7C3" opacity="0.60"/><circle cx="1350" cy="706" r="2.6" fill="#F6E7C3" opacity="0.90"/>
                 </svg>
                 <div class="caja v-texto" aria-hidden="true">
@@ -739,7 +779,7 @@
                             <div class="h-etapa" data-e="2"><h3>Armamos y publicamos</h3><p>Creamos tu página y tus campañas. Tú revisas el contenido antes de que salga.</p></div>
                             <div class="h-etapa" data-e="3"><h3>Te contactan, ajustamos</h3><p>Los mensajes de quienes se interesan llegan a ti. Nosotros mantenemos todo al día y revisamos qué funciona para mejorarlo.</p></div>
                         </div>
-                        <div class="h-riel" aria-hidden="true"><i></i><i></i><i></i><span class="h-avion"><svg viewBox="0 0 200 200"><use href="#planeador"/></svg></span></div>
+                        <div class="h-riel" aria-hidden="true"><i></i><i></i><i></i><span class="h-avion"><svg viewBox="0 0 200 200"><use href="#planeador-claro"/></svg></span></div>
                     </div>
                     <div class="h-visual" aria-hidden="true">
                         <div class="vivo-marco">
