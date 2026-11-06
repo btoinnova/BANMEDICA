@@ -459,6 +459,7 @@
     }
     @media (max-width: 420px) { .marca span { display: block; font-size: 12px; padding-left: 10px; } .marca img { height: 24px; } .marca { gap: 10px; } }
     @media (max-width: 560px) { .se-cifras { grid-template-columns: 1fr 1fr; column-gap: 16px; row-gap: 20px; } .se-c, .se-c + .se-c { border-left: 0; padding-left: 0; padding-right: 0; } .se-c b { font-size: 32px; } }
+    @media (max-width: 900px) { .foto img { height: 46vh; object-position: 50% 12%; } .foto-pie { margin-top: -14px; margin-inline: 20px; } }
 </style>
 <script>document.documentElement.className = 'js';</script>
 </head>
@@ -509,7 +510,7 @@
             <div class="lado-foto">
             <figure class="foto">
                 <img src="../img/carol2.jpg?v=3" alt="Carol Jara, Asesora Comercial Banmédica" width="640" height="704" fetchpriority="high" decoding="async">
-                <figcaption class="foto-pie" id="chat"><small>WhatsApp · Carol Jara</small><span class="escribiendo" aria-hidden="true"><i></i><i></i><i></i></span><p class="msg">Hola, soy Carol Jara. Cuéntame qué plan o sistema de salud tienes hoy y te respondo por WhatsApp en unos momentos, con las mejores alternativas que tenemos para ti.</p></figcaption>
+                <figcaption class="foto-pie" id="chat"><small>WhatsApp · Carol Jara</small><span class="escribiendo" aria-hidden="true"><i></i><i></i><i></i></span><p class="msg">Hola, soy Carol Jara. Cuéntame qué plan o sistema de salud tienes hoy y te respondo en unos momentos, con las mejores alternativas que tenemos para ti.</p></figcaption>
             </figure>
                 <div class="chips-rol"><span class="rol"><i aria-hidden="true"></i>Asesora Comercial Banmédica</span></div>
             </div>
@@ -521,7 +522,7 @@
     <section class="sec arena" id="planes">
         <div class="caja">
             <h2 class="rv">Compara los planes y las clínicas que incluyen.</h2>
-            <p class="intro rv">Cada plan tiene su propia red de clínicas. El valor depende de tu edad, renta y cargas, por eso lo calculo yo contigo cuando cotizamos.</p>
+            <p class="intro rv">Cada plan tiene su propia red de clínicas. Te calculo el valor exacto según tu edad, renta y cargas.</p>
             <div class="guia rv" role="group" aria-labelledby="guia-tit">
                 <h3 id="guia-tit">¿No sabes por dónde empezar?</h3>
                 <p>Te marco qué planes incluyen las clínicas que prefieres. No necesitas dejar tus datos.</p>
@@ -548,7 +549,6 @@
             </div>
             </details>
             </div>
-            <p class="nota">Algunos beneficios tienen vigencia o condiciones: te las cuento antes de que decidas. Las clínicas y condiciones dependen de cada plan y de las condiciones vigentes de Banmédica. Te confirmo lo que aplica a tu caso al cotizar.</p>
 
             <div class="regional" id="regionales">
                 <h3 class="rv">Planes regionales: clínicas por zona.</h3>
@@ -565,36 +565,36 @@
                     <div class="zona"><h4>Octava Región y zona sur</h4><ul><li>Clínica Biobío</li><li>Andes Salud Concepción</li><li>Sanatorio Alemán</li><li>RedSalud Mayor Temuco</li><li>Clínica Alemana Temuco</li><li>Clínica Alemana Osorno</li><li>Clínica Puerto Montt ACHS Salud</li><li>Andes Salud Puerto Montt</li><li>Clínica Alemana Valdivia</li><li>RedSalud Magallanes</li><li>Clínica Puerto Varas</li><li>Clínica Magallanes</li></ul></div>
                     <div class="zona"><h4>Santiago: prestadores preferentes</h4><ul><li>Clínica Dávila</li><li>Clínica Dávila Vespucio</li><li>RedSalud Santiago</li><li>RedSalud Providencia</li><li>Clínica Indisa</li><li>Clínica Santa María</li><li>Hospital Clínico UC</li><li>Clínica UC</li><li>Clínica Las Condes</li><li>Clínica San Carlos</li><li>Clínica Universidad de los Andes</li><li>Clínica MEDS</li><li>CSCA</li></ul></div>
                 </div>
-                <p class="nota">Es una lista consolidada de nombres: no significa que todas las clínicas estén incluidas en todos los planes ni que tengan el mismo porcentaje de cobertura. Los porcentajes dependen de cada línea y código de plan. Te confirmo lo que aplica a tu región al cotizar.</p>
+                <p class="nota">Clínicas y centros médicos del tarifario de regiones de Banmédica. Dime tu región y te muestro qué planes las incluyen.</p>
             </div>
         </div>
     </section>
 
     <section class="sec" id="beneficios">
         <div class="caja">
-            <h2 class="rv">¿Y si hoy pudieras tener más cobertura pagando lo mismo?</h2>
-            <p class="intro rv">Descúbrelo en una evaluación gratuita, personalizada y sin compromiso. El resultado depende de tu caso y de las condiciones vigentes.</p>
+            <h2 class="rv">¿Tu plan sigue calzando contigo? Revisemos qué opciones tienes.</h2>
+            <p class="intro rv">Descúbrelo en una evaluación gratuita y personalizada.</p>
             <div class="pilares">
-                <div class="pilar rv"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg><h3>Más cobertura</h3><p>Para ti y tu familia cuando más lo necesitas.</p></div>
-                <div class="pilar rv"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><h3>Mejores beneficios</h3><p>Que te entregan más tranquilidad y respaldo.</p></div>
-                <div class="pilar rv"><svg class="ico" aria-hidden="true"><use href="#i-dollar"/></svg><h3>Mismo valor o incluso menor</h3><p>Aprovecha nuevas condiciones y planes más convenientes, según tu caso.</p></div>
+                <div class="pilar rv"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg><h3>Más cobertura</h3><p>Para ti y tu familia.</p></div>
+                <div class="pilar rv"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><h3>Beneficios del plan</h3><p>Coberturas y regalos que vienen con cada plan.</p></div>
+                <div class="pilar rv"><svg class="ico" aria-hidden="true"><use href="#i-dollar"/></svg><h3>Opciones según tu presupuesto</h3><p>Compara las opciones según tu caso.</p></div>
             </div>
-            <div class="banda rv"><div><h3>Responde unas preguntas y revisamos tu caso en 10 minutos</h3><ul><li>Sin costo</li><li>Sin compromiso</li><li>Con total honestidad</li></ul></div><a class="btn" href="#cotizar">Completar el formulario</a></div>
+            <div class="banda rv"><div><h3>Cuéntame tu caso y lo revisamos con calma</h3><ul><li>Sin costo</li><li>Sin compromiso</li></ul></div><a class="btn" href="#cotizar">Completar el formulario</a></div>
             <h2 class="rv" id="acompano" style="margin-top:clamp(64px,8vw,104px)">Cómo te acompaño.</h2>
             <div class="pasos">
-                <div class="paso rv"><svg class="ico" aria-hidden="true"><use href="#i-calc"/></svg><span class="n">1</span><h3>Alternativas según tu presupuesto</h3><p>Te ayudamos a encontrar el plan que mejor se adapta a tu bolsillo.</p></div>
-                <div class="paso rv"><svg class="ico" aria-hidden="true"><use href="#i-clinic"/></svg><span class="n">2</span><h3>Revisión de redes y prestadores</h3><p>Analizamos la cobertura y los prestadores en tu zona.</p></div>
-                <div class="paso rv"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg><span class="n">3</span><h3>Orientación sobre coberturas</h3><p>Te explicamos las coberturas para que tomes la mejor decisión.</p></div>
-                <div class="paso rv"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg><span class="n">4</span><h3>Acompañamiento durante el proceso</h3><p>Te guiamos en cada paso para que el proceso sea simple y seguro.</p></div>
+                <div class="paso rv"><svg class="ico" aria-hidden="true"><use href="#i-calc"/></svg><span class="n">1</span><h3>Alternativas según tu presupuesto</h3><p>Te ayudo a encontrar el plan que se adapta a tu bolsillo.</p></div>
+                <div class="paso rv"><svg class="ico" aria-hidden="true"><use href="#i-clinic"/></svg><span class="n">2</span><h3>Revisión de redes y prestadores</h3><p>Reviso la cobertura y los prestadores de tu zona.</p></div>
+                <div class="paso rv"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg><span class="n">3</span><h3>Orientación sobre coberturas</h3><p>Te explico las coberturas para que decidas con claridad.</p></div>
+                <div class="paso rv"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg><span class="n">4</span><h3>Acompañamiento durante el proceso</h3><p>Te acompaño en cada paso del proceso.</p></div>
             </div>
-            <div class="destacado rv"><p><strong>No todos necesitan el mismo plan de salud.</strong> Antes de recomendar una alternativa, reviso tu edad, región, renta imponible, cargas y preferencias de atención.</p><a class="btn" href="#cotizar">Revisar mi caso</a></div>
+            <div class="destacado rv"><p><strong>No todos necesitan el mismo plan de salud.</strong> Reviso tu edad, región, renta imponible, cargas y preferencias de atención.</p><a class="btn" href="#cotizar">Revisar mi caso</a></div>
         </div>
     </section>
 
     <section class="sec arena" id="beneficios-plan">
         <div class="caja">
             <h2 class="rv">Más beneficios que vienen con tu plan.</h2>
-            <p class="intro rv">Coberturas adicionales de Banmédica, según el plan que elijas. Te cuento cuáles aplican a tu caso.</p>
+            <p class="intro rv">Coberturas adicionales de Banmédica, según el plan que elijas. Te muestro cuáles te corresponden.</p>
             <div class="bento">
                 <article class="ben seguro rv">
                     <div class="txt">
@@ -605,7 +605,7 @@
                             <div><span class="cifra">870<small>UF</small></span><span>Clínica Santa María</span></div>
                         </div>
                         <p>Cubre el 100% de los copagos por accidentes tratados en la clínica de cada póliza. Tope por evento y beneficiario.</p>
-                        <p>Dura un año y luego se libera automáticamente. Después puedes contratarlo; te cuento el valor según tu caso.</p>
+                        <p>Dura un año y se libera solo. Después puedes contratarlo si quieres.</p>
                     </div>
                     <img src="../img/familia.jpg" width="560" height="480" loading="lazy" alt="Una familia sonriendo: papá, mamá e hija">
                 </article>
@@ -629,7 +629,7 @@
                     <svg class="ilu-prot" viewBox="0 0 100 100" aria-hidden="true"><rect x="38" y="4" width="24" height="42" rx="12" fill="#16181D"/><rect x="38" y="54" width="24" height="42" rx="12" fill="#16181D"/><circle cx="50" cy="50" r="15" fill="#E4231B"/><circle cx="50" cy="50" r="6" fill="#fff"/></svg>
                     <span class="chip gris">Sin cobro adicional</span>
                     <h3>Prótesis y órtesis</h3>
-                    <p>Para tu recuperación: implantes, dispositivos médicos, férulas e inmovilizadores. Cada plan tiene su tope de cobertura y no todos los planes cubren lo mismo.</p>
+                    <p>Para tu recuperación: implantes, dispositivos médicos, férulas e inmovilizadores. Cada plan tiene su propio tope de cobertura.</p>
                 </article>
                 <article class="ben ges rv">
                     <span class="chip">Cobertura GES</span>
@@ -640,7 +640,6 @@
                     <a class="ver" href="https://orientacion.banmedica.cl/ges-caec/" target="_blank" rel="noopener">Más información en el sitio de Banmédica</a>
                 </article>
             </div>
-            <p class="nota">Los beneficios, topes y condiciones dependen del plan y de las condiciones vigentes de Banmédica. Te confirmo lo que aplica a tu caso al cotizar.</p>
             <a class="btn wsp" style="margin-top:20px" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20los%20beneficios%20en%20tu%20p%C3%A1gina.%20%C2%BFMi%20plan%20los%20incluye%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wsp"/></svg>¿Te sirve alguno? Pregúntame</a>
         </div>
     </section>
@@ -658,9 +657,9 @@
             </div>
             <p class="nota">Todos los beneficios y descuentos del programa Salud Extendida son otorgados por Red Dávila, quien es responsable de su administración y funcionamiento.</p>
             <h3 class="sub-h">Programas y chequeos incluidos</h3>
-            <ul class="programas" id="programas"><li data-img="../img/oftalmologia.jpg"><img src="../img/oftalmologia.jpg" alt="" loading="lazy"><span>Oftalmológico</span><em>Programa preventivo</em></li><li data-img="../img/otorrinolaringologia.jpg"><img src="../img/otorrinolaringologia.jpg" alt="" loading="lazy"><span>Otorrinolaringológico</span><em>Programa preventivo</em></li><li data-img="../img/gastroenterologia.jpg"><img src="../img/gastroenterologia.jpg" alt="" loading="lazy"><span>Digestivo</span><em>Programa preventivo</em></li><li data-img="../img/articular.jpg"><img src="../img/articular.jpg" alt="" loading="lazy"><span>Articular</span><em>Programa preventivo</em></li><li data-img="../img/estudio_mamario.jpg"><img src="../img/estudio_mamario.jpg" alt="" loading="lazy"><span>Cáncer de mama</span><em>Programa preventivo</em></li><li data-img="../img/urologia_prostatica.jpg"><img src="../img/urologia_prostatica.jpg" alt="" loading="lazy"><span>Próstata</span><em>Programa preventivo</em></li><li data-img="../img/cirugia_bariatrica.jpg"><img src="../img/cirugia_bariatrica.jpg" alt="" loading="lazy"><span>Bariátrica</span><em>Programa preventivo</em></li></ul>
+            <ul class="programas" id="programas"><li data-img="../img/oftalmologia.jpg"><img src="../img/oftalmologia.jpg" alt="" loading="lazy"><span>Oftalmológico</span></li><li data-img="../img/otorrinolaringologia.jpg"><img src="../img/otorrinolaringologia.jpg" alt="" loading="lazy"><span>Otorrinolaringológico</span></li><li data-img="../img/gastroenterologia.jpg"><img src="../img/gastroenterologia.jpg" alt="" loading="lazy"><span>Digestivo</span></li><li data-img="../img/articular.jpg"><img src="../img/articular.jpg" alt="" loading="lazy"><span>Articular</span></li><li data-img="../img/estudio_mamario.jpg"><img src="../img/estudio_mamario.jpg" alt="" loading="lazy"><span>Cáncer de mama</span></li><li data-img="../img/urologia_prostatica.jpg"><img src="../img/urologia_prostatica.jpg" alt="" loading="lazy"><span>Próstata</span></li><li data-img="../img/cirugia_bariatrica.jpg"><img src="../img/cirugia_bariatrica.jpg" alt="" loading="lazy"><span>Bariátrica</span></li></ul>
             <div class="p-flota" id="p-flota" aria-hidden="true"><img alt="" src="../img/oftalmologia.jpg"></div>
-            <p class="nota">Cada programa incluye evaluación médica y prestaciones según su objetivo clínico. Beneficios y descuentos según condiciones vigentes de Red Dávila; te confirmo los detalles de tu caso por WhatsApp.</p>
+            <p class="nota">Cada programa incluye evaluación médica y las prestaciones de su objetivo clínico.</p>
             <div class="se-info">
                 <div class="rv"><h3>¿Qué significa este beneficio?</h3><p>La alianza entre Banmédica y Red Dávila permite que tus seres queridos con previsión Fonasa puedan acceder a atenciones de salud. Tus familiares, aunque pertenezcan a otro sistema, pueden cuidar su salud contigo.</p></div>
                 <div class="rv"><h3>¿Quiénes pueden ser beneficiarios?</h3><p>Personas desde los <strong>25 años</strong>, con previsión Fonasa en tramo:</p><div class="tramos"><span style="--i:0">B</span><span style="--i:1">C</span><span style="--i:2">D</span></div></div>
@@ -673,8 +672,8 @@
         <div class="caja">
             <h2 class="rv">Preguntas frecuentes.</h2>
             <div class="preguntas">
-                <details class="faq"><summary>¿Este sitio es oficial de Banmédica?</summary><p>No. Es mi sitio personal como asesora comercial de Banmédica, y funciona a través de El Planeador, que verifica mi identidad y mi vínculo con Banmédica. Las cotizaciones y contratos se rigen por las condiciones vigentes de Banmédica.</p></details>
-                <details class="faq"><summary>¿Qué hacen con mis datos?</summary><p>El Planeador los guarda y me los deriva solo a mí para atender tu consulta. No te pedimos enfermedades ni declaraciones de salud. Puedes retirar tu autorización cuando quieras. Revisa la Política de Privacidad en el formulario.</p></details>
+                <details class="faq"><summary>¿Este sitio es oficial de Banmédica?</summary><p>No. Es mi sitio personal como asesora comercial de Banmédica. Las cotizaciones y contratos se rigen por las condiciones vigentes de Banmédica.</p></details>
+                <details class="faq"><summary>¿Qué hacen con mis datos?</summary><p>Tus datos llegan directo a mí, Carol Jara, y los uso solo para atender tu consulta. No te pedimos enfermedades ni declaraciones de salud. Puedes pedirme que los elimine cuando quieras.</p></details>
                 <details class="faq"><summary>¿Esta asesoría tiene algún costo para mí?</summary><p>No. La cotización y la asesoría son gratuitas. Te acompaño en el proceso de evaluar o afiliarte a un plan Banmédica; no cobro por eso.</p></details>
                 <details class="faq"><summary>Ya tengo una isapre. ¿Puedo cambiarme?</summary><p>Depende de cuánto tiempo llevas en tu isapre actual: la regla general pide 12 meses de permanencia, salvo que te haya llegado un aviso de alza de tu isapre, caso en que puedes cambiarte sin esperar el año y sin carencias nuevas. Te reviso tu caso puntual antes de recomendarte nada.</p></details>
                 <details class="faq"><summary>¿Hay carencia si me cambio a Banmédica?</summary><p>Si vienes desde Fonasa, algunas prestaciones electivas (como cirugías programadas) tienen carencia de 6 meses; las urgencias vitales se cubren desde el primer día. Si vienes desde otra isapre por aviso de alza, no aplican carencias nuevas. Te explico exactamente qué te toca a ti según tu situación.</p></details>
@@ -702,9 +701,9 @@
                 <label class="campo">Previsión actual<select id="id-prevision" name="prevision-actual"><option value="">Selecciona una opción</option><option value="Fonasa">Fonasa</option><option value="Isapre">Isapre (ya tengo una)</option><option value="Ninguna">Ninguna</option><option value="No sé">No sé</option></select></label>
                 <label class="campo">¿Por qué buscas cotizar ahora?<select id="id-motivo" name="motivo-urgencia"><option value="">Selecciona una opción</option><option value="Quiero cambiarme">Quiero cambiarme de previsión</option><option value="Nuevo evento (trabajo, hijo, etc)">Nuevo evento (trabajo, hijo, etc.)</option><option value="Solo cotizando">Solo estoy cotizando</option></select></label>
                 <label class="campo ancho">Renta líquida mensual aproximada<select id="id-renta" name="renta-mensual"><option value="">Prefiero no decir</option><option value="Menos de 500.000">Menos de $500.000</option><option value="500.000 a 1.000.000">$500.000 a $1.000.000</option><option value="1.000.000 a 2.000.000">$1.000.000 a $2.000.000</option><option value="Más de 2.000.000">Más de $2.000.000</option></select></label>
-                <div class="consent"><input type="checkbox" id="id-consentimiento" name="consentimiento-datos" required><label for="id-consentimiento">He leído y acepto la <span class="enlace-politica" id="abrir-politica" role="button" tabindex="0">Política de Privacidad</span> y autorizo que El Planeador guarde mis datos y los derive a Carol Jara, ejecutiva acreditada de Banmédica, para que me contacte por esta consulta.</label></div>
-                <div class="consent"><input type="checkbox" id="id-consentimiento-salud" name="consentimiento-datos-salud" required><label for="id-consentimiento-salud">Autorizo específicamente el tratamiento de mis datos de salud/previsión para recibir esta cotización y gestionar mi afiliación a Banmédica. Puedo revocar esta autorización en cualquier momento sin que eso afecte mis derechos.</label></div>
-                <div class="consent"><input type="checkbox" id="id-consentimiento-comercial" name="consentimiento-comercial"><label for="id-consentimiento-comercial"><strong>Opcional:</strong> quiero recibir información de otros planes y de otros servicios de El Planeador. Puedo darme de baja cuando quiera.</label></div>
+                <div class="consent"><input type="checkbox" id="id-consentimiento" name="consentimiento-datos" required><label for="id-consentimiento">He leído y acepto la <span class="enlace-politica" id="abrir-politica" role="button" tabindex="0">Política de Privacidad</span> y autorizo que Carol Jara use mis datos para contactarme por esta consulta.</label></div>
+                <div class="consent"><input type="checkbox" id="id-consentimiento-salud" name="consentimiento-datos-salud" required><label for="id-consentimiento-salud">Autorizo a Carol Jara a usar mis datos de previsión para esta cotización y para gestionar mi afiliación a Banmédica. Puedo revocarlo cuando quiera.</label></div>
+                <div class="consent"><input type="checkbox" id="id-consentimiento-comercial" name="consentimiento-comercial"><label for="id-consentimiento-comercial"><strong>Opcional:</strong> autorizo a Carol Jara a enviarme información de otros planes y servicios que puedan interesarme. Puedo darme de baja cuando quiera.</label></div>
                 <button type="submit" class="btn" id="boton-enviar" disabled>Quiero mi cotización</button>
             </form>
         </div>
@@ -715,22 +714,20 @@
     <div class="popup" role="dialog" aria-modal="true" aria-labelledby="politica-tit">
         <div class="popup-cabecera"><h3 id="politica-tit">Política de Privacidad y Protección de Datos</h3><button class="popup-cerrar" id="cerrar-politica" aria-label="Cerrar">&times;</button></div>
         <div class="popup-contenido">
-            <h4>Responsable del tratamiento</h4>
-            <p><strong>El Planeador</strong> es quien recibe y administra tus datos. Correo para ejercer tus derechos: contacto@elplaneador.cl. Cuando El Planeador deriva tu consulta, Carol Jara, ejecutiva acreditada de Banmédica, usa los datos que recibe para atenderte, bajo su propia responsabilidad.</p>
-            <h4>Finalidad del tratamiento</h4>
-            <p>Guardar tus datos y derivar tu consulta a la ejecutiva acreditada que te corresponde, para que te contacte por WhatsApp, llamada o correo con la cotización que pediste, y acompañarte en la afiliación si lo solicitas. Solo si marcas la casilla opcional, te enviaremos información de otros planes y de otros servicios de El Planeador; puedes darte de baja cuando quieras.</p>
+            <h4>Quién es responsable de tus datos</h4>
+            <p><strong>Carol Jara</strong>, asesora comercial de Banmédica, a quien envías este formulario. Tus datos llegan directo a ella. Para ejercer tus derechos, escríbeme por WhatsApp.</p>
+            <h4>Para qué los usa</h4>
+            <p>Para contactarte por WhatsApp, llamada o correo con la cotización que pediste, y acompañarte en la afiliación si lo solicitas. Solo si marcas la casilla opcional, te enviará información de otros planes y servicios que puedan interesarte; puedes darte de baja cuando quieras.</p>
             <h4>Base legal</h4>
-            <p>Tu consentimiento libre, expreso e informado, de conformidad con la Ley N° 19.628 sobre Protección de la Vida Privada y la Ley N° 21.719 que regula el tratamiento de datos personales, ambas vigentes en la República de Chile.</p>
-            <h4>Datos que se recopilan</h4>
-            <p>Nombre, teléfono/WhatsApp, comuna, edad y plan de interés. Para cotizar en salud: tu previsión actual, el motivo de tu consulta, tu renta aproximada (en tramos) y tus cargas; estos datos pueden ser sensibles, por eso se piden con una autorización específica. <strong>No te pedimos declaraciones de salud ni enfermedades:</strong> si más adelante debes declararlas, las entregas directamente a la compañía, con sus propios términos. También guardamos datos técnicos (de qué campaña llegaste, navegador, idioma) y el registro de lo que aceptaste, con fecha, hora y versión.</p>
-            <h4>Destinatarios de los datos</h4>
-            <p>Tus datos del plan (previsión, motivo, renta, cargas) <strong>nunca se comparten con nadie más</strong>: solo los recibe la ejecutiva que atiende tu consulta. También intervienen proveedores que almacenan y envían información por nosotros, como Google (planillas y correo) y WhatsApp, que pueden tener servidores fuera de Chile. No cedemos tus datos a terceros ajenos sin tu autorización, salvo obligación legal.</p>
-            <h4>Plazo de conservación</h4>
-            <p>Si no contratas, [12 meses] desde el último contacto; luego los borramos o anonimizamos. Si retiras una autorización, dejamos de usar tus datos para esa finalidad.</p>
+            <p>Tu consentimiento libre, expreso e informado, de acuerdo con la Ley N° 19.628 sobre Protección de la Vida Privada y la Ley N° 21.719 sobre protección de datos personales.</p>
+            <h4>Qué datos se recopilan</h4>
+            <p>Nombre, teléfono o WhatsApp, comuna, edad y plan de interés. Para cotizar en salud: tu previsión actual, el motivo de tu consulta, tu renta aproximada (en tramos) y tus cargas. Estos datos pueden ser sensibles, por eso se piden con una autorización específica. <strong>No te pedimos declaraciones de salud ni enfermedades.</strong> También se guardan datos técnicos (campaña de origen, navegador, idioma) y el registro de lo que aceptaste, con fecha, hora y versión.</p>
+            <h4>Quién recibe tus datos</h4>
+            <p>Solo Carol Jara. La página no los comparte con nadie más, salvo obligación legal.</p>
+            <h4>Cuánto tiempo se conservan</h4>
+            <p>Mientras mantengamos contacto por tu consulta. Si me lo pides, los elimino. Si retiras una autorización, dejo de usar tus datos para esa finalidad.</p>
             <h4>Tus derechos</h4>
-            <p>Puedes pedir acceso, rectificación, supresión, oposición y bloqueo y, desde que rija la Ley 21.719, portabilidad, escribiendo al correo indicado arriba, sin costo para ti. Si retiras una autorización, avisamos a la ejecutiva para que deje de contactarte y borre tus datos.</p>
-            <h4>Información legal</h4>
-            <p>El Planeador es operado por BTo Innova SpA, RUT 78.533.592-9, Chile.</p>
+            <p>Puedes pedir acceso, rectificación, supresión, oposición y bloqueo de tus datos, sin costo, escribiéndome por WhatsApp.</p>
         </div>
         <div class="popup-pie">
             <label class="popup-aceptar"><input type="checkbox" id="acepto-politica"> He leído y acepto la Política de Privacidad</label>
@@ -744,8 +741,7 @@
     <div class="caja pie-grid">
         <div>
             <h4>Carol Jara — Asesora Comercial Banmédica</h4>
-            <p>Te ayudo a encontrar el plan de salud ideal para ti y tu familia. Atención personalizada, clara y confiable.</p>
-            <p id="sello-info">Identidad y vínculo con Banmédica verificados por la agencia de marketing digital El Planeador.</p>
+            <p>Te ayudo a encontrar el plan de salud que mejor calce contigo y tu familia.</p>
         </div>
         <div>
             <h4>Contacto</h4>
@@ -762,7 +758,7 @@
         </div>
     </div>
     <div class="caja pie-legal">
-        <p>© 2026 Carol Jara. Sitio personal de Carol Jara, asesora comercial de Banmédica.<br>Este sitio no es el sitio oficial de Banmédica ni lo opera la isapre. Las cotizaciones y contratos se rigen por las condiciones vigentes de Banmédica.</p>
+        <p>© 2026 Carol Jara. Sitio personal de Carol Jara, asesora comercial de Banmédica. Los valores y beneficios son los vigentes de Banmédica.<br>Página creada por El Planeador, compañía de marketing digital perteneciente a BTo Innova Soluciones.</p>
     </div>
 </footer>
 
