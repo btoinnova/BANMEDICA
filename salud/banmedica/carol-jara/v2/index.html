@@ -318,6 +318,116 @@
     }
     @media (prefers-reduced-motion: reduce) { .escribiendo i, .wsp-fijo { animation: none; } .js #chat .msg { opacity: 1; } }
 
+
+    .invita { margin-top: 16px; display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; color: var(--rojo-t); }
+    .invita svg { width: 24px; height: 24px; animation: toca 1.6s ease-in-out infinite; }
+    @keyframes toca { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+    .gchip span { box-shadow: 0 1px 0 rgba(22, 24, 29, .06); }
+    @media (prefers-reduced-motion: no-preference) {
+        .gchips.llama .gchip span { animation: llama .9s var(--ease) calc(var(--k, 0) * 70ms) 1 both; }
+        @keyframes llama { 0% { transform: none; } 35% { transform: translateY(-4px); background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo-t); } 100% { transform: none; } }
+    }
+    @media (prefers-reduced-motion: reduce) { .invita svg { animation: none; } }
+    /* ---- menos texto a la vista: pestanas, plegado, pasos que avanzan, cifras que cuentan ---- */
+    .tabs-zona { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .tabs-zona button { font: 500 14.5px/1 var(--sans); padding: 11px 18px; border-radius: 999px; border: 1px solid var(--linea); background: var(--blanco); cursor: pointer; transition: background .2s, color .2s, border-color .2s, transform .2s var(--ease); }
+    .tabs-zona button:hover { transform: translateY(-2px); border-color: var(--tinta); }
+    .tabs-zona button[aria-selected="true"] { background: var(--tinta); color: #fff; border-color: var(--tinta); }
+    .js .zonas.con-tabs { grid-template-columns: 1fr; max-width: 720px; }
+    .js .zonas.con-tabs .zona { display: none; }
+    .js .zonas.con-tabs .zona.on { display: block; animation: aparece .4s var(--ease); }
+    .js .zonas.con-tabs .zona ul { columns: 2; column-gap: 28px; }
+    @media (max-width: 560px) { .js .zonas.con-tabs .zona ul { columns: 1; } }
+    .js .noticia.cerrada p:not(.fuente) { display: none; }
+    .leer { margin-top: 10px; background: none; border: 0; padding: 0; font: 500 14.5px/1 var(--sans); color: var(--rojo-t); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .pasos { position: relative; }
+    .pasos::before { content: ""; position: absolute; left: 0; top: -1px; height: 3px; width: var(--avance, 0%); background: var(--rojo); transition: width .6s var(--ease); }
+    .js .pasos.vivo .paso { opacity: .45; transition: opacity .4s ease; }
+    .js .pasos.vivo .paso.activo { opacity: 1; }
+    .js .pasos.vivo .paso.activo .ico { transform: translateY(-3px) rotate(-6deg) scale(1.12); }
+
+    /* ---- recursos del Planeador, en version sobria ---- */
+    /* interruptor tarjetas / comparativo */
+    .vistas { margin-top: 22px; display: inline-flex; padding: 4px; background: var(--blanco); border: 1px solid var(--linea); border-radius: 999px; }
+    .vistas button { font: 500 14.5px/1 var(--sans); padding: 11px 20px; border: 0; border-radius: 999px; background: transparent; cursor: pointer; color: var(--suave); transition: background .25s, color .25s; }
+    .vistas button[aria-selected="true"] { background: var(--tinta); color: #fff; }
+    .vista-planes { position: relative; margin-top: 18px; }
+    .vista-planes > .tarjetas, .vista-planes > .tabla-envoltura { transition: opacity .45s ease; }
+    .vista-planes[data-v="tarjetas"] > .tabla-envoltura, .vista-planes[data-v="tabla"] > .tarjetas { display: none; }
+    .vista-planes.fundiendo > * { opacity: 0; }
+    .vista-planes .tabla-envoltura { margin-top: 0; }
+    .tarjetas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .plan { position: relative; background: var(--blanco); border: 1px solid var(--linea); border-radius: 22px; padding: 24px; display: flex; flex-direction: column; transition: transform .35s var(--ease), box-shadow .35s var(--ease), filter .35s ease, opacity .35s ease; }
+    .plan-fam { align-self: flex-start; font-size: 12.5px; font-weight: 500; padding: 5px 11px; border-radius: 999px; background: var(--arena); color: var(--suave); }
+    .plan h3 { margin-top: 12px; font: 400 26px/1.1 var(--serif); }
+    .plan-sub { margin-top: 16px; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--suave); }
+    .plan ul { margin: 8px 0 0; padding: 0; list-style: none; font-size: 14.5px; }
+    .plan-red li { padding: 3px 0 3px 22px; position: relative; }
+    .plan-red li::before { content: ""; position: absolute; left: 2px; top: 10px; width: 10px; height: 6px; border-left: 2px solid var(--rojo); border-bottom: 2px solid var(--rojo); transform: rotate(-45deg); }
+    .plan-regalo li { padding: 4px 0 4px 22px; position: relative; color: var(--suave); }
+    .plan-regalo li::before { content: "+"; position: absolute; left: 4px; top: 2px; font-weight: 700; color: var(--rojo); }
+    .plan .ask { margin-top: auto; padding-top: 18px; font-size: 14.5px; font-weight: 500; color: var(--rojo-t); }
+    .plan:nth-child(6) { background: var(--oscuro); color: #EEE9E4; border-color: var(--oscuro); }
+    .plan:nth-child(6) .plan-fam { background: #2B2E35; color: #D9D3CC; }
+    .plan:nth-child(6) .plan-sub, .plan:nth-child(6) .plan-regalo li { color: #B8B2AB; }
+    .plan:nth-child(6) .ask { color: #fff; }
+    .plan.dentro { box-shadow: 0 0 0 2px var(--rojo); }
+    .plan.fuera { opacity: .35; }
+    @media (hover: hover) and (pointer: fine) {
+        .tarjetas:hover .plan:not(:hover) { filter: blur(2px); opacity: .55; }
+        .plan:hover { transform: translateY(-6px); box-shadow: 0 22px 44px -20px rgba(22, 24, 29, .45); }
+    }
+    @media (max-width: 960px) { .tarjetas { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .tarjetas { grid-template-columns: 1fr; } }
+    .comparativa { margin-top: 22px; }
+    .comparativa summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font: 500 16px/1 var(--sans); color: var(--rojo-t); padding: 12px 0; }
+    .comparativa summary::-webkit-details-marker { display: none; }
+    .comparativa summary::after { content: "+"; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--rojo); font: 400 20px/1 var(--serif); transition: transform .3s var(--ease); }
+    .comparativa[open] summary::after { transform: rotate(45deg); }
+    .comparativa summary:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .comparativa[open] > :not(summary) { animation: aparece .45s var(--ease); }
+    /* franja de clinicas */
+    .cinta { overflow: hidden; border-block: 1px solid var(--linea); background: var(--blanco); }
+    .cinta-pista { display: flex; width: max-content; animation: cinta 48s linear infinite; }
+    .cinta-pista span { padding: 16px 0; font: 400 clamp(1.1rem, 2vw, 1.5rem)/1 var(--serif); color: var(--suave); white-space: nowrap; }
+    .cinta-pista span::after { content: "·"; margin: 0 22px; color: var(--rojo); }
+    @keyframes cinta { to { transform: translateX(-50%); } }
+    .cinta:hover .cinta-pista { animation-play-state: paused; }
+    /* programas con foto que sigue al cursor */
+    .sub-h { margin-top: 40px; font: 400 clamp(1.4rem, 2.4vw, 1.9rem)/1.15 var(--serif); }
+    ul.programas { margin: 18px 0 0; padding: 0; list-style: none; display: block; border-top: 1px solid var(--tinta); }
+    ul.programas li { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--linea); font: 400 clamp(1.25rem, 2.2vw, 1.75rem)/1.15 var(--serif); transition: color .25s, padding-left .3s var(--ease); cursor: default; }
+    ul.programas li img { display: none; }
+    ul.programas li em { font: 500 13px/1 var(--sans); font-style: normal; color: var(--suave); }
+    ul.programas li:hover { color: var(--rojo-t); padding-left: 10px; }
+    .p-flota { position: fixed; left: 0; top: 0; width: 260px; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; pointer-events: none; z-index: 30; opacity: 0; transform: translate3d(-50%, -50%, 0) scale(.9); transition: opacity .25s ease, transform .3s var(--ease); box-shadow: 0 20px 40px -18px rgba(22, 24, 29, .5); }
+    .p-flota img { width: 100%; height: 100%; object-fit: cover; }
+    .p-flota.on { opacity: 1; transform: translate3d(-50%, -50%, 0) scale(1); }
+    @media not all and (hover: hover) {
+        .p-flota { display: none; }
+        ul.programas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; border-top: 0; }
+        ul.programas li { flex-direction: column; align-items: center; text-align: center; border: 0; padding: 0; font: 500 13.5px/1.3 var(--sans); }
+        ul.programas li img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
+        ul.programas li em { display: none; }
+    }
+    /* menu: lupa suave y paso a la seccion con fundido */
+    .cab nav a:not(.btn) { display: inline-block; transform-origin: 50% 100%; transition: transform .18s ease-out, color .2s; }
+    main, footer { transition: opacity .28s ease; }
+    body.cambia main, body.cambia footer, body.cambia .cinta { opacity: 0; }
+    .vuela { display: block; position: fixed; z-index: 70; margin: 0; pointer-events: none; transform-origin: 0 0; transition: transform .6s var(--ease); }
+    .js h2.oculto { visibility: hidden; }
+    /* pie como la v1 */
+    footer { background: var(--oscuro); color: #B8B2AB; border-top: 0; padding: 48px 0 100px; }
+    footer .pie-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 32px; }
+    .pie-grid h4 { color: #fff; font-size: 15px; margin-bottom: 12px; }
+    .pie-grid a { display: block; color: #D9D3CC; text-decoration: none; padding: 4px 0; font-size: 14.5px; }
+    .pie-grid a:hover { color: #fff; text-decoration: underline; }
+    .pie-grid p { font-size: 14.5px; }
+    .pie-grid p + p { margin-top: 10px; }
+    .pie-legal { margin-top: 32px; padding-top: 22px; border-top: 1px solid #2E3138; font-size: 13px; }
+    @media (max-width: 760px) { footer .pie-grid { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) { .cinta-pista { animation: none; } .tarjetas:hover .plan:not(:hover) { filter: none; opacity: 1; } }
+
     @media (prefers-reduced-motion: no-preference) {
         .js .rv { opacity: 0; translate: 0 18px; transition: opacity .7s var(--ease), translate .7s var(--ease); }
         .js .rv.vista { opacity: 1; translate: none; }
@@ -380,13 +490,16 @@
         </div>
     </section>
 
+    <div class="cinta" aria-hidden="true"><div class="cinta-pista"><span>Clínica Dávila</span><span>Dávila Vespucio</span><span>RedSalud</span><span>Indisa</span><span>Santa María</span><span>MEDS</span><span>Hospital UC</span><span>Clínica UC</span><span>Las Condes</span><span>Los Andes</span><span>San Carlos de Apoquindo</span><span>Alemana</span><span>Hospital U. de Chile</span><span>Clínica Dávila</span><span>Dávila Vespucio</span><span>RedSalud</span><span>Indisa</span><span>Santa María</span><span>MEDS</span><span>Hospital UC</span><span>Clínica UC</span><span>Las Condes</span><span>Los Andes</span><span>San Carlos de Apoquindo</span><span>Alemana</span><span>Hospital U. de Chile</span></div></div>
+
     <section class="sec arena" id="planes">
         <div class="caja">
             <h2 class="rv">Compara los planes y las clínicas que incluyen.</h2>
             <p class="intro rv">Cada plan tiene su propia red de clínicas. El valor depende de tu edad, renta y cargas, por eso lo calculo yo contigo cuando cotizamos.</p>
             <div class="guia rv" role="group" aria-labelledby="guia-tit">
                 <h3 id="guia-tit">¿No sabes por dónde empezar?</h3>
-                <p>Dime a qué clínicas te gustaría poder ir y te marco qué planes las incluyen. No necesitas dejar tus datos.</p>
+                <p>Te marco qué planes incluyen las clínicas que prefieres. No necesitas dejar tus datos.</p>
+                <p class="invita"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10m0-1.5a1.5 1.5 0 0 1 3 0V11m0-1a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-1.2a5 5 0 0 1-3.9-1.9L4.6 15a1.6 1.6 0 0 1 2.4-2.1L9 15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Marca o selecciona las clínicas a las que te gustaría ir:</p>
                 <div class="gchips"><label class="gchip"><input type="checkbox" value="dav"><span>Clínica Dávila</span></label><label class="gchip"><input type="checkbox" value="ves"><span>Dávila Vespucio</span></label><label class="gchip"><input type="checkbox" value="rs"><span>RedSalud</span></label><label class="gchip"><input type="checkbox" value="ind"><span>Indisa</span></label><label class="gchip"><input type="checkbox" value="sm"><span>Santa María</span></label><label class="gchip"><input type="checkbox" value="meds"><span>MEDS</span></label><label class="gchip"><input type="checkbox" value="uch"><span>Hospital UC</span></label><label class="gchip"><input type="checkbox" value="ucc"><span>Clínica UC</span></label><label class="gchip"><input type="checkbox" value="lc"><span>Las Condes</span></label><label class="gchip"><input type="checkbox" value="la"><span>Los Andes</span></label><label class="gchip"><input type="checkbox" value="sc"><span>San Carlos de Apoquindo</span></label><label class="gchip"><input type="checkbox" value="ale"><span>Alemana</span></label><label class="gchip"><input type="checkbox" value="huch"><span>Hospital U. de Chile</span></label></div>
                 <p class="nota" style="margin-top:10px">Es solo una pregunta: no necesitas llenar formularios. Te respondo yo y, si quieres, después cotizamos.</p>
                 <p class="guia-estado" id="guia-estado" aria-live="polite">Elige una o más clínicas y marco los planes que las incluyen.</p>
@@ -398,11 +511,16 @@
             </div>
             <p class="regalo-frase">Por contratar el plan, vienen beneficios adicionales de regalo.</p>
             <p class="comun"><strong>En la mayoría de los planes:</strong> Farmacia Ambulatoria Lite, OMT MEDY, Asistencia en viaje (solo titulares hombres) y Salud Extendida.</p>
+            <div class="vista-planes" id="vista-planes" data-v="ambas">
+            <div class="tarjetas" id="tarjetas"><article class="plan" data-p="0" data-clinicas="dav ves"><span class="plan-fam">Plan cerrado</span><h3>Plan Conecta</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Copago $0 en exámenes e imagenología (Dávila y Vespucio)</li><li>50% de descuento en exámenes por 3 meses</li><li>Cobertura ambulatoria Plus Vidaintegra</li><li>Telemedicina MEDY</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Conecta%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="1" data-clinicas="dav ves rs huch ind"><span class="plan-fam">Clásico</span><h3>Plan Clásico Silver</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>RedSalud</li><li>Hospital U. de Chile</li><li>Indisa</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Seguro de accidentes (Dávila y Vespucio)</li><li>Exámenes con copago cero</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Cl%C3%A1sico%20Silver%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="2" data-clinicas="dav ves rs ind sm meds uch"><span class="plan-fam">Clásico y Superior</span><h3>Plan Gold One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>RedSalud</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hospital UC</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Seguro de accidentes (Dávila y Vespucio)</li><li>Exámenes con copago cero</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Gold%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="3" data-clinicas="dav ves rs ind sm meds uch lc la sc"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum B</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>RedSalud</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hospital UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Seguro de accidentes (Santa María)</li><li>Copago cero en exámenes (Santa María y Clínica Meds)</li><li>OMT MEDY sin costo por 1 año</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20B%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="4" data-clinicas="dav ves rs ind sm meds uch ucc lc la sc"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>RedSalud</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hospital UC</li><li>Clínica UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Seguro de accidentes (Santa María)</li><li>Copago cero en exámenes (Santa María y Clínica Meds)</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="5" data-clinicas="dav ves sm meds la sc ale"><span class="plan-fam">Preferente</span><h3>Salud Preferente Titanium</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>Santa María</li><li>MEDS</li><li>Los Andes</li><li>San Carlos de Apoquindo</li><li>Alemana</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Cobertura de accidentes (Santa María)</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Salud%20Preferente%20Titanium%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article></div>
+            <details class="comparativa" id="comparativa"><summary>Ver comparativa: clínicas incluidas en cada plan</summary>
             <div class="tabla-envoltura">
                 <table id="tabla-planes">
                     <thead><tr><th scope="col">Clínicas y prestadores</th><th scope="col" class="pc" data-p="0"><span>Plan cerrado</span><b>Conecta</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Conecta%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="1"><span>Clásico</span><b>Clásico Silver</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Cl%C3%A1sico%20Silver%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="2"><span>Clásico y Superior</span><b>Gold One</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Gold%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="3"><span>Superior y Preferente</span><b>Platinum B</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20B%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="4"><span>Superior y Preferente</span><b>Platinum One</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="5"><span>Preferente</span><b>Preferente Titanium</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Salud%20Preferente%20Titanium%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th></tr></thead>
                     <tbody><tr data-c="dav"><th scope="row">Clínica Dávila</th><td data-p="0"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="1"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="2"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr data-c="ves"><th scope="row">Dávila Vespucio</th><td data-p="0"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="1"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="2"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr data-c="rs"><th scope="row">RedSalud</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="2"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><span class="no" aria-label="No incluye">·</span></td></tr><tr data-c="ind"><th scope="row">Indisa</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="2"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><span class="no" aria-label="No incluye">·</span></td></tr><tr data-c="sm"><th scope="row">Santa María</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr data-c="meds"><th scope="row">MEDS</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr data-c="uch"><th scope="row">Hospital UC</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><span class="no" aria-label="No incluye">·</span></td></tr><tr data-c="ucc"><th scope="row">Clínica UC</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><span class="no" aria-label="No incluye">·</span></td><td data-p="3"><span class="no" aria-label="No incluye">·</span></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><span class="no" aria-label="No incluye">·</span></td></tr><tr data-c="lc"><th scope="row">Las Condes</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><span class="no" aria-label="No incluye">·</span></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><span class="no" aria-label="No incluye">·</span></td></tr><tr data-c="la"><th scope="row">Los Andes</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><span class="no" aria-label="No incluye">·</span></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr data-c="sc"><th scope="row">San Carlos de Apoquindo</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><span class="no" aria-label="No incluye">·</span></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr data-c="ale"><th scope="row">Alemana</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><span class="no" aria-label="No incluye">·</span></td><td data-p="3"><span class="no" aria-label="No incluye">·</span></td><td data-p="4"><span class="no" aria-label="No incluye">·</span></td><td data-p="5"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr data-c="huch"><th scope="row">Hospital U. de Chile</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="2"><span class="no" aria-label="No incluye">·</span></td><td data-p="3"><span class="no" aria-label="No incluye">·</span></td><td data-p="4"><span class="no" aria-label="No incluye">·</span></td><td data-p="5"><span class="no" aria-label="No incluye">·</span></td></tr><tr class="regalo"><th scope="row">Beneficios de regalo</th><td data-p="0"><ul><li>Copago $0 en exámenes e imagenología (Dávila y Vespucio)</li><li>50% de descuento en exámenes por 3 meses</li><li>Cobertura ambulatoria Plus Vidaintegra</li><li>Telemedicina MEDY</li></ul></td><td data-p="1"><ul><li>Seguro de accidentes (Dávila y Vespucio)</li><li>Exámenes con copago cero</li></ul></td><td data-p="2"><ul><li>Seguro de accidentes (Dávila y Vespucio)</li><li>Exámenes con copago cero</li></ul></td><td data-p="3"><ul><li>Seguro de accidentes (Santa María)</li><li>Copago cero en exámenes (Santa María y Clínica Meds)</li><li>OMT MEDY sin costo por 1 año</li></ul></td><td data-p="4"><ul><li>Seguro de accidentes (Santa María)</li><li>Copago cero en exámenes (Santa María y Clínica Meds)</li></ul></td><td data-p="5"><ul><li>Cobertura de accidentes (Santa María)</li></ul></td></tr></tbody>
                 </table>
+            </div>
+            </details>
             </div>
             <p class="nota">Algunos beneficios tienen vigencia o condiciones: te las cuento antes de que decidas. Las clínicas y condiciones dependen de cada plan y de las condiciones vigentes de Banmédica. Te confirmo lo que aplica a tu caso al cotizar.</p>
 
@@ -513,15 +631,9 @@
                 <div class="se-c rv"><b>$0</b><small>copago</small><h3>Programas preventivos completos</h3><p>Consulta + exámenes + imágenes con copago $0.</p></div>
             </div>
             <p class="nota">Todos los beneficios y descuentos del programa Salud Extendida son otorgados por Red Dávila, quien es responsable de su administración y funcionamiento.</p>
-            <div class="programas">
-                <div class="prog"><img src="../img/oftalmologia.jpg" alt="" loading="lazy">Oftalmológico</div>
-                <div class="prog"><img src="../img/otorrinolaringologia.jpg" alt="" loading="lazy">Otorrinolaringológico</div>
-                <div class="prog"><img src="../img/gastroenterologia.jpg" alt="" loading="lazy">Digestivo</div>
-                <div class="prog"><img src="../img/articular.jpg" alt="" loading="lazy">Articular</div>
-                <div class="prog"><img src="../img/estudio_mamario.jpg" alt="" loading="lazy">Cáncer de mama</div>
-                <div class="prog"><img src="../img/urologia_prostatica.jpg" alt="" loading="lazy">Próstata</div>
-                <div class="prog"><img src="../img/cirugia_bariatrica.jpg" alt="" loading="lazy">Bariátrica</div>
-            </div>
+            <h3 class="sub-h">Programas y chequeos incluidos</h3>
+            <ul class="programas" id="programas"><li data-img="../img/oftalmologia.jpg"><img src="../img/oftalmologia.jpg" alt="" loading="lazy"><span>Oftalmológico</span><em>Programa preventivo</em></li><li data-img="../img/otorrinolaringologia.jpg"><img src="../img/otorrinolaringologia.jpg" alt="" loading="lazy"><span>Otorrinolaringológico</span><em>Programa preventivo</em></li><li data-img="../img/gastroenterologia.jpg"><img src="../img/gastroenterologia.jpg" alt="" loading="lazy"><span>Digestivo</span><em>Programa preventivo</em></li><li data-img="../img/articular.jpg"><img src="../img/articular.jpg" alt="" loading="lazy"><span>Articular</span><em>Programa preventivo</em></li><li data-img="../img/estudio_mamario.jpg"><img src="../img/estudio_mamario.jpg" alt="" loading="lazy"><span>Cáncer de mama</span><em>Programa preventivo</em></li><li data-img="../img/urologia_prostatica.jpg"><img src="../img/urologia_prostatica.jpg" alt="" loading="lazy"><span>Próstata</span><em>Programa preventivo</em></li><li data-img="../img/cirugia_bariatrica.jpg"><img src="../img/cirugia_bariatrica.jpg" alt="" loading="lazy"><span>Bariátrica</span><em>Programa preventivo</em></li></ul>
+            <div class="p-flota" id="p-flota" aria-hidden="true"><img alt="" src="../img/oftalmologia.jpg"></div>
             <p class="nota">Cada programa incluye evaluación médica y prestaciones según su objetivo clínico. Beneficios y descuentos según condiciones vigentes de Red Dávila; te confirmo los detalles de tu caso por WhatsApp.</p>
             <div class="se-info">
                 <div class="rv"><h3>¿Qué significa este beneficio?</h3><p>La alianza entre Banmédica y Red Dávila permite que tus seres queridos con previsión Fonasa puedan acceder a atenciones de salud. Tus familiares, aunque pertenezcan a otro sistema, pueden cuidar su salud contigo.</p></div>
@@ -603,16 +715,28 @@
 </div>
 
 <footer>
-    <div class="caja">
+    <div class="caja pie-grid">
         <div>
-            <p><b>Carol Jara — Asesora Comercial Banmédica</b></p>
+            <h4>Carol Jara — Asesora Comercial Banmédica</h4>
             <p>Te ayudo a encontrar el plan de salud ideal para ti y tu familia. Atención personalizada, clara y confiable.</p>
-            <p id="sello-info">Identidad y vínculo con Banmédica verificados por El Planeador.</p>
+            <p id="sello-info">Identidad y vínculo con Banmédica verificados por la agencia de marketing digital El Planeador.</p>
         </div>
-        <div class="derecha">
-            <p>© 2026 Carol Jara. Sitio personal de Carol Jara, asesora comercial de Banmédica.</p>
-            <p>Este sitio no es el sitio oficial de Banmédica ni lo opera la isapre. Las cotizaciones y contratos se rigen por las condiciones vigentes de Banmédica.</p>
+        <div>
+            <h4>Contacto</h4>
+            <a href="#cotizar">Cotizar por el formulario</a>
+            <a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta%20sobre%20planes%20de%20salud." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            <p>Lunes a viernes, 9:00 a 18:00 hrs</p>
         </div>
+        <div>
+            <h4>Enlaces de interés</h4>
+            <a href="#inicio">Inicio</a>
+            <a href="#planes">Planes</a>
+            <a href="#salud-extendida">Salud Extendida</a>
+            <a href="#cotizar">Cotizar plan</a>
+        </div>
+    </div>
+    <div class="caja pie-legal">
+        <p>© 2026 Carol Jara. Sitio personal de Carol Jara, asesora comercial de Banmédica.<br>Este sitio no es el sitio oficial de Banmédica ni lo opera la isapre. Las cotizaciones y contratos se rigen por las condiciones vigentes de Banmédica.</p>
     </div>
 </footer>
 
@@ -720,6 +844,116 @@
         }
         th.addEventListener('click', elige);
         th.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); elige(e); } });
+    });
+
+
+    /* las clinicas se iluminan una tras otra al aparecer, para invitar a tocarlas */
+    var gch = document.querySelector('.gchips');
+    if (gch && 'IntersectionObserver' in window) {
+        gch.querySelectorAll('.gchip span').forEach(function (s, k) { s.style.setProperty('--k', k); });
+        var ioC = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { gch.classList.add('llama'); ioC.disconnect(); } }); }, { threshold: .6 });
+        ioC.observe(gch);
+    }
+    /* planes regionales en pestanas */
+    var zonas = document.querySelector('.zonas');
+    if (zonas) {
+        var zs = zonas.querySelectorAll('.zona'), tabs = document.createElement('div');
+        tabs.className = 'tabs-zona'; tabs.setAttribute('role', 'tablist');
+        zs.forEach(function (z, i) {
+            var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'tab'); b.textContent = z.querySelector('h4').textContent;
+            b.addEventListener('click', function () { zs.forEach(function (x, k) { x.classList.toggle('on', k === i); tabs.children[k].setAttribute('aria-selected', k === i ? 'true' : 'false'); }); });
+            tabs.appendChild(b);
+        });
+        zonas.parentNode.insertBefore(tabs, zonas); zonas.classList.add('con-tabs'); tabs.children[0].click();
+    }
+    /* noticia plegada */
+    var noti = document.querySelector('.noticia');
+    if (noti) {
+        var lb = document.createElement('button'); lb.type = 'button'; lb.className = 'leer'; lb.textContent = 'Leer la noticia'; lb.setAttribute('aria-expanded', 'false');
+        noti.classList.add('cerrada'); noti.querySelector('h4').insertAdjacentElement('afterend', lb);
+        lb.addEventListener('click', function () { var ab = noti.classList.toggle('cerrada') === false; lb.textContent = ab ? 'Ocultar la noticia' : 'Leer la noticia'; lb.setAttribute('aria-expanded', ab ? 'true' : 'false'); });
+    }
+    /* pasos que se encienden uno tras otro */
+    var pasosEl = document.querySelector('.pasos'), pasoTimer = null;
+    if (pasosEl && !quieto && 'IntersectionObserver' in window) {
+        var ps = pasosEl.querySelectorAll('.paso'), pi2 = -1;
+        function siguiente() { pi2 = (pi2 + 1) % ps.length; ps.forEach(function (x, k) { x.classList.toggle('activo', k === pi2); }); pasosEl.style.setProperty('--avance', ((pi2 + 1) / ps.length * 100) + '%'); }
+        new IntersectionObserver(function (es) { es.forEach(function (x) {
+            if (x.isIntersecting && !pasoTimer) { pasosEl.classList.add('vivo'); siguiente(); pasoTimer = setInterval(siguiente, 2400); }
+            else if (!x.isIntersecting && pasoTimer) { clearInterval(pasoTimer); pasoTimer = null; }
+        }); }, { threshold: .4 }).observe(pasosEl);
+        ps.forEach(function (x, k) { x.addEventListener('mouseenter', function () { clearInterval(pasoTimer); pasoTimer = 1; pi2 = k - 1; siguiente(); }); });
+    }
+    /* cifras de Salud Extendida que cuentan, con su prefijo y sufijo */
+    if (!quieto && 'IntersectionObserver' in window) {
+        var ioSe = new IntersectionObserver(function (es) { es.forEach(function (x) {
+            if (!x.isIntersecting) return; ioSe.unobserve(x.target);
+            var el = x.target, m = el.getAttribute('data-orig').match(/^(\D*)(\d+)(\D*)$/); if (!m) return;
+            var fin = +m[2], t0 = null;
+            function paso(t) { if (t0 === null) t0 = t; var q = Math.min(1, (t - t0) / 1100), e = 1 - Math.pow(1 - q, 3); el.textContent = m[1] + Math.round(fin * e) + m[3]; if (q < 1) requestAnimationFrame(paso); }
+            requestAnimationFrame(paso);
+        }); }, { threshold: .6 });
+        document.querySelectorAll('.se-c b').forEach(function (b) { b.setAttribute('data-orig', b.textContent.trim()); if (/\d/.test(b.textContent)) ioSe.observe(b); });
+    }
+
+    /* tarjetas / comparativo con fundido */
+    var vp = document.getElementById('vista-planes');
+    document.querySelectorAll('.vistas button').forEach(function (b) {
+        b.addEventListener('click', function () {
+            if (vp.getAttribute('data-v') === b.getAttribute('data-v')) return;
+            document.querySelectorAll('.vistas button').forEach(function (x) { x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
+            vp.classList.add('fundiendo');
+            setTimeout(function () { vp.setAttribute('data-v', b.getAttribute('data-v')); requestAnimationFrame(function () { vp.classList.remove('fundiendo'); }); }, quieto ? 0 : 260);
+        });
+    });
+    /* el filtro de clinicas marca tambien las tarjetas */
+    var tarjs = document.querySelectorAll('#tarjetas .plan');
+    function marcaTarjetas() {
+        var sel = []; document.querySelectorAll('.gchip input').forEach(function (c) { if (c.checked) sel.push(c.value); });
+        tarjs.forEach(function (tj) { var tiene = tj.getAttribute('data-clinicas').split(' '), ok = sel.every(function (s) { return tiene.indexOf(s) !== -1; }); tj.classList.toggle('dentro', sel.length > 0 && ok); tj.classList.toggle('fuera', sel.length > 0 && !ok); });
+    }
+    document.querySelectorAll('.gchip input').forEach(function (c) { c.addEventListener('change', marcaTarjetas); });
+    var lmp = document.getElementById('guia-limpiar'); if (lmp) lmp.addEventListener('click', function () { setTimeout(marcaTarjetas, 0); });
+
+    /* programas: foto que sigue al cursor */
+    var pf = document.getElementById('p-flota'), pfi = pf && pf.querySelector('img'), plist = document.getElementById('programas');
+    if (pf && plist && matchMedia('(hover: hover)').matches) {
+        var fx = 0, fy = 0, tx = 0, ty = 0, an = false;
+        var sigue = function () { fx += (tx - fx) * .2; fy += (ty - fy) * .2; pf.style.left = fx + 'px'; pf.style.top = fy + 'px'; if (Math.abs(tx - fx) > .5 || Math.abs(ty - fy) > .5) requestAnimationFrame(sigue); else an = false; };
+        plist.addEventListener('pointermove', function (e) { tx = e.clientX + 150; ty = e.clientY; if (!an) { an = true; requestAnimationFrame(sigue); } });
+        plist.querySelectorAll('li').forEach(function (li) { li.addEventListener('pointerenter', function () { pfi.src = li.getAttribute('data-img'); pf.classList.add('on'); }); });
+        plist.addEventListener('pointerleave', function () { pf.classList.remove('on'); });
+        addEventListener('scroll', function () { pf.classList.remove('on'); }, { passive: true });
+    }
+
+    /* menu: lupa suave */
+    var navA = document.querySelectorAll('.cab nav a:not(.btn)'), cabe = document.querySelector('.cab');
+    if (!quieto && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        cabe.addEventListener('pointermove', function (e) { navA.forEach(function (a) { var r = a.getBoundingClientRect(), d = Math.abs(e.clientX - (r.left + r.width / 2)); a.style.transform = 'scale(' + (1 + Math.max(0, 1 - d / 140) * .16).toFixed(3) + ')'; }); });
+        cabe.addEventListener('pointerleave', function () { navA.forEach(function (a) { a.style.transform = ''; }); });
+    }
+    /* menu: fundido y el titulo viaja a su lugar, sin scroll largo */
+    document.querySelectorAll('.cab nav a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            var sec = document.querySelector(a.getAttribute('href')); if (!sec) return;
+            e.preventDefault();
+            var h2 = sec.querySelector('h2') || sec;
+            function salta() { sec.querySelectorAll('.rv').forEach(function (x) { x.classList.add('vista'); }); scrollTo({ top: sec.getBoundingClientRect().top + scrollY - 72, behavior: 'instant' }); history.replaceState(null, '', a.getAttribute('href')); }
+            if (quieto) { salta(); return; }
+            var ra = a.getBoundingClientRect(), v = document.createElement('span'), cs = getComputedStyle(h2);
+            v.className = 'vuela'; v.textContent = h2.textContent;
+            v.style.font = cs.fontWeight + ' ' + cs.fontSize + '/' + cs.lineHeight + ' ' + cs.fontFamily; v.style.color = cs.color; v.style.width = h2.getBoundingClientRect().width + 'px';
+            document.body.appendChild(v);
+            var s0 = ra.height / (parseFloat(cs.lineHeight) || parseFloat(cs.fontSize));
+            v.style.left = '0px'; v.style.top = '0px'; v.style.transform = 'translate3d(' + ra.left + 'px,' + ra.top + 'px,0) scale(' + s0 + ')';
+            document.body.classList.add('cambia');
+            setTimeout(function () {
+                h2.classList.add('oculto'); salta();
+                var rh = h2.getBoundingClientRect();
+                requestAnimationFrame(function () { v.style.transform = 'translate3d(' + rh.left + 'px,' + rh.top + 'px,0) scale(1)'; document.body.classList.remove('cambia'); });
+                setTimeout(function () { h2.classList.remove('oculto'); v.remove(); }, 640);
+            }, 280);
+        });
     });
 
     var rv = document.querySelectorAll('.rv');
