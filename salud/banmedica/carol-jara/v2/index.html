@@ -513,6 +513,12 @@
         header.cab .menu-movil nav a { display: block; position: static; transform: none !important; padding: 16px 0; }
         header.cab .menu-movil nav a::after { display: none; }
     }
+    /* videos */
+    .videos { margin-top: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .video { margin: 0; }
+    .video video { width: 100%; aspect-ratio: 9 / 16; border-radius: 22px; background: var(--oscuro); object-fit: cover; }
+    .video figcaption { margin-top: 10px; font-size: 15px; font-weight: 500; }
+    @media (max-width: 760px) { .videos { grid-auto-flow: column; grid-auto-columns: 78%; grid-template-columns: none; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; } .video { scroll-snap-align: start; } }
 </style>
 <script>document.documentElement.className = 'js';</script>
 </head>
@@ -549,6 +555,7 @@
             <a href="#acompano">Cómo te acompaño</a>
             <a href="#beneficios-plan">Beneficios del plan</a>
             <a href="#salud-extendida">Salud Extendida</a>
+            <a href="#videos">Videos</a>
             <a href="#preguntas">Preguntas frecuentes</a>
         </nav>
         <a class="btn menu-cotizar" href="#cotizar">Cotizar</a>
@@ -702,7 +709,7 @@
                     <span class="cifra">0,778<small>UF por beneficiario</small></span>
                     <p>Acceso a exámenes, medicamentos, consultas y hospitalizaciones definidas por ley para cada enfermedad. Por ejemplo, con diabetes tipo 2 pagas solo el 20% del valor de la canasta.</p>
                     <div class="ges-pasos"><div><b>20%</b>lo pagas tú (copago), hasta completar el deducible<i class="barra"><u style="--w:20%"></u></i></div><div><b>100%</b>de lo restante lo financia la isapre<i class="barra"><u style="--w:100%"></u></i></div></div>
-                    <a class="ver" href="https://orientacion.banmedica.cl/ges-caec/" target="_blank" rel="noopener">Más información en el sitio de Banmédica</a>
+                    <a class="ver" href="ges/">Qué es el GES y cómo se activa</a>
                 </article>
             </div>
             <a class="btn wsp" style="margin-top:20px" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20los%20beneficios%20en%20tu%20p%C3%A1gina.%20%C2%BFMi%20plan%20los%20incluye%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wsp"/></svg>¿Te sirve alguno? Pregúntame</a>
@@ -745,6 +752,19 @@
                 <details class="faq"><summary>Si cotizo, ¿quedo obligado a algo?</summary><p>No. Cotizar es solo eso: recibir información y alternativas de plan. Tú decides si sigues adelante, cuándo y con qué plan — o si simplemente no te conviene por ahora.</p></details>
                 <details class="faq"><summary>¿En cuánto tiempo me responden?</summary><p>Reviso los mensajes personalmente y respondo por WhatsApp en unos momentos, dentro del horario de atención (lunes a viernes, 9:00 a 18:00 hrs).</p></details>
             </div>
+        </div>
+    </section>
+
+    <section class="sec" id="videos">
+        <div class="caja">
+            <h2 class="rv">Conoce Banmédica en video.</h2>
+            <p class="intro rv">Videos oficiales de Banmédica sobre su red, sus clínicas y cómo te acompaña en tu salud.</p>
+            <div class="videos">
+                <figure class="video rv"><video controls preload="none" playsinline poster="../videos/banmedica-1.jpg" src="../videos/banmedica-1.mp4"></video><figcaption>Diagnóstico y atención en la red</figcaption></figure>
+                <figure class="video rv"><video controls preload="none" playsinline poster="../videos/banmedica-2.jpg" src="../videos/banmedica-2.mp4"></video><figcaption>Cirugías y tecnología en sus clínicas</figcaption></figure>
+                <figure class="video rv"><video controls preload="none" playsinline poster="../videos/banmedica-3.jpg" src="../videos/banmedica-3.mp4"></video><figcaption>Mitos de invierno y la red de prestadores</figcaption></figure>
+            </div>
+            <p class="nota rv">Las coberturas de cada prestación están sujetas al plan de salud contratado por cada afiliado.</p>
         </div>
     </section>
 
