@@ -942,7 +942,7 @@
     if (pf && plist && matchMedia('(hover: hover)').matches) {
         var fx = 0, fy = 0, tx = 0, ty = 0, an = false;
         var sigue = function () { fx += (tx - fx) * .2; fy += (ty - fy) * .2; pf.style.left = fx + 'px'; pf.style.top = fy + 'px'; if (Math.abs(tx - fx) > .5 || Math.abs(ty - fy) > .5) requestAnimationFrame(sigue); else an = false; };
-        plist.addEventListener('pointermove', function (e) { tx = e.clientX + 150; ty = e.clientY; if (!an) { an = true; requestAnimationFrame(sigue); } });
+        plist.addEventListener('pointermove', function (e) { var lr = plist.getBoundingClientRect(); tx = Math.min(lr.right - 140, innerWidth - 150); ty = e.clientY; if (!an) { an = true; requestAnimationFrame(sigue); } });
         plist.querySelectorAll('li').forEach(function (li) { li.addEventListener('pointerenter', function () { pfi.src = li.getAttribute('data-img'); pf.classList.add('on'); }); });
         plist.addEventListener('pointerleave', function () { pf.classList.remove('on'); });
         addEventListener('scroll', function () { pf.classList.remove('on'); }, { passive: true });
