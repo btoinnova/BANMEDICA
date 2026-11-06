@@ -44,7 +44,7 @@
     .cab nav a:not(.btn) { text-decoration: none; }
     .cab nav a:not(.btn):hover { color: var(--rojo-t); }
     .cab .btn { min-height: 44px; padding: 0 20px; font-size: 15px; }
-    @media (max-width: 900px) { .cab nav a:not(.btn) { display: none; } }
+    @media (max-width: 900px) { header.cab nav a:not(.btn) { display: none; } }
     @media (max-width: 420px) { .marca span { display: none; } }
 
     /* portada */
@@ -386,6 +386,20 @@
     .comparativa[open] summary::after { transform: rotate(45deg); }
     .comparativa summary:hover { text-decoration: underline; text-underline-offset: 4px; }
     .comparativa[open] > :not(summary) { animation: aparece .45s var(--ease); }
+    .lado-foto { display: grid; gap: 14px; justify-items: end; }
+    .lado-foto .chips-rol { justify-content: center; width: 100%; max-width: 420px; }
+    .portada { padding: clamp(28px, 4vw, 52px) 0 clamp(32px, 4vw, 52px); }
+    .portada h1 { margin-top: 0; }
+    @media (max-width: 900px) { .lado-foto { justify-items: stretch; order: -1; } .lado-foto .chips-rol { max-width: none; justify-content: flex-start; } }
+    /* primera pantalla compacta: la cinta de clinicas debe verse sin bajar */
+    .portada h1 { font-size: clamp(2.1rem, 3.6vw, 3.3rem); line-height: 1.06; }
+    .portada .bajada { margin-top: 14px; font-size: 1.05rem; }
+    .portada .acciones { margin-top: 20px; }
+    .portada .micro { margin-top: 10px; }
+    .portada .respaldo { margin-top: 18px; padding-top: 14px; gap: 6px 24px; }
+    .foto { max-height: 52vh; }
+    .lado-foto { gap: 10px; }
+    @media (max-width: 900px) { header.cab nav a:not(.btn) { display: none; } }
     /* franja de clinicas */
     .cinta { overflow: hidden; border-block: 1px solid var(--linea); background: var(--blanco); }
     .cinta-pista { display: flex; width: max-content; animation: cinta 48s linear infinite; }
@@ -466,9 +480,6 @@
     <section class="portada">
         <div class="caja">
             <div>
-                <div class="chips-rol">
-                    <span class="rol"><i aria-hidden="true"></i>Asesora Comercial Banmédica</span>
-                </div>
                 <h1>¿Pagas mucho por tu plan de salud? <em>Revisemos juntos</em> tus opciones.</h1>
                 <p class="bajada">Cuéntame tu situación y te escribo por WhatsApp con alternativas de planes <strong>Banmédica</strong> para ti y tu familia. Sin costo y sin compromiso.</p>
                 <div class="acciones">
@@ -483,10 +494,13 @@
                     <span><svg aria-hidden="true"><use href="#i-heart"/></svg>Más beneficios para tu salud</span>
                 </div>
             </div>
+            <div class="lado-foto">
             <figure class="foto">
                 <img src="../img/carol2.jpg?v=3" alt="Carol Jara, Asesora Comercial Banmédica" width="640" height="704" fetchpriority="high" decoding="async">
                 <figcaption class="foto-pie" id="chat"><small>WhatsApp · Carol Jara</small><span class="escribiendo" aria-hidden="true"><i></i><i></i><i></i></span><p class="msg">Hola, soy Carol Jara. Cuéntame qué plan tienes hoy y te respondo por WhatsApp en unos momentos.</p></figcaption>
             </figure>
+                <div class="chips-rol"><span class="rol"><i aria-hidden="true"></i>Asesora Comercial Banmédica</span></div>
+            </div>
         </div>
     </section>
 
