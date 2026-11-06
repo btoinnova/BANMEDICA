@@ -483,6 +483,36 @@
     .foto .marco { position: relative; display: block; overflow: hidden; border-radius: 24px; background: #E9E3DD; }
     .foto .marco img { position: relative; display: block; width: 100%; height: clamp(320px, 60vh, 560px); object-fit: cover; object-position: 50% 8%; border-radius: 0; }
     @media (max-width: 900px) { .foto .marco img { height: 44vh; } }
+
+    /* ---- menu del telefono: colgante, con Cotizar al pie ---- */
+    .menu-btn { display: none; }
+    .menu-movil { display: none; }
+    @media (max-width: 900px) {
+        header.cab > .caja > nav { display: none; }
+        .menu-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border: 1px solid var(--tinta); border-radius: 999px; background: transparent; color: var(--tinta); font: 500 15px/1 var(--sans); cursor: pointer; }
+        .menu-btn span { display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .3s var(--ease), opacity .2s; }
+        .menu-btn span + span { margin-left: -28px; margin-top: 0; }
+        .menu-btn { position: relative; }
+        .menu-btn span:nth-child(1) { position: absolute; left: 16px; top: 15px; }
+        .menu-btn span:nth-child(2) { position: absolute; left: 16px; top: 21px; margin: 0; }
+        .menu-btn span:nth-child(3) { position: absolute; left: 16px; top: 27px; margin: 0; }
+        .menu-btn b { font-weight: 500; margin-left: 28px; }
+        .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+        .menu-movil { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--fondo); border-bottom: 1px solid var(--linea); box-shadow: 0 24px 40px -24px rgba(22, 24, 29, .45); padding: 6px var(--m) 20px; max-height: calc(100vh - 80px); overflow-y: auto; }
+        .menu-movil.abierto { display: block; animation: baja .25s var(--ease); }
+        @keyframes baja { from { opacity: 0; transform: translateY(-8px); } }
+        .menu-movil nav { display: grid; }
+        .menu-movil nav a { padding: 16px 0; border-bottom: 1px solid var(--linea); font: 400 20px/1.2 var(--serif); text-decoration: none; color: var(--tinta); }
+        .menu-movil nav a:active { color: var(--rojo-t); }
+        .menu-movil .menu-cotizar { display: flex; margin-top: 18px; width: 100%; }
+        .menu-abierto .wsp-fijo { visibility: hidden; }
+    }
+    @media (max-width: 900px) {
+        header.cab .menu-movil nav a { display: block; position: static; transform: none !important; padding: 16px 0; }
+        header.cab .menu-movil nav a::after { display: none; }
+    }
 </style>
 <script>document.documentElement.className = 'js';</script>
 </head>
@@ -510,6 +540,18 @@
             <a href="#preguntas">Preguntas</a>
             <a class="btn" href="#cotizar">Cotizar</a>
         </nav>
+        <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir el menú"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><b>Menú</b></button>
+    </div>
+    <div class="menu-movil" id="menu-movil" aria-label="Secciones de la página">
+        <nav>
+            <a href="#planes">Planes y clínicas</a>
+            <a href="#regionales">Planes regionales</a>
+            <a href="#acompano">Cómo te acompaño</a>
+            <a href="#beneficios-plan">Beneficios del plan</a>
+            <a href="#salud-extendida">Salud Extendida</a>
+            <a href="#preguntas">Preguntas frecuentes</a>
+        </nav>
+        <a class="btn menu-cotizar" href="#cotizar">Cotizar</a>
     </div>
 </header>
 
@@ -737,7 +779,7 @@
         <div class="popup-cabecera"><h3 id="politica-tit">Política de Privacidad y Protección de Datos</h3><button class="popup-cerrar" id="cerrar-politica" aria-label="Cerrar">&times;</button></div>
         <div class="popup-contenido">
             <h4>Quién es responsable de tus datos</h4>
-            <p><strong>Carol Jara</strong>, asesora comercial de Banmédica, a quien envías este formulario. Tus datos llegan directo a ella. Para ejercer tus derechos, escríbeme por WhatsApp.</p>
+            <p><strong>Carol Jara</strong>, agente de ventas de Isapre Banmédica, a quien envías este formulario. Tus datos le llegan a su correo corporativo de Banmédica. Para ejercer tus derechos, escríbele a cjara@banmedica.cl.</p>
             <h4>Para qué los usa</h4>
             <p>Para contactarte por WhatsApp, llamada o correo con la cotización que pediste, y acompañarte en la afiliación si lo solicitas. Solo si marcas la casilla opcional, te enviará información de otros planes y servicios que puedan interesarte; puedes darte de baja cuando quieras.</p>
             <h4>Base legal</h4>
@@ -745,11 +787,11 @@
             <h4>Qué datos se recopilan</h4>
             <p>Nombre, teléfono o WhatsApp, comuna, edad y plan de interés. Para cotizar en salud: tu previsión actual, el motivo de tu consulta, tu renta aproximada (en tramos) y tus cargas. Estos datos pueden ser sensibles, por eso se piden con una autorización específica. <strong>No te pedimos declaraciones de salud ni enfermedades.</strong> También se guardan datos técnicos (campaña de origen, navegador, idioma) y el registro de lo que aceptaste, con fecha, hora y versión.</p>
             <h4>Quién recibe tus datos</h4>
-            <p>Solo Carol Jara. La página no los comparte con nadie más, salvo obligación legal.</p>
+            <p>Carol Jara, en su correo corporativo de Banmédica. El Planeador, que mantiene esta página, guarda una copia de respaldo técnico solo para que tu consulta no se pierda si falla el envío: no la usa para nada más y la borra a los 30 días. No se comparten con nadie más, salvo obligación legal.</p>
             <h4>Cuánto tiempo se conservan</h4>
             <p>Mientras mantengamos contacto por tu consulta. Si me lo pides, los elimino. Si retiras una autorización, dejo de usar tus datos para esa finalidad.</p>
             <h4>Tus derechos</h4>
-            <p>Puedes pedir acceso, rectificación, supresión, oposición y bloqueo de tus datos, sin costo, escribiéndome por WhatsApp.</p>
+            <p>Puedes pedir acceso, rectificación, supresión, oposición y bloqueo de tus datos, sin costo, escribiendo a cjara@banmedica.cl.</p>
         </div>
         <div class="popup-pie">
             <label class="popup-aceptar"><input type="checkbox" id="acepto-politica"> He leído y acepto la Política de Privacidad</label>
@@ -856,7 +898,7 @@
     }
 
     /* menu: subraya la seccion que estas viendo */
-    var enlaces = [].slice.call(document.querySelectorAll('.cab nav a[href^="#"]:not(.btn)')), mapa = [];
+    var enlaces = [].slice.call(document.querySelectorAll('.cab > .caja > nav a[href^="#"]:not(.btn)')), mapa = [];
     enlaces.forEach(function (a) { var s = document.querySelector(a.getAttribute('href')); if (s) mapa.push([a, s]); });
     if ('IntersectionObserver' in window) {
         var ioS = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) mapa.forEach(function (m) { m[0].classList.toggle('activo', m[1] === x.target); }); }); }, { rootMargin: '-35% 0px -60% 0px' });
@@ -971,13 +1013,13 @@
     }
 
     /* menu: lupa suave */
-    var navA = document.querySelectorAll('.cab nav a:not(.btn)'), cabe = document.querySelector('.cab');
+    var navA = document.querySelectorAll('.cab > .caja > nav a:not(.btn)'), cabe = document.querySelector('.cab');
     if (!quieto && matchMedia('(hover: hover) and (pointer: fine)').matches) {
         cabe.addEventListener('pointermove', function (e) { navA.forEach(function (a) { var r = a.getBoundingClientRect(), d = Math.abs(e.clientX - (r.left + r.width / 2)); a.style.transform = 'scale(' + (1 + Math.max(0, 1 - d / 140) * .16).toFixed(3) + ')'; }); });
         cabe.addEventListener('pointerleave', function () { navA.forEach(function (a) { a.style.transform = ''; }); });
     }
     /* menu: fundido y el titulo viaja a su lugar, sin scroll largo */
-    document.querySelectorAll('.cab nav a[href^="#"]').forEach(function (a) {
+    document.querySelectorAll('.cab > .caja > nav a[href^="#"]').forEach(function (a) {
         a.addEventListener('click', function (e) {
             var sec = document.querySelector(a.getAttribute('href')); if (!sec) return;
             e.preventDefault();
@@ -999,6 +1041,23 @@
             }, 280);
         });
     });
+
+
+    /* menu del telefono */
+    var mbtn = document.getElementById('menu-btn'), mpanel = document.getElementById('menu-movil');
+    if (mbtn && mpanel) {
+        function abreMenu(si) {
+            mpanel.classList.toggle('abierto', si);
+            mbtn.setAttribute('aria-expanded', si ? 'true' : 'false');
+            mbtn.setAttribute('aria-label', si ? 'Cerrar el menú' : 'Abrir el menú');
+            document.body.classList.toggle('menu-abierto', si);
+        }
+        mbtn.addEventListener('click', function () { abreMenu(!mpanel.classList.contains('abierto')); });
+        mpanel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { abreMenu(false); }); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') abreMenu(false); });
+        document.addEventListener('click', function (e) { if (mpanel.classList.contains('abierto') && !e.target.closest('.cab')) abreMenu(false); });
+        window.addEventListener('resize', function () { if (innerWidth > 900) abreMenu(false); });
+    }
 
     var rv = document.querySelectorAll('.rv');
     if ('IntersectionObserver' in window) {
