@@ -479,10 +479,9 @@
         .foto-pie { margin: -72px -30px 0 56px; }
     }
     @media (min-width: 901px) { .foto img { height: auto; aspect-ratio: 890 / 979; max-height: 62vh; object-position: 50% 20%; } }
-    /* foto de Carol mas lejana: la foto entera en el mismo marco, costados rellenos con la propia foto desenfocada */
+    /* foto de Carol: marco redondeado, foto completa a todo el ancho (sin relleno) */
     .foto .marco { position: relative; display: block; overflow: hidden; border-radius: 24px; background: #E9E3DD; }
-    .foto .marco::before { content: ""; position: absolute; inset: -20px; background: url("../img/carol2.jpg?v=3") center / cover; filter: blur(18px) saturate(1.1); transform: scale(1.1); }
-    .foto .marco img { position: relative; display: block; width: 100%; height: clamp(320px, 60vh, 560px); object-fit: contain; object-position: 50% 50%; border-radius: 0; }
+    .foto .marco img { position: relative; display: block; width: 100%; height: clamp(320px, 60vh, 560px); object-fit: cover; object-position: 50% 8%; border-radius: 0; }
     @media (max-width: 900px) { .foto .marco img { height: 44vh; } }
 </style>
 <script>document.documentElement.className = 'js';</script>
