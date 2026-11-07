@@ -787,6 +787,7 @@
                 <label class="campo">¿Por qué buscas cotizar ahora?<select id="id-motivo" name="motivo-urgencia"><option value="">Selecciona una opción</option><option value="Quiero cambiarme">Quiero cambiarme de previsión</option><option value="Nuevo evento (trabajo, hijo, etc)">Nuevo evento (trabajo, hijo, etc.)</option><option value="Solo cotizando">Solo estoy cotizando</option></select></label>
                 <label class="campo ancho">Renta líquida mensual aproximada<select id="id-renta" name="renta-mensual"><option value="">Prefiero no decir</option><option value="Menos de 500.000">Menos de $500.000</option><option value="500.000 a 1.000.000">$500.000 a $1.000.000</option><option value="1.000.000 a 2.000.000">$1.000.000 a $2.000.000</option><option value="Más de 2.000.000">Más de $2.000.000</option></select></label>
                 <div class="consent"><input type="checkbox" id="id-consentimiento" name="consentimiento-datos" required><label for="id-consentimiento">He leído y acepto la <span class="enlace-politica" id="abrir-politica" role="button" tabindex="0">Política de Privacidad</span> y autorizo que la ejecutiva use mis datos, incluyendo mi previsión y mi renta, para contactarme y cotizar mi plan. Puedo revocarlo cuando quiera.</label></div>
+                <div class="consent"><input type="checkbox" id="id-consentimiento-salud" name="consentimiento-datos-salud" required><label for="id-consentimiento-salud">Autorizo específicamente el tratamiento de mis datos de salud/previsión para recibir esta cotización y gestionar mi afiliación a Banmédica. Puedo revocar esta autorización en cualquier momento sin que eso afecte mis derechos.</label></div>
                 <div class="consent"><input type="checkbox" id="id-consentimiento-comercial" name="consentimiento-comercial"><label for="id-consentimiento-comercial"><strong>Opcional:</strong> autorizo a la ejecutiva a enviarme información de otros planes y servicios que puedan interesarme. Puedo darme de baja cuando quiera.</label></div>
                 <button type="submit" class="btn" id="boton-enviar" disabled>Quiero mi cotización</button>
             </form>
@@ -851,8 +852,8 @@
 <script>
 (function () {
     var popup = document.getElementById('popup-politica'), abrir = document.getElementById('abrir-politica');
-    var acepto = document.getElementById('acepto-politica'), c1 = document.getElementById('id-consentimiento'), boton = document.getElementById('boton-enviar');
-    function estadoBoton() { boton.disabled = !c1.checked; }
+    var acepto = document.getElementById('acepto-politica'), c1 = document.getElementById('id-consentimiento'), boton = document.getElementById('boton-enviar'), c2 = document.getElementById('id-consentimiento-salud');
+    function estadoBoton() { boton.disabled = !(c1.checked && c2.checked); }
     function abre(e) { e.preventDefault(); popup.classList.add('activo'); acepto.checked = c1.checked; }
     function cierra() { popup.classList.remove('activo'); }
     abrir.addEventListener('click', abre);
@@ -861,6 +862,7 @@
     document.getElementById('solo-cerrar').addEventListener('click', cierra);
     document.getElementById('confirmar-politica').addEventListener('click', function () { c1.checked = acepto.checked; c1.dispatchEvent(new Event('change')); estadoBoton(); cierra(); });
     c1.addEventListener('change', estadoBoton);
+    c2.addEventListener('change', estadoBoton);
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') cierra(); });
 
     /* comparador: las clinicas elegidas marcan los planes que las incluyen */
